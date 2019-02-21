@@ -3,7 +3,7 @@ layout: home
 title: Home
 landing-title: 'Welcome to Pratt Institute Interdisciplinary Technologies Laboratory'
 description: null
-image: null
+image: assets/images/pic_makerspace01.jpg
 author: null
 show_tile: false
 ---

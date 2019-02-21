@@ -2,7 +2,7 @@
 layout: page
 title: Bio
 description: Biography of researchers
-image: assets/images/pic07.jpg
+image: assets/images/pic_makerspace03.jpg
 nav-menu: true
 ---
 
