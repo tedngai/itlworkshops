@@ -2,7 +2,7 @@
 layout: post
 title: GIS Workshop Site Modeling
 description: Rhino3D, QGIS
-image: assets/images/pic_makerspace04.jpg
+image: assets/images/pic_makerspace06.jpg
 ---
 <hr />
 ## Project Description
