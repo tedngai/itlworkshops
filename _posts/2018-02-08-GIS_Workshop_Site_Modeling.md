@@ -6,9 +6,11 @@ image: assets/images/pic_makerspace06.jpg
 ---
 <hr />
 ## Project Description
-This workshop is our first introduction to data visualization with Python. No programming background is required. In this first workshop you will learn to setup Python programming environment and all the related programming packages, and you will end with a fairly straight forward webscraping exercise to visualize the income level of the University of Virginia School of Architecture Faculty. By the end of this session, you will learn to do something like this.
+The objective of this primer is to familiarize rhino users with basic GIS workflow to develop high resolution 3d site model based on publicly available data. This workflow is great for anybody who is looking to create digital and physical site models for analysis or
+presentation purpose.
 
-<iframe width="800" height="600" frameborder="0" scrolling="no" src="//plot.ly/~tngai/6.embed"></iframe>
+![test image size](../../../assets/images/pic_GISSiteModel_splash.jpg){:height="75%" width="75%"}
+
 
 ***
 
