@@ -29,9 +29,11 @@ In this workshop, we will go through a common set of issue, which is how to cons
 
 #### TOOL BREAKDOWN
 Rhinoceros 5 | A NURBS modeler for the design industry
+
 → We will be using Rhino’s scripting function to facilitate mesh generation of topography and building mass.
 
 QGIS | Includes a large collection of open source GIS toolkits from an active community
+
 → A very powerful GIS toolkit we will use to process GIS data.
 
 ***
