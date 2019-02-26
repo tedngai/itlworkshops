@@ -9,34 +9,30 @@ image: assets/images/pic_makerspace06.jpg
 The objective of this primer is to familiarize rhino users with basic GIS workflow to develop high resolution 3d site model based on publicly available data. This workflow is great for anybody who is looking to create digital and physical site models for analysis or
 presentation purpose.
 
-![test image size](../../../assets/images/pic_GISSiteModel_splash.jpg){:height="75%" width="75%"}
+GIS (Geographic Information System) is a system that correlates data to spatial locations. GIS systems typically involves 3 major types of data: numerical, bitmap, and vector. Think of numerical data like the census or a spreadsheet, a set of numbers that is indexing the state of a system. Bitmap is like an image, usually a 2-dimensional array of bits. In your typical website picture, images are 8-bit color images, which is composed of 3, a red, a green, and a blue layer of 2-Dimensional arrays containing 8-bit or 2^8 = 256 variations of intensity information. A vector, unlike a mathematical vector, is used in this case as a computer file type which uses a numerical representation for shapes. 
+
+The power of GIS is it brings these 3 data types into a single environment allowing you to correlate data and geography in unprecedented ways. It is a great tool for architects and designers to use for research and analysis.
+
+In this workshop, we will go through a common set of issue, which is how to construct a basic site model that has detailed topography with actual building footprint and building height information. By the end of the workshop you would be able to construct something like this.
+
+
+![test image size](../../../assets/images/pic_GISSiteModel_splash.jpg){:height="100%" width="100%"}
 
 
 ***
 
 # Step 1
-### Python Installation
+### Software Installation
 
-First you want to to install [Anaconda](https://www.anaconda.com/distribution/), and the current version as of writing is Python 3.7.
+* [Rhino 3D](https://www.rhino3d.com/)
+* [QGIS](https://qgis.org/en/site/forusers/download.html)
 
-Once you have downloaded and installed Anaconda, open a [Terminal](https://www.macworld.co.uk/how-to/mac-software/how-use-terminal-on-mac-3608274/) if you're on OSX or [Anaconda Prompt](https://docs.anaconda.com/anaconda/user-guide/getting-started/) if you're on Windows.
+#### TOOL BREAKDOWN
+Rhinoceros 5 | A NURBS modeler for the design industry
+→ We will be using Rhino’s scripting function to facilitate mesh generation of topography and building mass.
 
-You want to create a Virtual Environment for this exercise. The purpose of virtual environment is to create an isolated environment to contain all the packages you will install. Since python is used from machine learning to webscraping to data visualization, sometimes you will encounter an application such as GIS will require python version 2.7 and tensorflow will only work with python version 3.5. So virtual environment is a very convenient way to manage your python installations.
-
-To create a virtual environment in [Anaconda](https://www.anaconda.com/distribution/), in the [Terminal](https://www.macworld.co.uk/how-to/mac-software/how-use-terminal-on-mac-3608274/) or [Anaconda Prompt](https://docs.anaconda.com/anaconda/user-guide/getting-started/), type:
-<pre><code>conda create -n dataviz python=3.6</code></pre>
-
-![test image size](../../../assets/images/pic_anaconda_env.jpg){:height="75%" width="75%"}
-
-When asked to proceed, click Y and press Enter. If you have trouble creating an environment in Anaconda, please refer to this [page](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-
-Now that you have Python running in your system, you want to activate the environment you just created and then start installing all the packages that we will use to complete this workshop. First activate the environment by typing this in the Terminal or Anaconda Prompt.
-
-<pre><code>conda activate dataviz</code></pre>
-
-If you're successful in activating the virtual environment, you should see the name of the enviroment appear in brackets.
-
-![test image size](../../../assets/images/pic_anaconda_activate_env.jpg){:height="75%" width="75%"}
+QGIS | Includes a large collection of open source GIS toolkits from an active community
+→ A very powerful GIS toolkit we will use to process GIS data.
 
 ***
 
