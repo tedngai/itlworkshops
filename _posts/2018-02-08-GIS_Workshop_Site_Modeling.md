@@ -28,11 +28,12 @@ In this workshop, we will go through a common set of issue, which is how to cons
 * [QGIS](https://qgis.org/en/site/forusers/download.html)
 
 #### TOOL BREAKDOWN
-Rhinoceros 3D | A 3D modeler for the design industry
+
+#### Rhinoceros 3D | A 3D modeler for the design industry
 
 → Rhino 3D has a powerful scripting interface that lets you access the core 3D engine with Python, VisualBasic, and C#. We will be relying on that function to convert GIS data to 3D data.
 
-QGIS | Includes a large collection of open source GIS toolkits from an active opensource community
+#### QGIS | Includes a large collection of open source GIS toolkits from an active opensource community
 
 → A very powerful GIS toolkit we will use to process GIS data. We will use it to convert raw data to feed 3D data to Rhino and to feed 2D graphic data to software like Adobe Photoshop and Illustrator.
 
