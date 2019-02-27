@@ -38,7 +38,6 @@ QGIS | Includes a large collection of open source GIS toolkits from an active op
 
 ***
 
-
 # Step 2
 ### Finding Data
 Most US governmental agencies make GIS data available to the public. The best way to find data is by asking first what kind of data you want. Data can be found at federal, state, or local agencies. By knowing what type of data you need, it will be easier to track down the agency that has the specific dataset you require. 
@@ -57,17 +56,8 @@ For your convenience, you can find all the data with the following links.
 * [NYC Building Footprint](https://data.cityofnewyork.us/api/geospatial/nqwf-w8eh?method=export&format=Shapefile)
 
 
+***
 
-Jupyte Notebook is an Interactive Computing Environment that allows your to get immediate feedback when coding, thereby making programming much more visual and intuitive.
-
-### Installing Other Python Packages
-Next we install [Plotly](https://plot.ly/python/getting-started/), [Numpy](https://pypi.org/project/numpy/), [Beautifulsoup](https://pypi.org/project/beautifulsoup4/), and [Pandas](https://pandas.pydata.org/pandas-docs/stable/install.html) by typing the following command in Terminal or Anaconda Prompt.
-
-<pre><code>pip install plotly numpy beautifulsoup4 pandas</code></pre>
-
-[Plotly](https://plot.ly/python/getting-started/) is a dynamic graphing web application, [Numpy](https://pypi.org/project/numpy/) is a processor that deal with multidimensional arrays or matrices, [Beautifulsoup](https://pypi.org/project/beautifulsoup4/) is a webscraping module, and [Pandas](https://pandas.pydata.org/pandas-docs/stable/install.html) is a library for data processing.
-
-<hr />
 
 # Step 3
 ### Launch Jupyter Notebook
