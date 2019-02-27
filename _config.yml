@@ -1,42 +1,45 @@
-# Title of your blog; shows in the header
-name: "INTERSICIPLINARY TECHNOLOGIES LABORATORY :: A SPACE WHERE INTELLECTUAL NETWORKS CONVERGE ::"
+# Site settings
+title_left    : "pratt"
+title_right   : "itl" # default: ""
+description   : "Minimalist Jekyll theme for technical writing blog."
+keywords      : "Jekyll, theme, free, download, SEO, blog, web, minimalist, thinkspace"
+url           : https://tedngai.github.io/itlworkshops/ # site url
+baseurl       : "" # apply repo name like "/myproject" if used under gh-pages branch, else (under master branch) just leave empty/blank
+cover         : "" # image uri like logo/cover image for site seo
 
-# Description of your content (will only be used on Google Search)
-description: "Fluid, responsive blog theme for Jekyll"
+google_analytics  : UA-XXXXX-XX
+twitter_username  : ""
+comments_enabled  : false # if enabled (set to true), please provide your disqus_username
+disqus_shortname  : ""
+postshare_enabled : false
 
-# Your name. Will show in your footer + sidebar
-author: "itl brainiacs"
+# Build settings
+permalink   : /:year/:title/
+markdown    : kramdown
+highlighter : rouge
 
-url: "http://tedngai.github.io"
-baseurl: "/itlworkshops"
+source      : ./
+destination : ./_site
 
-# A short presentation of yourself. Will show in the sidebar, under your name. Best usage would be between 30 to 50 words.
-author-bio: "I'm a dog. I develop things. This is my blog so why don't you close this damn side panel (cursed by most UX Designers but I don't care, I do whatever I want) and start reading my awesome stuff?"
+# Sass configuration
+sass:
+  sass_dir  : assets/scss
+  style     : compressed # expanded
 
-# Social Accounts (mine, as placeholders)
+# Author settings
+author:
+  name     : "John Doe"
 
-twitter: itl
-github: itl
-dribbble: itl
-instagram: itl
-
-# Google Analytics (you may want to changes these with yours or even delete :)
-
-ga_domain: itl.github.io
-ga_tracking_id: UA-47727049-1
-
-# Other (refer to http://jekyllrb.com/docs/home/ for further details on the below)
-
-markdown: kramdown
-permalink: pretty
 plugins:
+  - jekyll-sitemap
+  - bourbon
   - jekyll-paginate
 
-paginate: 10
-paginate_path: "/page/:num"
+# navbar pages
+navbar:
+  - slug : about
+    title: About
+  - slug : blog
+    title: Blog
 
-# SCSS
-
-sass:
-  sass_dir: _scss
-  style: :compressed
+exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md", "script"]
