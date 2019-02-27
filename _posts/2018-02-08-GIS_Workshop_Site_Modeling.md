@@ -84,9 +84,19 @@ To process the image and vector data, we will use an open source software call Q
 
 Once you have the files in the same folder, follow these steps:
 
-a. In QGIS, click Raster > Miscellaneous > Merge
+a. In QGIS, click **Raster > Miscellaneous > Merge**
 
 ![test image size](../../../assets/images/pic_GISSiteModel_qgisMerge.jpg)
+
+b. Under **Input Files**, pick the 4 .img files, and under **Output Files**, type in a name for the joined file, and choose **Geotiff** as the file format.
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgisFileFormat.jpg)
+
+c. Make sure **Load into canvas when finished** is checked and click OK. You should now have the joined NED data in QGIS. Be aware that this image is about 1.5Gb with about 20000px X 20000px.
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgisNED.jpg)
+
+4- Next we process the Building Footprint data. It should be obvious that every 2D map is a projection of the spherical earth. In the world of GIS, every agency that produce geospatial data seem to have a different preference for projection systems, mostly due to the various idiosyncrasies of the map projection systems themselves, some systems maintain true distances but distorts area, some provides true north but completely distorts shapes...etc. The consequence of this fact is that we often times find data with different projection systems and we need to adhere to one and convert all the data we use to that same system, this is particularly critical when we export the data out to other platforms like Rhino 3D. 
 
 
 
