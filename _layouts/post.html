@@ -1,16 +1,36 @@
----
-layout: default
----
+<!DOCTYPE html>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 
-<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <p class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %} &middot; <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
-    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-  </header>
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-    {% include post-share.html %}
-  </div>
-</article>
+{% include head.html %}
 
-{% include comments.html %}
+<body>
+
+    {% include header.html %}
+
+
+<!-- Main -->
+<div id="main" class="alt">
+
+<!-- One -->
+<section id="one">
+	<div class="inner">
+		<header class="major">
+			<h1>{{ page.title }}</h1>
+		</header>
+		{% if page.image %}<span class="image main"><img src="{{ site.baseurl }}/{{ page.image }}" alt="" /></span>{% endif %}
+		<p>{{ content }}</p>
+	</div>
+</section>
+
+</div>
+
+    {% include footer.html %}
+
+</body>
+
+</html>
