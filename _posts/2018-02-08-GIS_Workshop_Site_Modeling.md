@@ -40,7 +40,7 @@ In this workshop, we will go through a common set of issue, which is how to cons
 ***
 
 # Step 2
-### Finding Data
+### Finding Spatial Data
 Most US governmental agencies make GIS data available to the public. The best way to find data is by asking first what kind of data you want. Data can be found at federal, state, or local agencies. By knowing what type of data you need, it will be easier to track down the agency that has the specific dataset you require. 
 
 For our exercise, we will use 2 sets of data, one from USGS’s National Map to find extremely high resolution terrain elevation data called National Elevation Dataset (NED). The one we are looking for has a resolution of 1 image pixel equals to 1 meter x 1 meter in physical dimension. Another dataset we will download from New York City’s Open Data platform, it has all of NYC’s 5 boroughs' building footprint with building height information. 
@@ -61,17 +61,34 @@ For your convenience, you can find all the data with the following links.
 
 
 # Step 3
-### Launch Jupyter Notebook
-Next, we first create a folder where all the coding files will reside. In my case I'll create a folder on my desktop call dataviz. You can do that however you want. Once the folder has been created, go back to your Terminal or Anaconda Prompt, then type cd and then the path to your newly created folder. *If you don't like typing the full path of your folder by hand, follow this tip.
+### Processing GIS Data
+
+#### Data Process Objectives
+
+The raw dataset we downloaded need to be process before they can become useful. First, the elevation dataset is made up of 4 tiles that need to be stitch stitched together. Also, most GIS dataset come map projection system that might not be work for you. For example, the National Elevation Dataset is from USGS, a Federal Agency that uses 1 projection system whereas the building footprint, a dataset that comes from the city of New York might use another system. And if you as a designer would like to photoshop images that come from Google Earth or Google Maps, Google uses yet another projection system. So making sure all dataset has a consistent map projection system is one of the major part of our workflow. 
+
+#### QGIS Workflow
+
+To process the image and vector data, we will use an open source software call QGIS. GIS software, in general, process data differently from other image processing or vector processing tools. Because GIS files tend to be very big, it very common to be working with files that are over 2Gb. These type of files will easily crash Photoshop, Illustrator or Rhino. GIS software do not read and cache data into RAM, which allows you to work with huge files efficiently, so it is important for you to understand why it’s necessary to learn GIS if you want to work with real life datasets.
 
 
+1- Install QGIS and choose Express Desktop Install
+
+2- When installation completes, click on QGIS Desktop under OSGeo4W to open the app.
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgisicon.jpg | width=241)
 
 ***
 
 
 # Step 4
-### Webscraping & Dataprocessing
-Webscraping is a very powerful tool for data visualization especially if you're interested in culturo-socio-polico-economic issues. This tool allows you to tap into vast amount of data from sometimes not so data friendly sources. In this example, we will look at salay levels of people who work in the New York Public Education System. By deploying the Freedom of Information Act, many organizations have requested and released data such as salary levels of all public employees across the country. This is an invaluable tool to demand accountability for people holding public offices. However, these dataset do not always come in a format that is ready to be visuaized. In our case, we will use the data released by the [Empire Center](https://www.seethroughny.net/) looking at salary levels of employees working in the CUNY system.
+### Processing GIS Data
+
+#### Data Process Objectives
+
+The raw dataset we downloaded need to be process before they can become useful. First, the elevation dataset is made up of 4 tiles that need to be stitch stitched together. Also, most GIS dataset come map projection system that might not be work for you. For example, the National Elevation Dataset is from USGS, a Federal Agency that uses 1 projection system whereas the building footprint, a dataset that comes from the city of New York might use another system. And if you as a designer would like to photoshop images that come from Google Earth or Google Maps, Google uses yet another projection system. So making sure all dataset has a consistent map projection system is one of the major part of our workflow.  
+
+
 
 
 
