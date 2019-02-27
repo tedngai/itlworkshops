@@ -76,7 +76,7 @@ To process the image and vector data, we will use an open source software call Q
 
 2- When installation completes, click on QGIS Desktop under OSGeo4W to open the app.
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisicon.jpg | width=241)
+![test image size](../../../assets/images/pic_GISSiteModel_qgisicon.jpg)
 
 ***
 
