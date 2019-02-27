@@ -78,6 +78,18 @@ To process the image and vector data, we will use an open source software call Q
 
 ![test image size](../../../assets/images/pic_GISSiteModel_qgisicon.jpg)
 
+3- We will first process the NED data. Since we downloaded the NED data as 4 separate tiles, we will need to combine them into 1 file. As the downloaded NED files are zipped, each file should be unzipped into separate folders. Then, we will need to locate the actual data file and put them in the same folder. It may seem redundant at first but once you have tried unzipping the first file, you will find many seemingly random files and it can get messy rather quickly. In any case, the files we are looking for has the file extension of .img and they typically have the largest file size. Cut and paste all the .img files into a separate folder so it looks like this.
+
+![test image size](../../../assets/images/pic_GISSiteModel_NEDfiles.jpg)
+
+Once you have the files in the same folder, follow these steps:
+
+	a. In QGIS, click Raster > Miscellaneous > Merge
+
+	![test image size](../../../assets/images/pic_GISSiteModel_qgisMerge.jpg)
+
+
+
 ***
 
 
