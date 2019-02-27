@@ -13,7 +13,7 @@ GIS (Geographic Information System) is a system that correlates data to spatial 
 
 The power of GIS is it brings these 3 data types into a single environment allowing you to correlate data and geography in unprecedented ways. It is a great tool for architects and designers to use for research and analysis.
 
-In this workshop, we will go through a common set of issue, which is how to construct a basic site model that has detailed topography with actual building footprint and building height information. By the end of the workshop you would be able to construct something like this.
+In this workshop, we will go through a common set of issue, which is how to construct a basic site model that has detailed topography with actual building footprint and building height information. We will try to construct a virtual NYC using the digital topography data and building footprint and building height data from the city. By the end of the workshop you would be able to construct something like this.
 
 
 ![test image size](../../../assets/images/pic_GISSiteModel_splash.jpg){:height="100%" width="100%"}
@@ -28,24 +28,26 @@ In this workshop, we will go through a common set of issue, which is how to cons
 * [QGIS](https://qgis.org/en/site/forusers/download.html)
 
 #### TOOL BREAKDOWN
-Rhinoceros 5 | A NURBS modeler for the design industry
+Rhinoceros 3D | A 3D modeler for the design industry
 
-→ We will be using Rhino’s scripting function to facilitate mesh generation of topography and building mass.
+→ Rhino 3D has a powerful scripting interface that lets you access the core 3D engine with Python, VisualBasic, and C#. We will be relying on that function to convert GIS data to 3D data.
 
-QGIS | Includes a large collection of open source GIS toolkits from an active community
+QGIS | Includes a large collection of open source GIS toolkits from an active opensource community
 
-→ A very powerful GIS toolkit we will use to process GIS data.
+→ A very powerful GIS toolkit we will use to process GIS data. We will use it to convert raw data to feed 3D data to Rhino and to feed 2D graphic data to software like Adobe Photoshop and Illustrator.
 
 ***
 
 
 # Step 2
-### Jupyter Notebook Installation
-Next we need to install [Jupyter Notebook](https://jupyter.org/index.html) by typing the following command in Terminal or Anaconda Prompt, and type Y when asked to Proceed.
+### Finding Data
+Most US governmental agencies make GIS data available to the public. The best way to find data is by asking first what kind of data you want. Data can be found at federal, state, or local agencies. By knowing what type of data you need, it will be easier to track down the agency that has the specific dataset you require. 
 
-<pre><code>conda install jupyter</code></pre>
+For our exercise, we will use 2 sets of data, one from USGS’s National Map to find extremely high resolution terrain elevation data called National Elevation Dataset (NED). The one we are looking for has a resolution of 1 image pixel equals to 1 meter x 1 meter in physical dimension. Another dataset we will download from New York City’s Open Data platform, it has all of NYC’s 5 boroughs' building footprint with building height information. 
 
-![test image size](../../../assets/images/pic_jupyter.jpg){:height="75%" width="75%"}
+The NED file For your convenience, you can find all the data with the following links.
+
+
 
 Jupyte Notebook is an Interactive Computing Environment that allows your to get immediate feedback when coding, thereby making programming much more visual and intuitive.
 
