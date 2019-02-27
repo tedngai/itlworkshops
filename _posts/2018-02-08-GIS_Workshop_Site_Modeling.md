@@ -144,21 +144,17 @@ squared.
 
 
 
-
-
-
-
 ***
 
 
 # Step 4
-### Processing GIS Data
+### Site Selection
 
-#### Data Process Objectives
+Unless you are operating at urban design or landscape scale, you will most likely want to zoom in and define a more specific site boundary. This part of the workshop will focus on cropping the 2 sets of data to show only the area of interest and more importantly, reduce the file size by eliminating unnecessary elements. 
 
-The raw dataset we downloaded need to be process before they can become useful. First, the elevation dataset is made up of 4 tiles that need to be stitch stitched together. Also, most GIS dataset come map projection system that might not be work for you. For example, the National Elevation Dataset is from USGS, a Federal Agency that uses 1 projection system whereas the building footprint, a dataset that comes from the city of New York might use another system. And if you as a designer would like to photoshop images that come from Google Earth or Google Maps, Google uses yet another projection system. So making sure all dataset has a consistent map projection system is one of the major part of our workflow.  
+1- You QGIS layers should have both the building footprint and NED files loaded, and you Layers Panel should look like this. 
 
-
+![test image size](../../../assets/images/pic_GISSiteModel_qgisLayers.jpg)
 
 
 
