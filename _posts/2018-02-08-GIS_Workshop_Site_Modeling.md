@@ -84,9 +84,9 @@ To process the image and vector data, we will use an open source software call Q
 
 Once you have the files in the same folder, follow these steps:
 
-	a. In QGIS, click Raster > Miscellaneous > Merge
+a. In QGIS, click Raster > Miscellaneous > Merge
 
-	![test image size](../../../assets/images/pic_GISSiteModel_qgisMerge.jpg)
+![test image size](../../../assets/images/pic_GISSiteModel_qgisMerge.jpg)
 
 
 
