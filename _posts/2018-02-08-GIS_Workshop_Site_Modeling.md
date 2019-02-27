@@ -98,6 +98,54 @@ c. Make sure **Load into canvas when finished** is checked and click OK. You sho
 
 4- Next we process the Building Footprint data. It should be obvious that every 2D map is a projection of the spherical earth. In the world of GIS, every agency that produce geospatial data seem to have a different preference for projection systems, mostly due to the various idiosyncrasies of the map projection systems themselves, some systems maintain true distances but distorts area, some provides true north but completely distorts shapes...etc. The consequence of this fact is that we often times find data with different projection systems and we need to adhere to one and convert all the data we use to that same system, this is particularly critical when we export the data out to other platforms like Rhino 3D. 
 
+A. First drag and drop the file that has .shp extension to QGIS’ Layer panel, and you
+should now have the map of all building footprint in the 5 boroughs appear on the main
+screen on the right.
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgisBFPfile.jpg)
+
+B. You should note that the street grid is not “square” as the map seem “skewed”. That is
+due to the projection system used. On the lower right corner of the screen, you should
+see EPSG:4326, that is the projection system currently being used.
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgisEPSG.jpg)
+
+To convert the file’s projection system, right click on the name of the file in the
+Layer panel, and click Save As , a Save vector layer as… window will pop up. Choose
+ESRI Shapefile for Format , and give the new file a unique name, in this case,
+NYC_FP_26918.
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgisSaveVectorAs.jpg)
+
+Click the globe icon next to CRS. Under Filter type 26918.
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgis26918.jpg)
+
+Then click on NAD83/UTM zone 18N EPSG:26918 and click OK .
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgisNAD83.jpg)
+
+Click OK again to save the layer.
+
+C. Now with both layers referencing 2 different projection systems, we will need to get
+rid of the EPSG:4326 file. Right click on the layer name and click Remove .
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgislayerremove.jpg)
+
+D. QGIS will not automatically set the file to the new coordinate system, so we need to
+do it manually. Click on the globe icon on the lower right corner. As done previously,
+type 26918 in Filter and click on NAD83/UTM zone 18N EPSG:26918 , then click OK at the
+bottom.
+
+![test image size](../../../assets/images/pic_GISSiteModel_qgisSetNewCRS.jpg)
+
+The map should now be properly projected and the Manhattan street grid should be
+squared.
+
+
+
+
+
 
 
 ***
