@@ -5,19 +5,6 @@ description: Python, Google Place API, Mapbox API
 image: assets/images/pic_makerspace07.jpg
 ---
 
-<head>
-  <meta charset='utf-8' />
-  <title>Display a map</title>
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-  <style>
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-  </style>
-</head>
-
-
 ## Project Description
 The objective of this primer is to familiarize rhino users with basic GIS workflow to develop high resolution 3d site model based on publicly available data. This workflow is great for anybody who is looking to create digital and physical site models for analysis or
 presentation purpose.
@@ -29,16 +16,7 @@ The power of GIS is it brings these 3 data types into a single environment allow
 In this workshop, we will go through a common set of issue, which is how to construct a basic site model that has detailed topography with actual building footprint and building height information. We will try to construct a virtual NYC using the digital topography data and building footprint and building height data from the city. By the end of the workshop you would be able to construct something like this.
 
 ***
-<div id='map'></div>
-<script>
-mapboxgl.accessToken = 'pk.eyJ1IjoicHJhdHRpdGwiLCJhIjoiY2pyOWwweDNkMGlyNjN5cGR6d244NjlmYSJ9.GGAtxnvUtm6KYzl4kj_cpg';
-const map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/prattitl/cjrfp6hwo7h3a2sl3fqxthdp4',
-  center: [-73.984907, 40.727160],
-  zoom: 13.1
-});
-</script>
+
 
 # Step 1
 ### Software Installation
