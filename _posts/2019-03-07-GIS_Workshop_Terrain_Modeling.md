@@ -133,7 +133,15 @@ First thing we need to notice is the DEM file is a single channel 32-bit file. W
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_bitdepth.JPG){:height="50%" width="50%"}
 
-Bitdepth on the other hand, is the amount of information each pixel is capable of storing. With 1-bit 1^2 = 2, 2-bit 2^2 = 4, 4-bit 2^4 = 16, 8-bth 2^8 = 256. In the case of this DEM file, it contains 32-bit information, which is 2^32 = 4.29 billion levels of variations. 
+Bitdepth on the other hand, is the amount of information each pixel is capable of storing. With 1-bit 1^2 = 2, 2-bit 2^2 = 4, 4-bit 2^4 = 16, 8-bth 2^8 = 256. In the case of this DEM file, it contains 32-bit 2^32 = 4.29 billion levels of variations. This high bit depth format is used to better approximate the terrain levels. Imagine a 2 bit file is used to store information for a terrain that goes from 0 to 80 meters, each color would represent 20 meter difference. 
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_quantization.JPG){:height="50%" width="50%"}
+
+Our computer screens are mostly capable of displaying 8-bit colors, so that's 3 channels, each with 8-bit, so 256 x 256 x 256 = 16.7 million color variations. But since this file has only 1 channel and it's showing the image as black and white, so we are still restricted to showing only 256 levels. So imagine 4.29 billion of variations are crammed into a space that would fit only 256 possibilities, the majority of the information would be loss! 
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_rgbbitdepth.JPG){:height="50%" width="50%"}
+
+
 
 
 ***
