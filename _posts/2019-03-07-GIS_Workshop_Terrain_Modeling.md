@@ -78,13 +78,13 @@ You should have QGIS running and have a blank screen. Click **Raster > Miscellan
 
 Under **Input Layers**, click on the **....** button and then **Add File(s)...**, select the 2 **.IMG** files you downloaded earlier, then click **OK**.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG){:height="75%" width="75%"}
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG){:height="50%" width="50%"}
 
 Under **Merged**, click on the **....** button and then **Save to File...**, give your file a name and choose **TIF files (\*.tif)** as file type, then click **SAVE**. 
 
 Make sure **Open output file after running algorithm** is **checked**, then click **RUN**. If everything is working properly, you should see something like this on your screen.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_demmerged.JPG){:height="50%" width="50%"}
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_demmerged.JPG){:height="100%" width="100%"}
 
 
 ***
@@ -98,6 +98,8 @@ All maps are 2-dimensional projections from earth's spherical shape, and there a
 In the world of GIS, projection systems are represented by a **EPSG** number, and choose the right projection system is critical to our following tasks. By default, DEMs use **EPSG:4269**, which is a Mercator projection that causes heavy distortions. In our case, Manhattan's street grid, under this projection system, is no longer rectangular but becomes a parallelogram.
 
 ![qgis](../../../assets/images/GIS/compare-mercator-utm-wgs-projections.jpg)
+
+The consequence of this is, if we want to download 3D content from Google Earth and place them onto this terrain, they will not match. The solution is to re-project this raster file to one that's used by Google.
 
 
 
