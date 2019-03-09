@@ -73,7 +73,6 @@ Almost all dataset we downloaded need to be process before they can become usefu
 You should have QGIS running and have a blank screen. Click **Raster > Miscellaneous > Merge** and a window should pop up with a number of parameters.
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_merge.JPG){:height="50%" width="50%"}
-
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_mergeparam.JPG){:height="50%" width="50%"}
 
 Under **Input Layers**, click on the **....** button and then **Add File(s)...**, select the 2 **.IMG** files you downloaded earlier, then click **OK**.
@@ -110,7 +109,6 @@ On the left column of QGIS, Under Layer, double click on the layer named **Merge
 Now click on **Raster > Projections > Warp (Reproject...)**, a window should pop up.
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_warp.JPG){:height="50%" width="50%"}
-
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_warpparam.JPG){:height="50%" width="50%"}
 
 Set the **Input Layer** to the layer we were just working with, **Source CRS** to **EPSG:4269**, **Target CRS** to **EPSG:900913 - Google Maps Global Mercator**. You can do that by clicking on the little globe icon to the right, which brings up another window. Under **Filter**, just type in google and it should leave you with only 1 choice under **Coordinate Reference System**, click on it and click **OK** to exit. 
@@ -122,7 +120,6 @@ Back in the Warp parameter window, click on the **....** button under **Reprojec
 Once the new layer is ready, you might notice that it looks exactly the same as your previous layer. This is due to a feature in QGIS that automatically matches all the **CRS**. Since the ESPG:4269 is the first layer we opened, QGIS automatically set the project to use that as default, forcing all subsequent non-matching CRS to use ESPG:4269. All we need to do now is to change the **Project CRS** to the one used by the new layer. To do that, we **Right-Click** on the new layer, select **Set CRS > Set Project CRS from Layer**. Your DEM should look something like this.
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_setcrsfromlayer.JPG){:height="50%" width="50%"}
-
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_reprojected.JPG){:height="100%" width="100%"}
 
 ## Analysis
@@ -150,6 +147,7 @@ We have just reproduced the black & white image with false color mapping. Notice
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology01.JPG){:height="50%" width="50%"}
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology04.JPG){:height="100%" width="100%"}
+
 
 
 
