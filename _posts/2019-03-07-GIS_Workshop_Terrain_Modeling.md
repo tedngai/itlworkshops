@@ -101,6 +101,10 @@ In the world of GIS, projection systems are represented by a **EPSG** number, an
 
 The consequence of this is, if we want to download 3D content from Google Earth and place them onto this terrain, they will not match. The solution is to re-project this raster file to one that's used by Google.
 
+On the left column of QGIS, Under Layer, double click on the layer named **Merged**, you will see the **Layer Properties** window pop up, and under the **Information** tap, you should see this.
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo.JPG){:height="100%" width="100%"}
+
 
 
 
