@@ -21,7 +21,16 @@ The DEM datasets have a number of resolutions you can find: 1-meter, 1/9 arc-sec
 
 ### The National Map
 
+To begin this workshop, we will first go download our desired DEM data. Go to [The National Map](https://viewer.nationalmap.gov/basic/) and check **Elevation Product (3DEP)**, and check the desired resolution for your area of interest. If you choose 1-meter or 1/9 arc-second data, only **IMG** file format is available. If you choose 1/3 arc-second or larger data, you have a choice of **ArcGrid**, **GridFloat**, or **IMG**, we will stick to **IMG** for this session.
+
+You can click on **Show Availability** to see if the data at your specific resolution is available for your area.
+
+
 ![test image size](../../../assets/images/GIS/pic_GIS_nationalmap.JPG){:height="100%" width="100%"}
+
+
+On the map, zoom to your area and make sure **Current Extent** is hightlighted, then **PRESS Find Products**, the web app will launch a search using the current extent as search parameter. 
+
 
 
 ***
