@@ -103,7 +103,7 @@ The consequence of this is, if we want to download 3D content from Google Earth 
 
 On the left column of QGIS, Under Layer, double click on the layer named **Merged**, you will see the **Layer Properties** window pop up, and under the **Information** tap, you should see this.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo.JPG){:height="100%" width="100%"}
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo.JPG){:height="75%" width="75%"}
 
 **CRS** - is the current projection system used, it should say EPSG:4269 - NAD83 - Geographic.
 
