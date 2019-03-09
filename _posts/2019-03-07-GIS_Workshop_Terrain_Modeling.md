@@ -26,12 +26,12 @@ To begin this workshop, we will first go download our desired DEM data. Go to [T
 You can click on **Show Availability** to see if the data at your specific resolution is available for your area.
 
 
-![test image size](../../../assets/images/GIS/pic_GIS_nationalmap.JPG){:height="100%" width="100%"}
+![national map](../../../assets/images/GIS/pic_GIS_nationalmap.JPG){:height="100%" width="100%"}
 
 
 On the map, zoom to your area and make sure **Current Extent** is hightlighted, then **PRESS Find Products**, the web app will launch a search using the current extent as search parameter. 
 
-
+![national map](../../../assets/images/GIS/pic_GIS_nationalmap_footprint.JPG){:height="100%" width="100%"}
 
 ***
 
