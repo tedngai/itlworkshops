@@ -64,19 +64,19 @@ When you are done installing the software, **launch QGIS**. On the upper left co
 # Step 3
 ### Processing GIS Data
 
-#### Data Process Objectives
-
-The raw dataset we downloaded need to be process before they can become useful. First, the elevation dataset is made up of 4 tiles that need to be stitch stitched together. Also, most GIS dataset come map projection system that might not be work for you. For example, the National Elevation Dataset is from USGS, a Federal Agency that uses 1 projection system whereas the building footprint, a dataset that comes from the city of New York might use another system. And if you as a designer would like to photoshop images that come from Google Earth or Google Maps, Google uses yet another projection system. So making sure all dataset has a consistent map projection system is one of the major part of our workflow. 
-
-#### QGIS Workflow
-
-To process the image and vector data, we will use an open source software call QGIS. GIS software, in general, process data differently from other image processing or vector processing tools. Because GIS files tend to be very big, it very common to be working with files that are over 2Gb. These type of files will easily crash Photoshop, Illustrator or Rhino. GIS software do not read and cache data into RAM, which allows you to work with huge files efficiently, so it is important for you to understand why it’s necessary to learn GIS if you want to work with real life datasets.
+Almost all dataset we downloaded need to be process before they can become useful, but in this case, the processing only involve stitching the 2 tiles together, reprojecting the image to Google's projection system, and then cropping to the specific area we want. 
 
 
+
+### Stitching
+
+You should have QGIS running and have a blank screen. Click **Raster > Miscellaneous > Merge**
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_merge.JPG)
 
 3- We will first process the NED data. Since we downloaded the NED data as 4 separate tiles, we will need to combine them into 1 file. As the downloaded NED files are zipped, each file should be unzipped into separate folders. Then, we will need to locate the actual data file and put them in the same folder. It may seem redundant at first but once you have tried unzipping the first file, you will find many seemingly random files and it can get messy rather quickly. In any case, the files we are looking for has the file extension of .img and they typically have the largest file size. Cut and paste all the .img files into a separate folder so it looks like this.
 
-![test image size](../../../assets/images/GIS/pic_GISSiteModel_NEDfiles.jpg)
+![qgis](../../../assets/images/GIS/pic_GISSiteModel_NEDfiles.jpg)
 
 Once you have the files in the same folder, follow these steps:
 
