@@ -70,23 +70,19 @@ Almost all dataset we downloaded need to be process before they can become usefu
 
 ### Stitching
 
-You should have QGIS running and have a blank screen. Click **Raster > Miscellaneous > Merge**
+You should have QGIS running and have a blank screen. Click **Raster > Miscellaneous > Merge** and a window should pop up with a number of parameters.
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_merge.JPG)
 
-3- We will first process the NED data. Since we downloaded the NED data as 4 separate tiles, we will need to combine them into 1 file. As the downloaded NED files are zipped, each file should be unzipped into separate folders. Then, we will need to locate the actual data file and put them in the same folder. It may seem redundant at first but once you have tried unzipping the first file, you will find many seemingly random files and it can get messy rather quickly. In any case, the files we are looking for has the file extension of .img and they typically have the largest file size. Cut and paste all the .img files into a separate folder so it looks like this.
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_mergeparam.JPG)
 
-![qgis](../../../assets/images/GIS/pic_GISSiteModel_NEDfiles.jpg)
+Under **Input Layers**, click on the **....** button and then **Add File(s)...**, select the 2 **.IMG** files you downloaded earlier, then click **OK**.
 
-Once you have the files in the same folder, follow these steps:
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG)
 
-a. In QGIS, click **Raster > Miscellaneous > Merge**
+Under **Merged**, click on the **....** button and then **Save to File...**, give your file a name and choose **ASC files (\*.asc)** as file type, then click **SAVE**. 
 
-![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisMerge.jpg)
 
-b. Under **Input Files**, pick the 4 .img files, and under **Output Files**, type in a name for the joined file, and choose **Geotiff** as the file format.
-
-![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisFileFormat.jpg)
 
 c. Make sure **Load into canvas when finished** is checked and click OK. You should now have the joined NED data in QGIS. Be aware that this image is about 1.5Gb with about 20000px X 20000px.
 
