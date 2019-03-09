@@ -131,7 +131,7 @@ Since the majority of the DEM file is very dark, we need to change the visualiza
 ### Channel and Bitdepth
 First thing we need to notice is the DEM file is a single channel 32-bit file. We can talk about this in 2 parts - channels and bit depth. Single channel image usually can be seen as black and white images, or one can also use it as false color images. 3 channel images are typically RGB, representing 3 different spectrum of light information. Although for other applications such as ecological studies, you can find NRG (infrarred, red, green) used to investigate plant health. You can also have 4 channel images such as RGBA, with A being the alpha channel indicating transparency. This is a relatively simple concept to grasp. 
 
-Bitdepth on the other hand, is the amount of information each pixel is capable of storing, and in this case, it's 32-bits. 
+Bitdepth on the other hand, is the amount of information each pixel is capable of storing, and in this case, it's 32-bits, which is 2 to the power of 32, 2^32 = 4.29 billion 
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_bitdepth.JPG){:height="100%" width="100%"}
 
