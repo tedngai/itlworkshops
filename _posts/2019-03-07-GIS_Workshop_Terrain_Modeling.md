@@ -105,6 +105,20 @@ On the left column of QGIS, Under Layer, double click on the layer named **Merge
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo.JPG){:height="100%" width="100%"}
 
+**CRS** - is the current projection system used, it should say EPSG:4269 - NAD83 - Geographic.
+
+**Unit** - is the current measurment unit used, it says degrees by default, we can change it to meters or feet later.
+
+**Width** - is the pixel width. It should say 16212. Since we have 1-meter file, this should cover around 16 kilometer. 
+
+**Height** - is the pixel height. It should say 8112.
+
+**Data type** - 32-bit floating point
+
+**Band 1** - Statistics_maximum = 84.67 and Statistics_minimum = 0, those are indicating the maximum and minimum elevation in meters. 
+
+The other parameters are not as relevant at this point. 
+
 
 
 
