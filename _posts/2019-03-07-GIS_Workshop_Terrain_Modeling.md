@@ -105,19 +105,30 @@ On the left column of QGIS, Under Layer, double click on the layer named **Merge
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo.JPG){:height="75%" width="75%"}
 
-**CRS** - is the current projection system used, it should say EPSG:4269 - NAD83 - Geographic.
+**CRS** - is the current projection system used, it should say EPSG:4269 - NAD83 - Geographic. In case you are working with other types of files and it might be using some other projection type, this is where you can find the information.
 
-**Unit** - is the current measurment unit used, it says degrees by default, we can change it to meters or feet later.
+Now click on **Raster > Projections > Warp (Reproject...)**, a window should pop up.
 
-**Width** - is the pixel width. It should say 16212. Since we have 1-meter file, this should cover around 16 kilometer. 
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_warp.JPG){:height="50%" width="50%"}
 
-**Height** - is the pixel height. It should say 8112.
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_warpparam.JPG){:height="50%" width="50%"}
 
-**Data type** - 32-bit floating point
+Set the **Input Layer** to the layer we were just working with, **Source CRS** to **EPSG:4269**, **Target CRS** to **EPSG:900913 - Google Maps Global Mercator**. You can do that by clicking on the little globe icon to the right, which brings up another window. Under **Filter**, just type in google and it should leave you with only 1 choice under **Coordinate Reference System**, click on it and click **OK** to exit. 
 
-**Band 1** - Statistics_maximum = 84.67 and Statistics_minimum = 0, those are indicating the maximum and minimum elevation in meters. 
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_googlecrs.JPG){:height="50%" width="50%"}
 
-The other parameters are not as relevant at this point. 
+Back in the Warp parameter window, click on the **....** button under **Reprojected**, give it a file name and choose **TIF files (\*.tif)** as file type. Click **Save** and then **Run**, you should have a new layer in your QGIS' main window shortly. 
+
+Once the new layer is ready, you might notice that it looks exactly the same as your previous layer. This is due to a feature in QGIS that automatically matches all the **CRS**. Since the ESPG:4269 is the first layer we opened, QGIS automatically set the project to use that as default, forcing all subsequent non-matching CRS to use ESPG:4269. All we need to do now is to change the **Project CRS** to the one used by the new layer. To do that, we **Right-Click** on the new layer, select **Set CRS > Set Project CRS from Layer**. Your DEM should look something like this.
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_setcrsfromlayer.JPG){:height="50%" width="50%"}
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_reprojected.JPG){:height="100%" width="100%"}
+
+## Analysis
+Since the majority of the DEM file is very dark, we need to change the visualization so we see the landmass features easier. 
+
+
 
 
 
