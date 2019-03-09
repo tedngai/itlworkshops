@@ -137,9 +137,15 @@ Bitdepth on the other hand, is the amount of information each pixel is capable o
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_quantization.JPG){:height="50%" width="50%"}
 
-Our computer screens are mostly capable of displaying 8-bit colors, so that's 3 channels, each with 8-bit, so 256 x 256 x 256 = 16.7 million color variations. But since this file has only 1 channel and it's showing the image as black and white, so we are still restricted to showing only 256 levels. So imagine 4.29 billion of variations are crammed into a space that would fit only 256 possibilities, the majority of the information would be loss! 
+Our computer screens are mostly capable of displaying 8-bit colors, that's 3 channels each with 8-bit, so 256 x 256 x 256 = 16.7 million color variations. But since our DEM file has only 1 channel and we are showing the image as black and white, we are restricted to only 256 levels. So what is happening is akin to jamming 32-bit space into 8-bit space, a huge amount of information would be lost.  
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_rgbbitdepth.JPG){:height="50%" width="50%"}
+
+What we can do to mitigate this situation is to remap color information to match the landmass variation. So **Double-Click** on the **Layer** to show the **Layer Properties**. Go to **Symbology**, change **Render Type** to **Singleband pseudocolor**, change the **Mode** to **Equal Interval**, click **Apply** and you should see something like this.
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology02.JPG)
+
+
 
 
 
