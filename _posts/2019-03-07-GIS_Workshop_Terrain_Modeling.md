@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GIS Workshop Terrain Modeling
+title: GIS Workshop Terrain Analysis and Modeling
 description: Rhino3D, QGIS
 image: 
 ---
@@ -9,7 +9,7 @@ image:
 
 ## Project Description
 
-The objective of this workshop is to go through all the steps invovled to create a 3D terrain model in Rhino using [3D Elevation Program](https://www.usgs.gov/core-science-systems/ngp/3dep/about-3dep-products-services) (3DEP) data from [United States Geological Survey](https://www.usgs.gov/) (USGS), downloadable from [The National Map](https://viewer.nationalmap.gov/basic/). 
+The objective of this workshop is to go through all the steps invovled to create a 3D terrain model in Rhino using [3D Elevation Program](https://www.usgs.gov/core-science-systems/ngp/3dep/about-3dep-products-services) (3DEP) data from [United States Geological Survey](https://www.usgs.gov/) (USGS), downloadable from [The National Map](https://viewer.nationalmap.gov/basic/). This workshop assumes you already know Rhino3D. 
 
 ### 3DEP
 
@@ -19,7 +19,9 @@ The objective of this workshop is to go through all the steps invovled to create
 
 The DEM datasets have a number of resolutions you can find: 1-meter, 1/9 arc-second, 5-meter, 1/3 arc-second, 1 arc-second, and 2 arc-second. These numbers indicate now big each pixel represents in real space. The datasets come as rasters or images, so 1-meter dataset would mean each pixel equates to 1x1 meter. 1/9 arc-second is roughly 3-meters, this dataset is only available for around 25% of the conterminous U.S.. 1/3 arc-second is approximately 10-meters and this dataset has full coverage of the 48 conterminous states, Hawaii, and U.S. territories.
 
-### The National Map
+# Step 1
+
+### Download Data from The National Map
 
 To begin this workshop, we will first go download our desired DEM data. Go to [The National Map](https://viewer.nationalmap.gov/basic/) and check **Elevation Product (3DEP)**, and check the desired resolution for your area of interest. If you choose 1-meter or 1/9 arc-second data, only **IMG** file format is available. If you choose 1/3 arc-second or larger data, you have a choice of **ArcGrid**, **GridFloat**, or **IMG**, we will stick to **IMG** for this session.
 
@@ -29,16 +31,27 @@ You can click on **Show Availability** to see if the data at your specific resol
 ![national map](../../../assets/images/GIS/pic_GIS_nationalmap.JPG){:height="100%" width="100%"}
 
 
-On the map, zoom to your area and make sure **Current Extent** is hightlighted, then **PRESS Find Products**, the web app will launch a search using the current extent as search parameter. 
+On the map, zoom to your area and make sure **Current Extent** is hightlighted, then **PRESS Find Products**, the web app will launch a search using the current extent as search parameter, and you will be presented with a list of search results. 
+
+On the results list, you can click on **Footprint** to see where the DEM tile is. In our case, Low Manhattan is splitted into 2 tiles, so we will need to download both tiles. Simply click on **Download** for each tile and save the files to a folder of your choice.  
 
 ![national map](../../../assets/images/GIS/pic_GIS_nationalmap_footprint.JPG){:height="100%" width="100%"}
+
+For each download there should be a **.ZIP** file, and you will find many files when unzipped so unzip them into a separate folder. In the long list of files, you should see one with an extension **.IMG**. If you are on Windows and do not see file extensions, please follow this link - [Show file extension.](https://www.howtohaven.com/system/show-file-extensions-in-windows-explorer.shtml)
+
+![national map](../../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG){:height="100%" width="100%"}
+
+Now move both **.IMG** files in each subfolder to the same folder, and you should be ready to move on to the next step.
+
+![national map](../../../assets/images/GIS/pic_GIS_nationalmap_IMGfile.JPG){:height="100%" width="100%"}
+
+
 
 ***
 
 # Step 1
 ### Software Installation
 
-* [Rhino 3D](https://www.rhino3d.com/)
 * [QGIS](https://qgis.org/en/site/forusers/download.html)
 
 #### TOOL BREAKDOWN
