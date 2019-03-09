@@ -97,8 +97,9 @@ All maps are 2-dimensional projections from earth's spherical shape, and there a
 
 ![qgis](../../../assets/images/GIS/earhprojections.JPG)
 
+In the world of GIS, projection systems are represented by a **EPSG** number, and choose the right projection system is critical to our following tasks. By default, DEMs use **EPSG:4269**, which is a Mercator projection that causes heavy distortions. In our case, 
 
-
+![qgis](../../../assets/images/GIS/compare-mercator-utm-wgs-projections.JPG)
 
 ***
 
@@ -107,13 +108,6 @@ All maps are 2-dimensional projections from earth's spherical shape, and there a
 Finally we're ready to visualize the data. As you can see, the table only has 4 columns of data and 2 of which are identical. So essentially, we only have **names** and **salary** to work with. So essentially we can do a [Box Plot](https://plot.ly/python/box-plots/) that allow us to look at a 1-Dimensional data in an interesting way.
 
 For this next part we'll need to bring in some other python packages. Plotly is a dyamic graphing package that lets you interact with data live. We will look at the very basics of how to use it to graph the data we have. So first import the necessary packages by typing in the following.
-
-***
-
-
-# Step 6
-###Data Visualizaiton Challenge
-Let's try to apply everything we've learn so far and apply it to a more challenging dataset. For this part, you will have to learn a few more Pandas commands on data processing. And for this task, we will use the **CUNY_salaryscrape.txt** file that was downloaded earlier. Or here's the link again.
 
 
 
