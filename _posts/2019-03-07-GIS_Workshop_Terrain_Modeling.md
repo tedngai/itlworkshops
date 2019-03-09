@@ -82,7 +82,9 @@ Under **Input Layers**, click on the **....** button and then **Add File(s)...**
 
 Under **Merged**, click on the **....** button and then **Save to File...**, give your file a name and choose **TIF files (\*.tif)** as file type, then click **SAVE**. 
 
-Make sure **Open output file after running algorithm** is **checked**, then click **RUN**.
+Make sure **Open output file after running algorithm** is **checked**, then click **RUN**. If everything is working properly, you should see something like this on your screen.
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_demmerged.JPG){:height="50%" width="50%"}
 
 
 c. Make sure **Load into canvas when finished** is checked and click OK. You should now have the joined NED data in QGIS. Be aware that this image is about 1.5Gb with about 20000px X 20000px.
