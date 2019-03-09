@@ -97,7 +97,7 @@ All maps are 2-dimensional projections from earth's spherical shape, and there a
 
 ![qgis](../../../assets/images/GIS/earhprojections.JPG)
 
-In the world of GIS, projection systems are represented by a **EPSG** number, and choose the right projection system is critical to our following tasks. By default, DEMs use **EPSG:4269**, which is a Mercator projection that causes heavy distortions. In our case, 
+In the world of GIS, projection systems are represented by a **EPSG** number, and choose the right projection system is critical to our following tasks. By default, DEMs use **EPSG:4269**, which is a Mercator projection that causes heavy distortions. In our case, Manhattan's street grid, under this projection system, is no longer rectangular but becomes a parallelogram.
 
 ![qgis](../../../assets/images/GIS/compare-mercator-utm-wgs-projections.JPG)
 
