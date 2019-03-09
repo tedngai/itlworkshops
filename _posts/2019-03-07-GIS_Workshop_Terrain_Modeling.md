@@ -52,15 +52,8 @@ Now move both **.IMG** files in each subfolder to the same folder, and you shoul
 
 * [QGIS](https://qgis.org/en/site/forusers/download.html)
 
-#### TOOL BREAKDOWN
+QGIS is an opensource GIS platform that has a very active community of developers constantly making updates and changes. It is a very powerful tool that rivals any commercial software. Download and install the current version, as of writing, the stable release is 3.4. As a suggestion, only install stable releases because you may encounter compatibility issues sometimes. We will not go through specific installation instructions, there should be plenty of online materials if you need assistance.
 
-#### Rhinoceros 3D | A 3D modeler for the design industry
-
-→ Rhino 3D has a powerful scripting interface that lets you access the core 3D engine with Python, VisualBasic, and C#. We will be relying on that function to convert GIS data to 3D data.
-
-#### QGIS | Includes a large collection of open source GIS toolkits from an active opensource community
-
-→ A very powerful GIS toolkit we will use to process GIS data. We will use it to convert raw data to feed 3D data to Rhino and to feed 2D graphic data to software like Adobe Photoshop and Illustrator.
 
 ***
 
@@ -77,11 +70,6 @@ The raw dataset we downloaded need to be process before they can become useful. 
 To process the image and vector data, we will use an open source software call QGIS. GIS software, in general, process data differently from other image processing or vector processing tools. Because GIS files tend to be very big, it very common to be working with files that are over 2Gb. These type of files will easily crash Photoshop, Illustrator or Rhino. GIS software do not read and cache data into RAM, which allows you to work with huge files efficiently, so it is important for you to understand why it’s necessary to learn GIS if you want to work with real life datasets.
 
 
-1- Install QGIS and choose Express Desktop Install
-
-2- When installation completes, click on QGIS Desktop under OSGeo4W to open the app.
-
-![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisicon.jpg)
 
 3- We will first process the NED data. Since we downloaded the NED data as 4 separate tiles, we will need to combine them into 1 file. As the downloaded NED files are zipped, each file should be unzipped into separate folders. Then, we will need to locate the actual data file and put them in the same folder. It may seem redundant at first but once you have tried unzipping the first file, you will find many seemingly random files and it can get messy rather quickly. In any case, the files we are looking for has the file extension of .img and they typically have the largest file size. Cut and paste all the .img files into a separate folder so it looks like this.
 
