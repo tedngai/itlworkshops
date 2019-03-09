@@ -143,8 +143,13 @@ Our computer screens are mostly capable of displaying 8-bit colors, that's 3 cha
 
 What we can do to mitigate this situation is to remap color information to match the landmass variation. So **Double-Click** on the **Layer** to show the **Layer Properties**. Go to **Symbology**, change **Render Type** to **Singleband pseudocolor**, change the **Mode** to **Equal Interval**, click **Apply** and you should see something like this.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology02.JPG)
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology02.JPG){:height="50%" width="50%"}
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology03.JPG){:height="100%" width="100%"}
 
+We have just reproduced the black & white image with false color mapping. Notice the problem we have is due to the **Equal Interval** mapping because majority of NYC is below 20 meter. Now double click on the number under **Value**, change **20.0021 to 5**, **41.9841 to 10**, **62.9763 to 20**, click **OK** and you should see something like this.
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology01.JPG){:height="50%" width="50%"}
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology04.JPG){:height="100%" width="100%"}
 
 
 
