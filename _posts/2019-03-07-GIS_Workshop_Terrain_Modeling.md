@@ -54,6 +54,9 @@ Now move both **.IMG** files in each subfolder to the same folder, and you shoul
 
 QGIS is an opensource GIS platform that has a very active community of developers constantly making updates and changes. It is a very powerful tool that rivals any commercial software. Download and install the current version, as of writing, the stable release is 3.4. As a suggestion, only install stable releases because you may encounter compatibility issues sometimes. We will not go through specific installation instructions, there should be plenty of online materials if you need assistance.
 
+When you are done installing the software, launch QGIS.
+
+![national map](../../../assets/images/GIS/pic_GIS_qgis.JPG)
 
 ***
 
