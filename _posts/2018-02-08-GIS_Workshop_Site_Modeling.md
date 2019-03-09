@@ -76,25 +76,25 @@ To process the image and vector data, we will use an open source software call Q
 
 2- When installation completes, click on QGIS Desktop under OSGeo4W to open the app.
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisicon.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisicon.jpg)
 
 3- We will first process the NED data. Since we downloaded the NED data as 4 separate tiles, we will need to combine them into 1 file. As the downloaded NED files are zipped, each file should be unzipped into separate folders. Then, we will need to locate the actual data file and put them in the same folder. It may seem redundant at first but once you have tried unzipping the first file, you will find many seemingly random files and it can get messy rather quickly. In any case, the files we are looking for has the file extension of .img and they typically have the largest file size. Cut and paste all the .img files into a separate folder so it looks like this.
 
-![test image size](../../../assets/images/pic_GISSiteModel_NEDfiles.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_NEDfiles.jpg)
 
 Once you have the files in the same folder, follow these steps:
 
 a. In QGIS, click **Raster > Miscellaneous > Merge**
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisMerge.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisMerge.jpg)
 
 b. Under **Input Files**, pick the 4 .img files, and under **Output Files**, type in a name for the joined file, and choose **Geotiff** as the file format.
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisFileFormat.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisFileFormat.jpg)
 
 c. Make sure **Load into canvas when finished** is checked and click OK. You should now have the joined NED data in QGIS. Be aware that this image is about 1.5Gb with about 20000px X 20000px.
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisNED.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisNED.jpg)
 
 4- Next we process the Building Footprint data. It should be obvious that every 2D map is a projection of the spherical earth. In the world of GIS, every agency that produce geospatial data seem to have a different preference for projection systems, mostly due to the various idiosyncrasies of the map projection systems themselves, some systems maintain true distances but distorts area, some provides true north but completely distorts shapes...etc. The consequence of this fact is that we often times find data with different projection systems and we need to adhere to one and convert all the data we use to that same system, this is particularly critical when we export the data out to other platforms like Rhino 3D. 
 
@@ -102,42 +102,42 @@ A. First drag and drop the file that has .shp extension to QGIS’ Layer panel, 
 should now have the map of all building footprint in the 5 boroughs appear on the main
 screen on the right.
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisBFPfile.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisBFPfile.jpg)
 
 B. You should note that the street grid is not “square” as the map seem “skewed”. That is
 due to the projection system used. On the lower right corner of the screen, you should
 see EPSG:4326, that is the projection system currently being used.
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisEPSG.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisEPSG.jpg)
 
 To convert the file’s projection system, right click on the name of the file in the
 Layer panel, and click Save As , a Save vector layer as… window will pop up. Choose
 ESRI Shapefile for Format , and give the new file a unique name, in this case,
 NYC_FP_26918.
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisSaveVectorAs.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisSaveVectorAs.jpg)
 
 Click the globe icon next to CRS. Under Filter type 26918.
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgis26918.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgis26918.jpg)
 
 Then click on NAD83/UTM zone 18N EPSG:26918 and click OK .
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisNAD83.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisNAD83.jpg)
 
 Click OK again to save the layer.
 
 C. Now with both layers referencing 2 different projection systems, we will need to get
 rid of the EPSG:4326 file. Right click on the layer name and click Remove .
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgislayerremove.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgislayerremove.jpg)
 
 D. QGIS will not automatically set the file to the new coordinate system, so we need to
 do it manually. Click on the globe icon on the lower right corner. As done previously,
 type 26918 in Filter and click on NAD83/UTM zone 18N EPSG:26918 , then click OK at the
 bottom.
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisSetNewCRS.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisSetNewCRS.jpg)
 
 The map should now be properly projected and the Manhattan street grid should be
 squared.
@@ -154,7 +154,7 @@ Unless you are operating at urban design or landscape scale, you will most likel
 
 1- You QGIS layers should have both the building footprint and NED files loaded, and you Layers Panel should look like this. 
 
-![test image size](../../../assets/images/pic_GISSiteModel_qgisLayers.jpg)
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_qgisLayers.jpg)
 
 
 
