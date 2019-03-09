@@ -21,9 +21,7 @@ The DEM datasets have a number of resolutions you can find: 1-meter, 1/9 arc-sec
 
 ### The National Map
 
-
-
-![test image size](../../../assets/images/GIS/pic_GIS_nationalmap.jpg){:height="100%" width="100%"}
+![test image size](../../../assets/images/GIS/pic_GIS_nationalmap.JPG){:height="100%" width="100%"}
 
 
 ***
