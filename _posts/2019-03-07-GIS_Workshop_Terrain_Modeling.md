@@ -9,16 +9,15 @@ image:
 
 ## Project Description
 
-The objective of this workshop is to go through all the steps invovled to create a 3D terrain model in Rhino using [National Elevation Dataset](https://catalog.data.gov/dataset/usgs-national-elevation-dataset-ned) (NED) data from [United States Geological Survey](https://www.usgs.gov/) (USGS). 
+The objective of this workshop is to go through all the steps invovled to create a 3D terrain model in Rhino using [3D Elevation Program](https://www.usgs.gov/core-science-systems/ngp/3dep/about-3dep-products-services) (3DEP) data from [United States Geological Survey](https://www.usgs.gov/) (USGS), downloadable from [The National Map](https://viewer.nationalmap.gov/basic/). 
 
-The objective of this primer is to familiarize rhino users with basic GIS workflow to develop high resolution 3d site model based on publicly available data. This workflow is great for anybody who is looking to create digital and physical site models for analysis or
-presentation purpose.
+### 3DEP
 
-GIS (Geographic Information System) is a system that correlates data to spatial locations. GIS systems typically involves 3 major types of data: numerical, bitmap, and vector. Think of numerical data like the census or a spreadsheet, a set of numbers that is indexing the state of a system. Bitmap is like an image, usually a 2-dimensional array of bits. In your typical website picture, images are 8-bit color images, which is composed of 3, a red, a green, and a blue layer of 2-Dimensional arrays containing 8-bit or 2^8 = 256 variations of intensity information. A vector, unlike a mathematical vector, is used in this case as a computer file type which uses a numerical representation for shapes. 
+3DEP is a branded product consist of a number of elevation products such as standard digital elevation models (DEM), Light Detection and Ranging (LIDAR) data, and Interferometric synthetic-aperture radar (IfSAR) data. This workshop will only cover the workflow for working with DEMs. 
 
-The power of GIS is it brings these 3 data types into a single environment allowing you to correlate data and geography in unprecedented ways. It is a great tool for architects and designers to use for research and analysis.
+[The National Map](https://viewer.nationalmap.gov/basic/) distributes standard DEMs in various resolutions. In USGS terminology, the DEM dataset can be separated into 2 categories - **Seamless** and **Project-based**. Seamless datasets are created from elevation data sourced from multiple technologies spanning decades. Although it is updated continually, positional and temporal accuracies might be an issue. It is best to use this dataset as reference only. The reason you might want to use this dataset is because it is the only thing available for your area of interest.
 
-In this workshop, we will go through a common set of issue, which is how to construct a basic site model that has detailed topography with actual building footprint and building height information. We will try to construct a virtual NYC using the digital topography data and building footprint and building height data from the city. By the end of the workshop you would be able to construct something like this.
+Project-based data are produced from LIDAR and IfSAR data and
 
 
 ![test image size](../../../assets/images/GIS/pic_GISSiteModel_splash.jpg){:height="100%" width="100%"}
