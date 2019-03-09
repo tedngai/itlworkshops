@@ -38,11 +38,11 @@ On the results list, you can click on **Footprint** to see where the DEM tile is
 
 For each download there should be a **.ZIP** file, and you will find many files when unzipped so unzip them into a separate folder. In the long list of files, you should see one with an extension **.IMG**. If you are on Windows and do not see file extensions, please follow this link - [Show file extension.](https://www.howtohaven.com/system/show-file-extensions-in-windows-explorer.shtml)
 
-![national map](../../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG)
+![national map](../../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG){:height="50%" width="50%"}
 
 Now move both **.IMG** files in each subfolder to the same folder, and you should be ready to move on to the next step.
 
-![national map](../../../assets/images/GIS/pic_GIS_nationalmap_IMGfile.JPG)
+![national map](../../../assets/images/GIS/pic_GIS_nationalmap_IMGfile.JPG){:height="50%" width="50%"}
 
 
 ***
@@ -56,7 +56,7 @@ QGIS is an opensource GIS platform that has a very active community of developer
 
 When you are done installing the software, **launch QGIS**. On the upper left corner, click **Project > New**, you should get a blank screen as the following.
 
-![national map](../../../assets/images/GIS/pic_GIS_qgis.JPG)
+![national map](../../../assets/images/GIS/pic_GIS_qgis.JPG){:height="50%" width="50%"}
 
 ***
 
@@ -72,13 +72,13 @@ Almost all dataset we downloaded need to be process before they can become usefu
 
 You should have QGIS running and have a blank screen. Click **Raster > Miscellaneous > Merge** and a window should pop up with a number of parameters.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_merge.JPG)
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_merge.JPG){:height="50%" width="50%"}
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_mergeparam.JPG)
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_mergeparam.JPG){:height="50%" width="50%"}
 
 Under **Input Layers**, click on the **....** button and then **Add File(s)...**, select the 2 **.IMG** files you downloaded earlier, then click **OK**.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG)
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG){:height="50%" width="50%"}
 
 Under **Merged**, click on the **....** button and then **Save to File...**, give your file a name and choose **ASC files (\*.asc)** as file type, then click **SAVE**. 
 
