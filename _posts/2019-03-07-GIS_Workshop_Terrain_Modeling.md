@@ -38,11 +38,11 @@ On the results list, you can click on **Footprint** to see where the DEM tile is
 
 For each download there should be a **.ZIP** file, and you will find many files when unzipped so unzip them into a separate folder. In the long list of files, you should see one with an extension **.IMG**. If you are on Windows and do not see file extensions, please follow this link - [Show file extension.](https://www.howtohaven.com/system/show-file-extensions-in-windows-explorer.shtml)
 
-![national map](../../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG){:height="100%" width="100%"}
+![national map](../../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG)
 
 Now move both **.IMG** files in each subfolder to the same folder, and you should be ready to move on to the next step.
 
-![national map](../../../assets/images/GIS/pic_GIS_nationalmap_IMGfile.JPG){:height="100%" width="100%"}
+![national map](../../../assets/images/GIS/pic_GIS_nationalmap_IMGfile.JPG)
 
 
 ***
