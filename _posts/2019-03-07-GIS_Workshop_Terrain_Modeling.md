@@ -78,7 +78,7 @@ You should have QGIS running and have a blank screen. Click **Raster > Miscellan
 
 Under **Input Layers**, click on the **....** button and then **Add File(s)...**, select the 2 **.IMG** files you downloaded earlier, then click **OK**.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG){:height="50%" width="50%"}
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG){:height="75%" width="75%"}
 
 Under **Merged**, click on the **....** button and then **Save to File...**, give your file a name and choose **TIF files (\*.tif)** as file type, then click **SAVE**. 
 
