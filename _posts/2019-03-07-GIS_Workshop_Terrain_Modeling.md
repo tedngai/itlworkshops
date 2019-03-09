@@ -80,7 +80,7 @@ Under **Input Layers**, click on the **....** button and then **Add File(s)...**
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG){:height="50%" width="50%"}
 
-Under **Merged**, click on the **....** button and then **Save to File...**, give your file a name and choose **ASC files (\*.asc)** as file type, then click **SAVE**. 
+Under **Merged**, click on the **....** button and then **Save to File...**, give your file a name and choose **TIF files (\*.tif)** as file type, then click **SAVE**. 
 
 Make sure **Open output file after running algorithm** is **checked**, then click **RUN**.
 
