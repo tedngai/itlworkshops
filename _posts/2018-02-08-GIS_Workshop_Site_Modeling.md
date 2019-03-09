@@ -16,7 +16,7 @@ The power of GIS is it brings these 3 data types into a single environment allow
 In this workshop, we will go through a common set of issue, which is how to construct a basic site model that has detailed topography with actual building footprint and building height information. We will try to construct a virtual NYC using the digital topography data and building footprint and building height data from the city. By the end of the workshop you would be able to construct something like this.
 
 
-![test image size](../../../assets/images/pic_GISSiteModel_splash.jpg){:height="100%" width="100%"}
+![test image size](../../../assets/images/GIS/pic_GISSiteModel_splash.jpg){:height="100%" width="100%"}
 
 
 ***
