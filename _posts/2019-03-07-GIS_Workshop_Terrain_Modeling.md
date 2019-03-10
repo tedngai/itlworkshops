@@ -218,6 +218,20 @@ If you do not care to learn the specifics of the script, you can just hit **Gree
 
 If you are interested in the specifics or have problem generating a mesh, read on.
 
+First, the most important thing is to make sure the header information in the .asc file is correct. The first 5 rows of data should look like this. Row 1 showing the number of columns, row 2 showing the number rows, row 3 is the lower left corner of x, row 4 is the lower left corner of y, and row 5 is the pixel size / cellsize. If your cellsize is smaller than 1, then it means the unit of your DEM layer is not in meter, which also means you did not reproject to Google Maps Mercator system. You need to go back and do that again. 
+
+Also, row 6 should be the start of your actual data. If row 6 reads **NoData Value** then that means during the QGIS data processing steps you clicked on something you shouldn't have. But this mistake is relatively easy to correct, you just need to delete that line in the file.
+
+```
+ncols        375
+nrows        400
+xllcorner    -8239264.087285323068
+yllcorner    4969648.230586678721
+cellsize     1.322408175983
+```
+
+Now onto explaining the python code. The first few lines are to import all the libraries, Math is to use some trigonometric functions, time is to calculate the amount of time it takes to generate the mesh, and rhinoscriptsyntax is to call all the rhino functions.
+
 ```python
 import math
 import time
@@ -225,14 +239,21 @@ import rhinoscriptsyntax as rs
 
 #timer object
 t1 = time.time()
+```
 
+
+
+```
 #open and read the Arc/Grid file
 fname = rs.OpenFileName("Open", "Arc/Grid ASCII Files (*.asc) |*.asc||")
 #fname = ('./CM_terrain.asc')
 f = open(fname)
 lines = f.readlines()
 f.close()
+```
 
+
+```
 # reading meta data from file
 [n,ncol]=lines[0].split()
 [n,nrow]=lines[1].split()
