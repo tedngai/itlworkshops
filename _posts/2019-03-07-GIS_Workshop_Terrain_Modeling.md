@@ -148,6 +148,15 @@ We have just reproduced the black & white image with false color mapping. Notice
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology01.JPG){:height="50%" width="50%"}
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology04.JPG){:height="100%" width="100%"}
 
+What we have effectively done is to compress all the color variation to within 20 meters of elevation change. And this visualization technique can be expanded to indicate other information. Let's say during Storm Sandy in 2012, the storm surge in NYC is at 14'. So let's see if we can modify this visualization to show that.
+
+Back in **Symbology**, click the **Plus Sign** below **Equal Interval** twice to add two additional values. Storm Sandy's 14' storm surge is about 4.2 meter, so change one of the values to 4.2 and set it to a color that would create very high contrast. Set the other newly added value to 0 representing sea level. Adjust the rest of the false color mapping to 4.3, 15, 25, 35, and 83. And now you see the high contrast color would indicate flooding areas during Sandy's storm surge.
+
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology05.JPG){:height="50%" width="50%"}
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology06.JPG){:height="100%" width="100%"}
+
+
 
 
 
