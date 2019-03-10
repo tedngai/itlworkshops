@@ -128,7 +128,7 @@ Before we move on, there is something you should double check. When we reproject
 
 
 ## Analysis
-Since the majority of the DEM file is very dark, we need to change the visualization so we see the landmass features easier. But before we correct this, we should dive into this issue a little bit since it is a common problem in GIS. 
+Since the majority of the DEM file is somewhat dark, we need to change the visualization so we see the landmass features easier. But before we correct this, we should dive into this issue a little bit since it is a common problem in GIS. 
 
 ### Channel and Bitdepth
 First thing we need to notice is the DEM file is a single channel 32-bit file. We can talk about this in 2 parts - channels and bit depth. Single channel image usually can be seen as black and white images, or one can also use it as false color images. 3 channel images are typically RGB, representing 3 different spectrum of light information. Although for other applications such as ecological studies, you can find NRG (infrarred, red, green) used to investigate plant health. You can also have 4 channel images such as RGBA, with A being the alpha channel indicating transparency. This is a relatively simple concept to grasp. 
@@ -148,14 +148,14 @@ What we can do to mitigate this situation is to remap color information to match
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology01.JPG){:height="50%" width="50%"}
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology02.JPG){:height="100%" width="100%"}
 
-We have just reproduced the black & white image with false color mapping. Notice the problem we have is due to the **Equal Interval** mapping because majority of NYC is below 20 meter. Now double click on the number under **Value**, change **20.0021 to 5**, **41.9841 to 10**, **62.9763 to 20**, click **OK** and you should see something like this.
+We have just reproduced the black & white image with false color mapping. Notice the problem we have is due to the **Equal Interval** mapping because majority of NYC is below 20 meter. Now double click on the number under **Value**, change **-17.12 to -2**, **3.68 to 0**, **24.48 to 10**, **45.27 to 20**, click **OK** and you should see something like this.
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology03.JPG){:height="50%" width="50%"}
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology04.JPG){:height="100%" width="100%"}
 
 What we have effectively done is to compress all the color variation to within 20 meters of elevation change. And this visualization technique can be expanded to indicate other information. Let's say during Storm Sandy in 2012, the storm surge in NYC is at 14'. So let's see if we can modify this visualization to show that.
 
-Back in **Symbology**, click the **Plus Sign** below **Equal Interval** twice to add two additional values. Storm Sandy's 14' storm surge is about 4.2 meter, so change one of the values to 4.2 and set it to a color that would create very high contrast. Set the other newly added value to 0 representing sea level. Adjust the rest of the false color mapping to 4.3, 15, 25, 35, and 83. And now you see the high contrast color would indicate flooding areas during Sandy's storm surge.
+Back in **Symbology**, click the **Plus Sign** below **Equal Interval** twice to add two additional values. Storm Sandy's 14' storm surge is about 4.2 meter, so change one of the values to 4.2 and set it to a color that would create very high contrast. Set the other newly added value to 0 representing sea level. Adjust the rest of the false color mapping to 4.3, 10, 15, 20, and 62. And now you see the high contrast color would indicate flooding areas during Sandy's storm surge.
 
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology05.JPG){:height="50%" width="50%"}
