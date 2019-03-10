@@ -253,7 +253,7 @@ lines = f.readlines()
 f.close()
 ```
 
-[**lines[0]**](https://www.w3schools.com/python/python_lists.asp) points to the first item in the list, it reads the whole line as a single [**string**](https://www.w3schools.com/python/python_strings.asp) variable. Then [**split()**](https://www.w3schools.com/python/ref_string_split.asp) separates the string into individual items. In our case, the first line contains 2 items, ncols and 375, so **[n,ncol]** are the 2 variables assigned to the values being read. **n = ncols** and **ncol = 375**. 
+[**lines[0]**](https://www.w3schools.com/python/python_lists.asp) points to the first item in the list (most programming languages begins counting with 0), it reads the whole line as a single [**string**](https://www.w3schools.com/python/python_strings.asp) variable. Then [**split()**](https://www.w3schools.com/python/ref_string_split.asp) separates the string into individual items. In our case, the first line contains 2 items, ncols and 375, so **[n,ncol]** are the 2 variables assigned to the values being read. **n = ncols** and **ncol = 375**. 
 
 Now that **ncol** is assigned **375**, we need to convert that to an **integer** because it was read as a string value. 
 
@@ -265,7 +265,9 @@ ncol = int(ncol)
 nrow = int(nrow)
 ```
 
+Row 3 and 4 of the data file point to the minimum x and y locations, we do the same to assign them to 2 new variables. However, we will not be using these values because we will generate the mesh at the cartesian origin. But this information is here in case we need to use it to reference some other information.
 
+Row 5 is the cellsize in meters. dx and dy are variables assigned to the variable and then converted to a [floating point number](https://www.programiz.com/python-programming/methods/built-in/float). As a side note, a shorter form can be done in a single line dx = float(cellsize) and dy = float(cellsize), but this long form is easier to understand for education reason.
 
 ```
 [n,xmin]=lines[2].split()
@@ -280,7 +282,11 @@ s = 5
 
 dx = float(dx)
 dy = float(dy)
+```
 
+
+
+```
 #read heightfield data
 z = []
 for s in xrange (s, len(lines)):
