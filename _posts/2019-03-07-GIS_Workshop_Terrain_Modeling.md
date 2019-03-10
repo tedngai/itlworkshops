@@ -162,10 +162,18 @@ Bring up the **Layer Properties** window again and take a look at the **width an
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo2.JPG){:height="50%" width="50%"}
 
-In QGIS, crop is called clip and you access the tool by clicking on **Raster > Extractions > Clip Raster by Extent**
+In QGIS, crop is called clip and you access the tool by clicking on **Raster > Extractions > Clip Raster by Extent**. 
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_clipextent.JPG){:height="50%" width="50%"}
 
+Click the **....** button under **Clipping extent (xmin, xmax, ymin, ymax)**, the select **Select Extent on Canvas**, then **Click - Drag** your mouse to select the area of interest. Then click on the **....** button under **Clipped (extent)** and give it a file name, choose **TIF files (\*.tif)** as type, click **SAVE** and then **RUN**.
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_clipextentparam.JPG){:height="50%" width="50%"}
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_clipped.JPG){:height="100%" width="100%"}
+
+Final step before moving to Rhino3D for mesh genertaion is to export the DEM to a format that can be read easily.
+
+## Export to .ASC
 
 
 
