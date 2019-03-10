@@ -162,6 +162,9 @@ Bring up the **Layer Properties** window again and take a look at the **width an
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo2.JPG){:height="50%" width="50%"}
 
+In QGIS, crop is called clip and you access the tool by clicking on **Raster > Extractions > Clip Raster by Extent**
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_clipextent.JPG){:height="50%" width="50%"}
 
 
 
