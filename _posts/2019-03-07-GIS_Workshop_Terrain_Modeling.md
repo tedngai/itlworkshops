@@ -200,7 +200,73 @@ cellsize     1.322408175983
 # Step 4
 ## 3D Mesh Generation
 
+This part will be conducted inside Rhino3D, so while you do not need to know anything about scripting in Rhino, we do assume you know the basic functions of Rhino to be able to continue. 
 
+We are using a custom Rhino Python Script to generate the topography from the exported .asc file. First you need to launch the **Python Script Editor** by clicking **Tools > PythonScript > Edit**. If you are on **OSX** you can just type in **RunPythonScript**.
+
+![qgis](../../../assets/images/GIS/pic_GIS_rhinopython.JPG){:height="50%" width="50%"}
+
+Then you need the python script, you can download here.
+
+<ul class="actions">
+	<li><a href="../../../assets/files/TerrainGen02.py" class="button">Download Python File</a></li>
+</ul>
+
+If you do not care to learn the specifics of the script, you can just hit **Green Play Button** to execute the script, it will ask you to locate a **.asc** file, load it and a topo mesh will be generated in no time.
+
+![qgis](../../../assets/images/GIS/pic_GIS_rhinopython_window.JPG){:height="50%" width="50%"}
+
+If you are interested in the specifics or have problem generating a mesh, read on.
+
+```python
+import math
+import time
+import rhinoscriptsyntax as rs
+
+#timer object
+t1 = time.time()
+
+#open and read the Arc/Grid file
+fname = rs.OpenFileName("Open", "Arc/Grid ASCII Files (*.asc) |*.asc||")
+#fname = ('./CM_terrain.asc')
+f = open(fname)
+lines = f.readlines()
+f.close()
+
+# reading meta data from file
+[n,ncol]=lines[0].split()
+[n,nrow]=lines[1].split()
+
+ncol = int(ncol)
+nrow = int(nrow)
+
+[n,xmin]=lines[2].split()
+[n,ymin]=lines[3].split()
+
+[n,cellsize]=lines[4].split()
+
+dx = cellsize
+dy = cellsize
+
+s = 5
+
+dx = float(dx)
+dy = float(dy)
+
+#read heightfield data
+z = []
+for s in xrange (s, len(lines)):
+    z.extend (lines[s].split())
+```
+
+<div class="sketchfab-embed-wrapper"><iframe width="100%" height="480" src="https://sketchfab.com/models/a7979bace34442d1b6655c37bd348a5b/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+​
+<p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+    <a href="https://sketchfab.com/3d-models/world-trade-center-dem-a7979bace34442d1b6655c37bd348a5b?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">World Trade Center DEM</a>
+    by <a href="https://sketchfab.com/itl?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">itl</a>
+    on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+</p>
+</div>
 
 
 ***
