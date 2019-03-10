@@ -171,9 +171,11 @@ Click the **....** button under **Clipping extent (xmin, xmax, ymin, ymax)**, th
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_clipextentparam.JPG){:height="50%" width="50%"}
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_clipped.JPG){:height="100%" width="100%"}
 
-Final step before moving to Rhino3D for mesh genertaion is to export the DEM to a format that can be read easily.
+Final step before moving to Rhino3D for mesh genertaion is to export the DEM to a format that can be read easily. But before we export the file, check layer property again to see if the width and height are within a good range. In this case, width is 1104 and height is 979 pixels. In general a good value is below 2000px x 2000px but it really depends on your hardware configuration, this number can be higher or lower. 
 
 ## Export to .ASC
+
+
 
 
 
