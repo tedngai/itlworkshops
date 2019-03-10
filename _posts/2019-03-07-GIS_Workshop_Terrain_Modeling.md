@@ -157,6 +157,10 @@ Back in **Symbology**, click the **Plus Sign** below **Equal Interval** twice to
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology06.JPG){:height="100%" width="100%"}
 
 
+## Cropping
+Bring up the **Layer Properties** window again and take a look at the **width and height**. With this file, width is about 15135 pixels and height is 9978 pixels. If we were to generate a 3D topography out of this DEM file, the mesh will have 15135 x 9978 = 151 million tesselations. This is an enormous file and will most likely crash many computers. So as a strategy, cropping the DEM file to only the areas we need should be the first step in managing the file.
+
+![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo2.JPG){:height="50%" width="50%"}
 
 
 
