@@ -40,9 +40,6 @@ For each download there should be a **.ZIP** file, and you will find many files 
 
 ![national map](../../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG){:height="50%" width="50%"}
 
-Now move both **.IMG** files in each subfolder to the same folder, and you should be ready to move on to the next step.
-
-![national map](../../../assets/images/GIS/pic_GIS_nationalmap_IMGfile.JPG){:height="50%" width="50%"}
 
 
 ***
