@@ -91,7 +91,7 @@ All maps are 2-dimensional projections from earth's spherical shape, and there a
 
 ![qgis](../../../assets/images/GIS/earhprojections.jpg)
 
-In the world of GIS, projection systems are represented by a **EPSG** number, and choose the right projection system is critical to our following tasks. By default, DEMs use **EPSG:4269**, which is a Mercator projection that causes heavy distortions. In our case, Manhattan's street grid, under this projection system, is no longer rectangular but becomes a parallelogram.
+In the world of GIS, projection systems are represented by a **EPSG** number, and choose the right projection system is critical to our following tasks. DEMs use many different projection systems, for this 1-meter resolution data, it uses **EPSG:26918** whereas the 1/9 arc-second resolution data, it uses **EPSG:4269**, which is a Mercator projection that causes heavy distortions. So depends on what data source you are using, you have to be aware of the projection system it uses.
 
 ![qgis](../../../assets/images/GIS/compare-mercator-utm-wgs-projections.jpg)
 
@@ -101,7 +101,9 @@ On the left column of QGIS, Under Layer, double click on the layer named **Merge
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo.JPG){:height="75%" width="75%"}
 
-**CRS** - is the current projection system used, it should say EPSG:4269 - NAD83 - Geographic. In case you are working with other types of files and it might be using some other projection type, this is where you can find the information.
+**CRS** - is the current projection system used, it should say EPSG:26918 - NAD83 with our dataset. In case you are working with other types of files and might have some other projection type, regardless, this is where you can find the information.
+
+Also take note that this is where you find the file units and pixel size, which is the most important information for us to generate 3D data down the line. Here, it says the layer is in meters and each pixel is 1x1 meter. If you are using some other projection system, this will be different. For instance, for 1/9 arc-second resolution data, the unit will be degrees and pixel size will be a very small number. 
 
 Now click on **Raster > Projections > Warp (Reproject...)**, a window should pop up.
 
@@ -114,12 +116,12 @@ Set the **Input Layer** to the layer we were just working with, **Source CRS** t
 
 Back in the Warp parameter window, click on the **....** button under **Reprojected**, give it a file name and choose **TIF files (\*.tif)** as file type. Click **Save** and then **Run**, you should have a new layer in your QGIS' main window shortly. 
 
-Once the new layer is ready, you might notice that it looks exactly the same as your previous layer. This is due to a feature in QGIS that automatically matches all the **CRS**. Since the ESPG:4269 is the first layer we opened, QGIS automatically set the project to use that as default, forcing all subsequent non-matching CRS to use ESPG:4269. All we need to do now is to change the **Project CRS** to the one used by the new layer. To do that, we **Right-Click** on the new layer, select **Set CRS > Set Project CRS from Layer**. Your DEM should look something like this.
+Once the new layer is ready, you might notice that it looks exactly the same as your previous layer. This is due to a feature in QGIS that automatically matches all the **CRS**. Since the ESPG:26918 is the first layer we opened, QGIS automatically set the project to use that as default, forcing all subsequent non-matching CRS to use ESPG:26918. All we need to do now is to change the **Project CRS** to the one used by the new layer. To do that, we **Right-Click** on the new layer, select **Set CRS > Set Project CRS from Layer**. Your DEM should look something like this.
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_setcrsfromlayer.JPG){:height="50%" width="50%"}
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_reprojected.JPG){:height="100%" width="100%"}
 
-Before we move on, there is something you should double check. When we reprojected the DEM to Google Maps Global Mercator system, your map units should change to meters and pixel size should reflect the DEM resolution you used, which in our case is 1/9 arc-second which is around 3.68 meters. So double-click on the layer to check the **Information** tab of the **Layer Properties**.
+Before we move on, there is something you should double check. When we reprojected the DEM to **Google Maps Global Mercator** system, your map units should change to meters and pixel size should reflect the DEM resolution you used, which in our case is 1-meter. So double-click on the layer to check the **Information** tab of the **Layer Properties**.
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_reprounit.JPG){:height="50%" width="50%"}
 
