@@ -243,7 +243,7 @@ t1 = time.time()
 
 The following lines uses a Rhino function **rs.OpenFileName()** to open a dialog box and ask the user to locate a file restricting the extension to **.asc**. Then it uses a python function **open()** to open the file, then read all the content with **readline()**, and then close the file. 
 
-The **lines** variable is a [list](https://www.w3schools.com/python/python_lists.asp) consisting of items, and in this case, each item is each line of text in the file. 
+The **lines** variable is a [**list**](https://www.w3schools.com/python/python_lists.asp) consisting of items, and in this case, each item is each line of text in the file. 
 
 ```
 #open and read the Arc/Grid file
@@ -253,12 +253,11 @@ lines = f.readlines()
 f.close()
 ```
 
-**lines[0]** points to the first item in the list, it reads the whole line as a single **string** variable. Then [**split()**](https://www.w3schools.com/python/ref_string_split.asp) separates the string into individual items. In our case, the first line contains 2 items, ncols and 375, so **[n,ncol]** are the 2 variables assigned to the values being read. **n = ncols** and **ncol = 375**. 
+[**lines[0]**](https://www.w3schools.com/python/python_lists.asp) points to the first item in the list, it reads the whole line as a single [**string**](https://www.w3schools.com/python/python_strings.asp) variable. Then [**split()**](https://www.w3schools.com/python/ref_string_split.asp) separates the string into individual items. In our case, the first line contains 2 items, ncols and 375, so **[n,ncol]** are the 2 variables assigned to the values being read. **n = ncols** and **ncol = 375**. 
 
 Now that **ncol** is assigned **375**, we need to convert that to an **integer** because it was read as a string value. 
 
 ```
-# reading meta data from file
 [n,ncol]=lines[0].split()
 [n,nrow]=lines[1].split()
 
