@@ -287,7 +287,6 @@ dy = float(dy)
 Next is to read the whole sequence of numbers of elevation values. In python, this is relatively simple. First declare an empty list with a square bracket named **Z**, then by using a for loop, **for s in xrange(s, len(lines)):**, it will go through every **"line"** in **lines**, and using Python's [**Extend**](https://www.programiz.com/python-programming/methods/list/extend) function and combining with **split()**, it turns all the numbers in each line and turn them into a legible [**list of lists**](https://snakify.org/en/lessons/two_dimensional_lists_arrays/).
 
 ```
-#read heightfield data
 z = []
 for s in xrange (s, len(lines)):
     z.extend (lines[s].split())
