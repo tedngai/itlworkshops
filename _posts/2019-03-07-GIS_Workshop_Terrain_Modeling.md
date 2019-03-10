@@ -175,11 +175,23 @@ Final step before moving to Rhino3D for mesh genertaion is to export the DEM to 
 
 ## Export to .ASC
 
-To bring this DEM file to Rhino3D, we will use a custom Rhino Python Parser read the file and then generate a mesh. For simplicity sake, we will use an ascii file format that can be read by Rhino Python as a simple text file. To do this, click on **Raster > Conversion > Translate (Convert Format)**. Then make sure **Input Layer** is pointing to the most recently created layer, and give the file a name and choose **ASC (\*.asc)** as file type. Click **SAVE** and **RUN**.
+To bring this DEM file to Rhino3D, we will use a custom Rhino Python Parser read the file and then generate a mesh. For simplicity sake, we will use an ascii file format that can be read by Rhino Python as a simple text file. To do this, click on **Raster > Conversion > Translate (Convert Format)**. Then make sure **Input Layer** is pointing to the most recently created layer, and give the file a name and choose **ASC (\*.asc)** as file type. Click **SAVE** and **RUN**. When your .asc file has been created, you can open it with a text file editor and you should see something like this.
 
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_convert.JPG){:height="50%" width="50%"}
 ![qgis](../../../assets/images/GIS/pic_GIS_qgis_convertparam.JPG){:height="50%" width="50%"}
 
+```
+ncols        1104
+nrows        979
+xllcorner    -8252258.661553289741
+yllcorner    4960228.010937685147
+cellsize     3.680240424859
+ 0.0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8.9816312789916992188 8.9975214004516601563 9.0147905349731445313 9.0307855606079101563 9.037456512451171875 9.0916795730590820313 9.15248870849609375 9.1862440109252929688 9.2606458663940429688 9.499347686767578125 
+ ```
+ 
+
+# Step 4
+## 3D Mesh Generation
 
 
 
