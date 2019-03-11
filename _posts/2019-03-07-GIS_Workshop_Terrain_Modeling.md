@@ -284,13 +284,45 @@ dx = float(dx)
 dy = float(dy)
 ```
 
-Next is to read the whole sequence of numbers of elevation values. In python, this is relatively simple. First declare an empty list with a square bracket named **Z**, then by using a for loop, **for s in xrange(s, len(lines)):**, it will go through every **"line"** in **lines**, and using Python's [**Extend**](https://www.programiz.com/python-programming/methods/list/extend) function and combining with **split()**, it turns all the numbers in each line and turn them into a legible [**list of lists**](https://snakify.org/en/lessons/two_dimensional_lists_arrays/).
+Next is to read the whole sequence of numbers of elevation values. In python, this is relatively simple. First declare an empty list with a square bracket named **Z**, then using a for loop, **for s in xrange(s, len(lines)):**, go through every **"line"** in **lines**, and using Python's [**Extend**](https://www.programiz.com/python-programming/methods/list/extend) function and combining with **split()**, it turns all the numbers in each line and turn them into a legible [**list of lists**](https://snakify.org/en/lessons/two_dimensional_lists_arrays/).
 
 ```
 z = []
 for s in xrange (s, len(lines)):
     z.extend (lines[s].split())
 ```
+
+Last but not least, we need to assign values for X and Y. We already know the number of rows and columns and the cellsize, so by using 2 for loops we can assign proper values to the lists. 
+
+```
+x = []
+y = []
+
+for v in range(0,nrow):
+    for u in xrange(0,ncol):
+        x.append(u*dx)
+        y.append(v*dy)
+```
+
+Now that we have all the x,y,z values, we are ready to generate the mesh. Since mesh generation is specific to Rhino, we need to follow Rhino's precedure, we need to assign face vertices, vertex coordinates, and assign them to a mesh. You can find a sample [here](https://developer.rhino3d.com/samples/rhinocommon/add-mesh/).
+
+```
+# generate face vertices
+face = []
+for n in range(0,(nrow-1)*(ncol)):
+    if n%(ncol) != 0:
+        face.append((n-1,n,n+ncol,n-1+ncol))
+
+# generate vertex coordinates
+vertices = []
+for n in range(0,len(z)):
+    vertices.append((x[n],y[n]*-1,float(z[n])))
+
+#make mesh in rhino
+rs.AddMesh(vertices,face)
+```
+
+And that's it!
 
 <div class="sketchfab-embed-wrapper"><iframe width="100%" height="480" src="https://sketchfab.com/models/a7979bace34442d1b6655c37bd348a5b/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 ​
