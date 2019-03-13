@@ -1,7 +1,7 @@
 ---
 layout: post
-title: GIS Workshop Terrain Analysis and Modeling
-description: Rhino3D, QGIS
+title: Sentiment Analysis
+description: Python
 image: 
 ---
 
