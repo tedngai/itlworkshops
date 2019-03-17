@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>ITL</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!--[if lte IE 8]><script src="/itlworkshops/assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="/itlworkshops/assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="/itlworkshops/assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="/itlworkshops/assets/css/ie8.css" /><![endif]-->
+</head>
+
+
+<body>
+
+    <!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header -->
+<header id="header">
+	<a href="http://localhost:4000/itlworkshops/" class="logo"><strong>ITL</strong> <span>Workshop Factory</span></a>
+	<nav>
+		<a href="#menu">Menu</a>
+	</nav>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+	<ul class="links">
+        
+		    
+		
+		    
+		
+		    
+		
+		    
+		        <li><a href="http://localhost:4000/itlworkshops/">Home</a></li>
+	    	
+		
+		    
+		
+		    
+		
+		
+		    
+		
+		    
+		        <li><a href="http://localhost:4000/itlworkshops/all_posts.html">All posts</a></li>
+		    
+		
+		    
+		        <li><a href="http://localhost:4000/itlworkshops/bio.html">Bio</a></li>
+		    
+		
+		    
+		
+		    
+		
+		    
+		
+	</ul>
+	<ul class="actions vertical">
+		<li><a href="#" class="button special fit">Get Started</a></li>
+		<li><a href="#" class="button fit">Log In</a></li>
+	</ul>
+</nav>
+
+
+
+<!-- Main -->
+<div id="main" class="alt">
+
+<!-- One -->
+<section id="one">
+	<div class="inner">
+		<header class="major">
+			<h1>GIS Workshop Terrain Analysis and Modeling</h1>
+		</header>
+		
+		<p><div class="sketchfab-embed-wrapper"><iframe width="100%" height="480" src="https://sketchfab.com/models/a7979bace34442d1b6655c37bd348a5b/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+​
+<p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+    <a href="https://sketchfab.com/3d-models/world-trade-center-dem-a7979bace34442d1b6655c37bd348a5b?utm_medium=embed&amp;utm_source=website&amp;utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">World Trade Center DEM</a>
+    by <a href="https://sketchfab.com/itl?utm_medium=embed&amp;utm_source=website&amp;utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">itl</a>
+    on <a href="https://sketchfab.com?utm_medium=embed&amp;utm_source=website&amp;utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+</p>
+</div>
+<hr />
+
+<h2 id="project-description">Project Description</h2>
+
+<p>The objective of this workshop is to go through all the steps invovled to create a 3D terrain model in Rhino using <a href="https://www.usgs.gov/core-science-systems/ngp/3dep/about-3dep-products-services">3D Elevation Program</a> (3DEP) data from <a href="https://www.usgs.gov/">United States Geological Survey</a> (USGS), downloadable from <a href="https://viewer.nationalmap.gov/basic/">The National Map</a>. This workshop assumes you already know Rhino3D.</p>
+
+<h3 id="3dep">3DEP</h3>
+
+<p>3DEP is a branded product consist of a number of elevation products such as standard digital elevation models (DEM), Light Detection and Ranging (LIDAR) data, and Interferometric synthetic-aperture radar (IfSAR) data. This workshop will only cover the workflow for working with DEMs.</p>
+
+<p><a href="https://viewer.nationalmap.gov/basic/">The National Map</a> distributes standard DEMs in various resolutions. In USGS terminology, the DEM dataset can be separated into 2 categories - <strong>Seamless</strong> and <strong>Project-based</strong>. Seamless datasets are created from elevation data sourced from multiple technologies spanning decades. Although it is updated continually, positional and temporal accuracies might be an issue. It is best to use this dataset as reference only. The reason you might want to use this dataset is because it is the only thing available for your area of interest. Project-based data, on the other hand, are produced from LIDAR and IfSAR data, and they are the most up-to-date and accurate. However, the availability is limited.</p>
+
+<p>The DEM datasets have a number of resolutions you can find: 1-meter, 1/9 arc-second, 5-meter, 1/3 arc-second, 1 arc-second, and 2 arc-second. These numbers indicate now big each pixel represents in real space. The datasets come as rasters or images, so 1-meter dataset would mean each pixel equates to 1x1 meter. 1/9 arc-second is roughly 3-meters, this dataset is only available for around 25% of the conterminous U.S.. 1/3 arc-second is approximately 10-meters and this dataset has full coverage of the 48 conterminous states, Hawaii, and U.S. territories.</p>
+
+<h1 id="step-1">Step 1</h1>
+<h2 id="download-data-from-the-national-map">Download Data from The National Map</h2>
+
+<p>To begin this workshop, we will first go download our desired DEM data. Go to <a href="https://viewer.nationalmap.gov/basic/">The National Map</a> and check <strong>Elevation Product (3DEP)</strong>, and check the desired resolution for your area of interest. If you choose 1-meter or 1/9 arc-second data, only <strong>IMG</strong> file format is available. If you choose 1/3 arc-second or larger data, you have a choice of <strong>ArcGrid</strong>, <strong>GridFloat</strong>, or <strong>IMG</strong>, we will stick to <strong>IMG</strong> for this session.</p>
+
+<p>You can click on <strong>Show Availability</strong> to see if the data at your specific resolution is available for your area.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_nationalmap.JPG" alt="national map" height="100%" width="100%" /></p>
+
+<p>On the map, zoom to your area and make sure <strong>Current Extent</strong> is hightlighted, then <strong>PRESS Find Products</strong>, the web app will launch a search using the current extent as search parameter, and you will be presented with a list of search results.</p>
+
+<p>On the results list, you can click on <strong>Footprint</strong> to see where the DEM tile is. In our case, Low Manhattan is splitted into 2 tiles, so we will need to download both tiles. Simply click on <strong>Download</strong> for each tile and save the files to a folder of your choice.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_nationalmap_footprint.JPG" alt="national map" height="100%" width="100%" /></p>
+
+<p>For each download there should be a <strong>.ZIP</strong> file, and you will find many files when unzipped so unzip them into a separate folder. In the long list of files, you should see one with an extension <strong>.IMG</strong>. If you are on Windows and do not see file extensions, please follow this link - <a href="https://www.howtohaven.com/system/show-file-extensions-in-windows-explorer.shtml">Show file extension.</a></p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG" alt="national map" height="50%" width="50%" /></p>
+
+<hr />
+
+<h1 id="step-2">Step 2</h1>
+<h2 id="qgis">QGIS</h2>
+
+<ul>
+  <li><a href="https://qgis.org/en/site/forusers/download.html">QGIS</a></li>
+</ul>
+
+<p>QGIS is an opensource GIS platform that has a very active community of developers constantly making updates and changes. It is a very powerful tool that rivals any commercial software. Download and install the current version, as of writing, the stable release is 3.4. As a suggestion, only install stable releases because you may encounter compatibility issues sometimes. We will not go through specific installation instructions, there should be plenty of online materials if you need assistance.</p>
+
+<p>When you are done installing the software, <strong>launch QGIS</strong>. On the upper left corner, click <strong>Project &gt; New</strong>, you should get a blank screen as the following.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis.JPG" alt="national map" height="50%" width="50%" /></p>
+
+<hr />
+
+<h1 id="step-3">Step 3</h1>
+<h2 id="processing-gis-data">Processing GIS Data</h2>
+
+<p>Almost all dataset we downloaded need to be process before they can become useful, but in this case, the processing only involve stitching the 2 tiles together, reprojecting the image to Google’s projection system, and then cropping to the specific area we want.</p>
+
+<h2 id="stitching">Stitching</h2>
+
+<p>You should have QGIS running and have a blank screen. Click <strong>Raster &gt; Miscellaneous &gt; Merge</strong> and a window should pop up with a number of parameters.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_merge.JPG" alt="qgis" height="50%" width="50%" />
+<img src="../../../assets/images/GIS/pic_GIS_qgis_mergeparam.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>Under <strong>Input Layers</strong>, click on the <strong>….</strong> button and then <strong>Add File(s)…</strong>, select the 2 <strong>.IMG</strong> files you downloaded earlier, then click <strong>OK</strong>.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>Under <strong>Merged</strong>, click on the <strong>….</strong> button and then <strong>Save to File…</strong>, give your file a name and choose <strong>TIF files (*.tif)</strong> as file type, then click <strong>SAVE</strong>.</p>
+
+<p>Make sure <strong>Open output file after running algorithm</strong> is <strong>checked</strong>, then click <strong>RUN</strong>. If everything is working properly, you should see something like this on your screen.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_demmerged.JPG" alt="qgis" height="100%" width="100%" /></p>
+
+<hr />
+
+<h2 id="reprojection">Reprojection</h2>
+
+<p>All maps are 2-dimensional projections from earth’s spherical shape, and there are many projection systems used across and favored by multiple disciplines.</p>
+
+<p><img src="../../../assets/images/GIS/earhprojections.jpg" alt="qgis" /></p>
+
+<p>In the world of GIS, projection systems are represented by a <strong>EPSG</strong> number, and choose the right projection system is critical to our following tasks. DEMs use many different projection systems, for this 1-meter resolution data, it uses <strong>EPSG:26918</strong> whereas the 1/9 arc-second resolution data, it uses <strong>EPSG:4269</strong>, which is a Mercator projection that causes heavy distortions. So depends on what data source you are using, you have to be aware of the projection system it uses.</p>
+
+<p><img src="../../../assets/images/GIS/compare-mercator-utm-wgs-projections.jpg" alt="qgis" /></p>
+
+<p>The consequence of this is, if we want to download 3D content from Google Earth and place them onto this terrain, they will not match. The solution is to re-project this raster file to one that’s used by Google.</p>
+
+<p>On the left column of QGIS, Under Layer, double click on the layer named <strong>Merged</strong>, you will see the <strong>Layer Properties</strong> window pop up, and under the <strong>Information</strong> tap, you should see this.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_layerinfo.JPG" alt="qgis" height="75%" width="75%" /></p>
+
+<p><strong>CRS</strong> - is the current projection system used, it should say EPSG:26918 - NAD83 with our dataset. In case you are working with other types of files and might have some other projection type, regardless, this is where you can find the information.</p>
+
+<p>Also take note that this is where you find the file units and pixel size, which is the most important information for us to generate 3D data down the line. Here, it says the layer is in meters and each pixel is 1x1 meter. If you are using some other projection system, this will be different. For instance, for 1/9 arc-second resolution data, the unit will be degrees and pixel size will be a very small number.</p>
+
+<p>Now click on <strong>Raster &gt; Projections &gt; Warp (Reproject…)</strong>, a window should pop up.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_warp.JPG" alt="qgis" height="50%" width="50%" />
+<img src="../../../assets/images/GIS/pic_GIS_qgis_warpparam.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>Set the <strong>Input Layer</strong> to the layer we were just working with, <strong>Source CRS</strong> to <strong>EPSG:4269</strong>, <strong>Target CRS</strong> to <strong>EPSG:900913 - Google Maps Global Mercator</strong>. You can do that by clicking on the little globe icon to the right, which brings up another window. Under <strong>Filter</strong>, just type in google and it should leave you with only 1 choice under <strong>Coordinate Reference System</strong>, click on it and click <strong>OK</strong> to exit.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_googlecrs.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>Back in the Warp parameter window, click on the <strong>….</strong> button under <strong>Reprojected</strong>, give it a file name and choose <strong>TIF files (*.tif)</strong> as file type. Click <strong>Save</strong> and then <strong>Run</strong>, you should have a new layer in your QGIS’ main window shortly.</p>
+
+<p>Once the new layer is ready, you might notice that it looks exactly the same as your previous layer. This is due to a feature in QGIS that automatically matches all the <strong>CRS</strong>. Since the ESPG:26918 is the first layer we opened, QGIS automatically set the project to use that as default, forcing all subsequent non-matching CRS to use ESPG:26918. All we need to do now is to change the <strong>Project CRS</strong> to the one used by the new layer. To do that, we <strong>Right-Click</strong> on the new layer, select <strong>Set CRS &gt; Set Project CRS from Layer</strong>. Your DEM should look something like this.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_setcrsfromlayer.JPG" alt="qgis" height="50%" width="50%" />
+<img src="../../../assets/images/GIS/pic_GIS_qgis_reprojected.JPG" alt="qgis" height="100%" width="100%" /></p>
+
+<p>Before we move on, there is something you should double check. When we reprojected the DEM to <strong>Google Maps Global Mercator</strong> system, your map units should change to meters and pixel size should reflect the DEM resolution you used, which in our case is 1-meter. So double-click on the layer to check the <strong>Information</strong> tab of the <strong>Layer Properties</strong>.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_reprounit.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<h2 id="analysis">Analysis</h2>
+<p>Since the majority of the DEM file is somewhat dark, we need to change the visualization so we see the landmass features easier. But before we correct this, we should dive into this issue a little bit since it is a common problem in GIS.</p>
+
+<h3 id="channel-and-bitdepth">Channel and Bitdepth</h3>
+<p>First thing we need to notice is the DEM file is a single channel 32-bit file. We can talk about this in 2 parts - channels and bit depth. Single channel image usually can be seen as black and white images, or one can also use it as false color images. 3 channel images are typically RGB, representing 3 different spectrum of light information. Although for other applications such as ecological studies, you can find NRG (infrarred, red, green) used to investigate plant health. You can also have 4 channel images such as RGBA, with A being the alpha channel indicating transparency. This is a relatively simple concept to grasp.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_bitdepth.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>Bitdepth on the other hand, is the amount of information each pixel is capable of storing. With 1-bit 1^2 = 2, 2-bit 2^2 = 4, 4-bit 2^4 = 16, 8-bth 2^8 = 256. In the case of this DEM file, it contains 32-bit 2^32 = 4.29 billion levels of variations. This high bit depth format is used to better approximate the terrain levels. Imagine a 2 bit file is used to store information for a terrain that goes from 0 to 80 meters, each color would represent 20 meter difference.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_quantization.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>Our computer screens are mostly capable of displaying 8-bit colors, that’s 3 channels each with 8-bit, so 256 x 256 x 256 = 16.7 million color variations. But since our DEM file has only 1 channel and we are showing the image as black and white, we are restricted to only 256 levels. So what is happening is akin to jamming 32-bit space into 8-bit space, a huge amount of information would be lost.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_rgbbitdepth.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>What we can do to mitigate this situation is to remap color information to match the landmass variation. So <strong>Double-Click</strong> on the <strong>Layer</strong> to show the <strong>Layer Properties</strong>. Go to <strong>Symbology</strong>, change <strong>Render Type</strong> to <strong>Singleband pseudocolor</strong>, change the <strong>Mode</strong> to <strong>Equal Interval</strong>, click <strong>Apply</strong> and you should see something like this.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_symbology01.JPG" alt="qgis" height="50%" width="50%" />
+<img src="../../../assets/images/GIS/pic_GIS_qgis_symbology02.JPG" alt="qgis" height="100%" width="100%" /></p>
+
+<p>We have just reproduced the black &amp; white image with false color mapping. Notice the problem we have is due to the <strong>Equal Interval</strong> mapping because majority of NYC is below 20 meter. Now double click on the number under <strong>Value</strong>, change <strong>-17.12 to -2</strong>, <strong>3.68 to 0</strong>, <strong>24.48 to 10</strong>, <strong>45.27 to 20</strong>, click <strong>OK</strong> and you should see something like this.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_symbology03.JPG" alt="qgis" height="50%" width="50%" />
+<img src="../../../assets/images/GIS/pic_GIS_qgis_symbology04.JPG" alt="qgis" height="100%" width="100%" /></p>
+
+<p>What we have effectively done is to compress all the color variation to within 20 meters of elevation change. And this visualization technique can be expanded to indicate other information. Let’s say during Storm Sandy in 2012, the storm surge in NYC is at 14’. So let’s see if we can modify this visualization to show that.</p>
+
+<p>Back in <strong>Symbology</strong>, click the <strong>Plus Sign</strong> below <strong>Equal Interval</strong> twice to add two additional values. Storm Sandy’s 14’ storm surge is about 4.2 meter, so change one of the values to 4.2 and set it to a color that would create very high contrast. Set the other newly added value to 0 representing sea level. Adjust the rest of the false color mapping to 4.3, 10, 15, 20, and 62. And now you see the high contrast color would indicate flooding areas during Sandy’s storm surge.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_symbology05.JPG" alt="qgis" height="50%" width="50%" />
+<img src="../../../assets/images/GIS/pic_GIS_qgis_symbology06.JPG" alt="qgis" height="100%" width="100%" /></p>
+
+<h2 id="cropping">Cropping</h2>
+<p>Bring up the <strong>Layer Properties</strong> window again and take a look at the <strong>width and height</strong>. With this file, width is about 10209 pixels and height is 20140 pixels. If we were to generate a 3D topography out of this DEM file, the mesh will have 10209 x 20104 = 205 million tesselations. This is an enormous file and will most likely crash many computers. So as a strategy, cropping the DEM file to only the areas we need should be the first step in managing the file.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_layerinfo2.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>In QGIS, crop is called clip and you access the tool by clicking on <strong>Raster &gt; Extractions &gt; Clip Raster by Extent</strong>.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_clipextent.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>Click the <strong>….</strong> button under <strong>Clipping extent (xmin, xmax, ymin, ymax)</strong>, the select <strong>Select Extent on Canvas</strong>, then <strong>Click - Drag</strong> your mouse to select the area of interest. Then click on the <strong>….</strong> button under <strong>Clipped (extent)</strong> and give it a file name, choose <strong>TIF files (*.tif)</strong> as type, click <strong>SAVE</strong> and then <strong>RUN</strong>.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_clipextentparam.JPG" alt="qgis" height="50%" width="50%" />
+<img src="../../../assets/images/GIS/pic_GIS_qgis_clipped.JPG" alt="qgis" height="100%" width="100%" /></p>
+
+<p>Final step before moving to Rhino3D for mesh genertaion is to export the DEM to a format that can be read easily. But before we export the file, check <strong>layer property</strong> again to see if the width and height are within a good range. In this case, width is 1104 and height is 979 pixels. In general a good value is below 2000px x 2000px but it really depends on your hardware configuration, this number can be higher or lower.</p>
+
+<h2 id="export-to-asc">Export to .ASC</h2>
+
+<p>To bring this DEM file to Rhino3D, we will use a custom Rhino Python Parser read the file and then generate a mesh. For simplicity sake, we will use an ascii file format that can be read by Rhino Python as a simple text file. To do this, click on <strong>Raster &gt; Conversion &gt; Translate (Convert Format)</strong>. Then make sure <strong>Input Layer</strong> is pointing to the most recently created layer, and give the file a name and choose <strong>ASC (*.asc)</strong> as file type. Click <strong>SAVE</strong> and <strong>RUN</strong>. When your .asc file has been created, you can open it with a text file editor and you should see something like this.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_qgis_convert.JPG" alt="qgis" height="50%" width="50%" />
+<img src="../../../assets/images/GIS/pic_GIS_qgis_convertparam.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ncols        375
+nrows        400
+xllcorner    -8239264.087285323068
+yllcorner    4969648.230586678721
+cellsize     1.322408175983
+ 4.3700013160705566406 4.3799986839294433594 4.3800015449523925781 4.3899984359741210938 4.3999986648559570313 4.40000152587890625 4.4099984169006347656 4.4100012779235839844 4.4199962615966796875 4.3800001144409179688 4.350002288818359375 4.34999847412109375 4.3200025558471679688 4.2999978065490722656 4.2600064277648925781 4.2400059700012207031 4.2699961662292480469 4.2400035858154296875 4.1800122261047363281 4.1400046348571777344 4.1600022315979003906 4.0500097274780273438 3.7900218963623046875 3.4600341320037841797 3.1400392055511474609 3.1099975109100341797 3.0600023269653320313 3.0499999523162841797 3.0099999904632568359 2.9799988269805908203 2.9300086498260498047 2.9300012588500976563 2.9399988651275634766 2.9500048160552978516 2.9800000190734863281 2.9900000095367431641 2.9500086307525634766 2.9699938297271728516 2.9600000381469726563 2.9100098609924316406 2.9100024700164794922 2.880008697509765625 2.9099938869476318359 2.8999965190887451172 2.8900012969970703125 2.8300120830535888672 2.8599925041198730469 2.8599998950958251953 2.8600022792816162109 2.8300046920776367188 2.80999755859375 2.5200328826904296875 2.250030517578125 2.1800062656402587891 2.1600000858306884766 2.0700109004974365234 1.9900134801864624023 1.9799976348876953125 1.960017085075378418 2.0700097084045410156 2.2499890327453613281 2.3299877643585205078 2.3000047206878662109 2.2800035476684570313 2.2600047588348388672 2.2699854373931884766 2.2499976158142089844 2.2100062370300292969 2.1500110626220703125 2.1300036907196044922 2.1499953269958496094 2.1300024986267089844 2.0800096988677978516 1.9900146722793579102 1.839996337890625 1.5400146245956420898 1.3100316524505615234 1.3000121116638183594 1.3000146150588989258 1.3300158977508544922 1.3400244712829589844 1.3600023984909057617 1.3400061130523681641 1.0700476169586181641 0.88005125522613525391 0.65005612373352050781 0.5200341343879699707 0.44002562761306762695 0.40001222491264343262 0.36002075672149658203 0.41999632120132446289 0.43999755382537841797 0.42999878525733947754 0.35001343488693237305 0.3100134432315826416 0.26001587510108947754 0.28000122308731079102 0.28000488877296447754 0.40998047590255737305 0.76991450786590576172 1.2898888587951660156 1.5299340486526489258 1.6499669551849365234 1.5200023651123046875 1.3700134754180908203 1.4099841117858886719 1.3900023698806762695 1.4000023603439331055 1.3900060653686523438 1.3600085973739624023 1.3400061130523681641 1.3500049114227294922 1.3700023889541625977 1.3700109720230102539 1.3500097990036010742 1.3700048923492431641 1.2799901962280273438 0.66005617380142211914 0.050065927207469940186 -0.13995850086212158203 0.2899767756462097168 0.91994142532348632813 1.3199450969696044922 1.3899743556976318359 1.4399781227111816406 1.4399865865707397461 1.459986567497253418 1.450007319450378418 1.5499950647354125977 1.6199914216995239258 1.6299976110458374023 1.6399976015090942383 1.6499962806701660156 1.649998784065246582 1.649998784065246582 1.6599962711334228516 1.659998774528503418 1.6699975728988647461 1.6700011491775512695 1.6799999475479125977 1.6900000572204589844 1.7099976539611816406 1.7200000286102294922 1.7300000190734863281 1.7400000095367431641 1.7599976062774658203 1.7699999809265136719 1.7799999713897705078 1.7899999618530273438 1.80999755859375 1.8200000524520874023 1.8300037384033203125 1.8500049114227294922 1.8500049114227294922 1.8800023794174194336 1.9199975728988647461 1.959991455078125 1.9699939489364624023 1.9599976539611816406 1.959996342658996582 1.9499988555908203125 1.9499976634979248047 1.9500000476837158203 1.9600000381469726563 1.9799988269805908203 1.9999988079071044922 2.0099999904632568359 2.029998779296875 2.0499975681304931641 2.0699901580810546875 1.9800072908401489258 1.989995121955871582 1.9499988555908203125 1.909998774528503418 1.8300110101699829102 1.8899950981140136719 1.9399951696395874023 1.9200097322463989258 2.0199854373931884766 2.0300035476684570313 2.1099901199340820313 2.1199986934661865234 2.1200010776519775391 2.1200022697448730469 2.1799879074096679688 2.2399878501892089844 2.2499952316284179688 2.2799925804138183594 2.2600035667419433594 2.2699987888336181641 2.2700011730194091797 2.2700023651123046875 2.2800011634826660156 2.2900023460388183594 2.3000023365020751953 2.3100035190582275391 2.3200047016143798828 2.3300061225891113281 2.3500034809112548828 2.3700022697448730469 2.3900001049041748047 2.3999989032745361328 2.4199953079223632813 2.4199965000152587891 2.4099977016448974609 2.4099965095520019531 2.4000012874603271484 2.3900036811828613281 2.4000012874603271484 2.4200000762939453125 2.4300012588500976563 2.4400012493133544922 2.4600000381469726563 2.470001220703125 2.4800012111663818359 2.4999988079071044922 2.5100011825561523438 2.5200011730194091797 2.5300011634826660156 2.5499999523162841797 2.5600011348724365234 2.5700011253356933594 2.5899987220764160156 2.6000010967254638672 2.6199998855590820313 2.6399989128112792969 2.6500012874603271484 2.6799976825714111328 2.6500110626220703125 2.7699816226959228516 2.7000172138214111328 2.6600282192230224609 2.7100195884704589844 2.8999793529510498047 2.9399926662445068359 2.9500000476837158203 2.9699988365173339844 2.920013427734375 2.9299988746643066406 2.8300182819366455078 2.8799939155578613281 2.8899953365325927734 2.8200023174285888672 2.8199999332427978516 2.7700011730194091797 2.6700122356414794922 2.6900012493133544922 2.6900074481964111328 2.7000133991241455078 2.7899937629699707031 2.8299937248229980469 2.8499963283538818359 2.8799915313720703125 2.8600022792816162109 2.8799953460693359375 2.8600060939788818359 2.8800013065338134766 2.9599902629852294922 3.0099914073944091797 3.0399999618530273438 3.0899937152862548828 3.1099998950958251953 3.1499965190887451172 3.1999976634979248047 3.2999901771545410156 3.3099987506866455078 3.3299963474273681641 3.3599963188171386719 3.3999965190887451172 3.4399976730346679688 3.4400012493133544922 3.4899938106536865234 3.5599901676177978516 3.5699999332427978516 3.5799999237060546875 3.6199901103973388672 3.6499927043914794922 3.6899914741516113281 3.7199926376342773438 3.7599914073944091797 3.7899925708770751953 3.8299913406372070313 3.8699901103973388672 3.8999927043914794922 3.9399914741516113281 3.9699926376342773438 4.0099916458129882813 4.0399951934814453125 4.0799961090087890625 4.1299953460693359375 4.1799950599670410156 4.2299952507019042969 4.2899937629699707031 4.3399953842163085938 4.3899950981140136719 4.4399962425231933594 4.4999938011169433594 4.54999542236328125 4.5999889373779296875 4.60999298095703125 4.5800037384033203125 4.5899977684020996094 4.6299953460693359375 4.67998504638671875 4.6699976921081542969 4.6700024604797363281 4.6400046348571777344 4.6599936485290527344 4.7399849891662597656 4.7899913787841796875 4.8199954032897949219 4.8299951553344726563 4.92998504638671875 4.9499959945678710938 4.9799938201904296875 4.9899973869323730469 4.999996185302734375 4.9800024032592773438 5.0099930763244628906 5.0199952125549316406 5.0299954414367675781 5.0299963951110839844 5.0100016593933105469 5.0899906158447265625 5.2199840545654296875 5.2300038337707519531 5.25 5.249996185302734375 5.2499976158142089844 5.2300024032592773438 5.2600049972534179688 5.2999939918518066406 5.3399939537048339844 5.3799953460693359375 5.42999267578125 5.46999359130859375 5.5099940299987792969 5.54999542236328125 5.5899953842163085938 5.6399927139282226563 5.6799936294555664063 5.71999359130859375 5.7599954605102539063 5.8099927902221679688 5.8499937057495117188 5.8899936676025390625 5.9299936294555664063 5.9699950218200683594 6.019992828369140625 6.059993743896484375 6.0999937057495117188 6.1399936676025390625 6.1799950599670410156 6.2299928665161132813 6.2699937820434570313 6.309993743896484375 6.3499937057495117188 6.4099903106689453125 6.4299950599670410156 6.4499959945678710938 6.4799938201904296875 6.499996185302734375 6.5299954414367675781 6.5599961280822753906 6.60999298095703125 6.6499953269958496094 6.6999936103820800781 6.7499928474426269531 6.7899937629699707031 6.8299951553344726563 6.8799929618835449219 6.90999603271484375 6.9699912071228027344 7.0199937820434570313 7.0699939727783203125
+ 4.3799986839294433594 4.3800015449523925781 4.3899984359741210938 4.3900012969970703125 4.3999986648559570313 4.4099984169006347656 4.4100012779235839844 4.4199986457824707031 4.4000000953674316406 4.3400073051452636719 4.340000152587890625 4.3399987220764160156 4.3100037574768066406 4.2600111961364746094 4.2700109481811523438 4.2699999809265136719 4.2699985504150390625 4.2400021553039550781 4.2200045585632324219 4.1400179862976074219 4.1999974250793457031 4.0200209617614746094 3.7100367546081542969 3.4100232124328613281 3.1400318145751953125 3.0600132942199707031 3.0300061702728271484 3.0399975776672363281 2.9700171947479248047 2.9400098323822021484 2.9500000476837158203 2.9400000572204589844 2.94000244140625 2.9999890327453613281 3.0099964141845703125 3 2.9800035953521728516 2.9400098323822021484 2.9499938488006591797 2.9399976730346679688 2.9300036430358886719 2.9200024604797363281 2.8900048732757568359 2.8600108623504638672 2.8900001049041748047 2.8700072765350341797 2.8300108909606933594 2.8599963188171386719 2.8799927234649658203 2.8400022983551025391 2.7700159549713134766 2.5000329017639160156 2.2300293445587158203 2.1600110530853271484 2.1399989128112792969 2.0700047016143798828 2.0200011730194091797 1.9500098228454589844 2.0800011157989501953 2.2599925994873046875 2.3399951457977294922 2.3100047111511230469 2.3100011348724365234 2.290004730224609375 2.2800047397613525391 2.2100133895874023438 2.2100036144256591797 2.2200024127960205078 2.1800074577331542969 2.1400110721588134766 2.1300013065338134766 2.1299965381622314453 2.1099987030029296875 2.0199975967407226563 1.6600329875946044922 1.360015869140625 1.3400073051452636719 1.3900353908538818359 1.4200402498245239258 1.4900329113006591797 1.5500328540802001953 1.400054931640625 1.3700281381607055664 1.1900464296340942383 1.1100366115570068359 0.8800646662712097168 0.67007082700729370117 0.57005250453948974609 0.46004152297973632813 0.49001222848892211914 0.45000731945037841797 0.43999877572059631348 0.410003662109375 0.3800048828125 0.37999877333641052246 0.34000611305236816406 0.31000611186027526855 0.32000488042831420898 0.37999755144119262695 0.43000245094299316406 0.89990842342376708984 1.2299255132675170898 1.4999291896820068359 1.4099767208099365234 1.3299744129180908203 1.3199805021286010742 1.389979243278503418 1.4299974441528320313 1.4299987554550170898 1.4000011682510375977 1.3700048923492431641 1.4000011682510375977 1.4100023508071899414 1.4599902629852294922 1.4100048542022705078 1.4299767017364501953 1.1100012063980102539 0.50005370378494262695 -0.019898679107427597046 0.010051267221570014954 0.52999508380889892578 1.0699573755264282227 1.2699804306030273438 1.2500121593475341797 1.3099938631057739258 1.3299890756607055664 1.3699841499328613281 1.4999657869338989258 1.6099792718887329102 1.6199976205825805664 1.6199988126754760742 1.6299976110458374023 1.6299988031387329102 1.6399962902069091797 1.6399987936019897461 1.6400011777877807617 1.6499999761581420898 1.6599999666213989258 1.679997563362121582 1.6900000572204589844 1.7000000476837158203 1.7100000381469726563 1.7299976348876953125 1.7400000095367431641 1.75 1.7599999904632568359 1.7799975872039794922 1.7899999618530273438 1.7999999523162841797 1.8100036382675170898 1.8300049304962158203 1.8699963092803955078 1.9099913835525512695 1.8999950885772705078 1.9299938678741455078 1.9399939775466918945 1.929997563362121582 1.9299962520599365234 1.9299962520599365234 1.9299962520599365234 1.9299987554550170898 1.9300011396408081055 1.9499988555908203125 1.9699988365173339844 1.9899988174438476563 2.0099987983703613281 2.0199964046478271484 2.0399963855743408203 2.0499999523162841797 2.0100061893463134766 1.950007319450378418 1.959996342658996582 1.9000085592269897461 1.860010981559753418 1.8400037288665771484 1.9099853038787841797 1.9499914646148681641 1.9799988269805908203 1.9999988079071044922 2.0699937343597412109 2.1099925041198730469 2.1199986934661865234 2.1300013065338134766 2.1400012969970703125 2.1399989128112792969 2.1999878883361816406 2.2199988365173339844 2.2499988079071044922 2.2699987888336181641 2.2700035572052001953 2.2800035476684570313 2.290004730224609375 2.3000047206878662109 2.320003509521484375 2.3300046920776367188 2.3500034809112548828 2.3700022697448730469 2.3899989128112792969 2.399997711181640625 2.4099965095520019531 2.4099965095520019531 2.399997711181640625 2.3999965190887451172 2.3900001049041748047 2.3800024986267089844 2.3800024986267089844 2.4000000953674316406 2.4100012779235839844 2.4200012683868408203 2.4399988651275634766 2.4500012397766113281 2.4600012302398681641 2.4799988269805908203 2.4900012016296386719 2.5000011920928955078 2.5100011825561523438 2.5299999713897705078 2.5400011539459228516 2.5500011444091796875 2.5699987411499023438 2.5800011157989501953 2.5900011062622070313 2.6000010967254638672 2.6199998855590820313 2.6399989128112792969 2.6500012874603271484 2.6700000762939453125 2.7099988460540771484 2.7399964332580566406 2.7699925899505615234 2.7600023746490478516 2.8499913215637207031 2.9199914932250976563 2.9200024604797363281 2.9200074672698974609 2.9599926471710205078 2.9800012111663818359 2.9799976348876953125 2.9300074577331542969 2.8800134658813476563 2.8799989223480224609 2.8899953365325927734 2.8200109004974365234 2.8199987411499023438 2.7300062179565429688 2.6700086593627929688 2.7199988365173339844 2.7500061988830566406 2.8199951648712158203 2.8299987316131591797 2.8200023174285888672 2.839992523193359375 2.8399913311004638672 2.8599936962127685547 2.8600084781646728516 2.8900024890899658203 2.910003662109375 2.9599976539611816406 2.9899952411651611328 3.0699839591979980469 3.0899987220764160156 3.1299953460693359375 3.1599977016448974609 3.2299914360046386719 3.3199839591979980469 3.3100011348724365234 3.3199987411499023438 3.3599951267242431641 3.4099926948547363281 3.4599902629852294922 3.4500012397766113281 3.4899988174438476563 3.5499925613403320313 3.5799987316131591797 3.5900011062622070313 3.5800061225891113281 3.6199924945831298828 3.6599915027618408203 3.6899926662445068359 3.7299914360046386719 3.7599925994873046875 3.7999913692474365234 3.8299925327301025391 3.869991302490234375 3.9099926948547363281 3.9399964809417724609 3.9799964427947998047 4.0299954414367675781 4.0899939537048339844 4.1399950981140136719 4.1899952888488769531 4.2399959564208984375 4.2999939918518066406 4.3499951362609863281 4.3999962806701660156 4.4599938392639160156 4.5099954605102539063 4.5599865913391113281 4.5599951744079589844 4.5599951744079589844 4.5799927711486816406 4.5799975395202636719 4.6299915313720703125 4.6100001335144042969 4.6399865150451660156 4.6899852752685546875 4.6500096321105957031 4.6300096511840820313 4.6999888420104980469 4.7699913978576660156 4.809993743896484375 4.8000063896179199219 4.9099888801574707031 4.9399952888488769531 4.9599962234497070313 4.9799952507019042969 4.9799962043762207031 4.9799976348876953125 4.9799952507019042969 4.9899950027465820313 4.9999985694885253906 5 5.0000014305114746094 5.0899877548217773438 5.2199778556823730469 5.2699818611145019531 5.2699975967407226563 5.2200093269348144531 5.2299976348876953125 5.2300000190734863281 5.2599964141845703125 5.2899951934814453125 5.3299951553344726563 5.3799929618835449219 5.4199938774108886719 5.4599938392639160156 5.4999952316284179688 5.5499930381774902344 5.5899939537048339844 5.6299939155578613281 5.6699938774108886719 5.709995269775390625 5.7599930763244628906 5.7999939918518066406 5.8399939537048339844 5.8799939155578613281 5.9199953079223632813 5.9699926376342773438 6.0099940299987792969 6.0499939918518066406 6.0899939537048339844 6.1299953460693359375 6.17999267578125 6.21999359130859375 6.2599940299987792969 6.29999542236328125 6.339996337890625 6.3899912834167480469 6.4099950790405273438 6.4399938583374023438 6.4599962234497070313 6.4899950027465820313 6.5199952125549316406 6.5599951744079589844 6.5999951362609863281 6.649993896484375 6.6999926567077636719 6.7399950027465820313 6.7799954414367675781 6.8299927711486816406 6.8699927330017089844 6.9099950790405273438 6.9599938392639160156 7.019992828369140625 7.0699939727783203125
+ 4.3799986839294433594 4.3899984359741210938 4.3900012969970703125 4.3999986648559570313 4.40000152587890625 4.4099984169006347656 4.4199986457824707031 4.4199976921081542969 4.3800001144409179688 4.34000396728515625 4.3399987220764160156 4.3300013542175292969 4.310001373291015625 4.3000016212463378906 4.3699865341186523438 4.2700133323669433594 4.2599987983703613281 4.230007171630859375 4.2400045394897460938 4.2100048065185546875 4.2399973869323730469 4.0100464820861816406 3.7000513076782226563 3.3000390529632568359 3.1300122737884521484 3.0899999141693115234 3.0500011444091796875 3.0299975872039794922 3.0399937629699707031 2.9900085926055908203 2.9600036144256591797 2.9300036430358886719 2.9599976539611816406 2.9699988365173339844 2.9899952411651611328 2.9900000095367431641 2.9900035858154296875 2.9800035953521728516 2.9100146293640136719 2.910003662109375 2.9499976634979248047 2.9300024509429931641 2.9000024795532226563 2.9200012683868408203 2.9200062751770019531 2.9100000858306884766 2.8799977302551269531 2.8600022792816162109 2.8400034904479980469 2.8200023174285888672 2.8299839496612548828 2.5000269412994384766 2.2000329494476318359 2.1800000667572021484 2.1100084781646728516 2.040008544921875 1.9800072908401489258 1.9600121974945068359 2.2199804782867431641 2.3799817562103271484 2.3799977302551269531 2.3200132846832275391 2.3200011253356933594 2.3100011348724365234 2.3099999427795410156 2.2700035572052001953 2.2400097846984863281 2.2499976158142089844 2.2000074386596679688 2.1899988651275634766 2.1300160884857177734 2.1000046730041503906 2.0800046920776367188 1.9099962711334228516 1.5700049400329589844 1.1900391578674316406 1.3799974918365478516 1.7299927473068237305 1.780029296875 1.8300147056579589844 1.8800170421600341797 1.7000830173492431641 1.5701270103454589844 1.3901427984237670898 1.3300671577453613281 1.180058598518371582 1.0400658845901489258 0.90005612373352050781 0.69008910655975341797 0.62009519338607788086 0.47007080912590026855 0.42001587152481079102 0.41001343727111816406 0.38999998569488525391 0.36999145150184631348 0.34999755024909973145 0.33000001311302185059 0.36999389529228210449 0.41998898983001708984 0.49998170137405395508 0.61997067928314208984 0.94994014501571655273 1.1899280548095703125 1.129974365234375 1.0399987697601318359 1.1499657630920410156 1.2899596691131591797 1.4499609470367431641 1.4200072288513183594 1.3800085783004760742 1.3800023794174194336 1.4399902820587158203 1.4400000572204589844 1.4300011396408081055 1.4000036716461181641 1.2600342035293579102 0.80006837844848632813 0.33005860447883605957 0.29005491733551025391 0.46004152297973632813 1.0099560022354125977 1.2599645853042602539 1.3099803924560546875 1.3299878835678100586 1.3199878931045532227 1.2599927186965942383 1.2799878120422363281 1.3499792814254760742 1.5499401092529296875 1.6099426746368408203 1.6099975109100341797 1.6199963092803955078 1.620000004768371582 1.6200011968612670898 1.629999995231628418 1.6499975919723510742 1.6599999666213989258 1.6699999570846557617 1.6799999475479125977 1.6999976634979248047 1.7100000381469726563 1.7200000286102294922 1.7300000190734863281 1.7499976158142089844 1.7599999904632568359 1.7699999809265136719 1.7799999713897705078 1.7999999523162841797 1.8100048303604125977 1.8499951362609863281 1.8899902105331420898 1.8799976110458374023 1.8799962997436523438 1.9099950790405273438 1.9099950790405273438 1.899998784065246582 1.8999975919723510742 1.8999975919723510742 1.899998784065246582 1.9000011682510375977 1.9199987649917602539 1.9399988651275634766 1.9599988460540771484 1.9799988269805908203 1.9999914169311523438 2.0199913978576660156 2.0000023841857910156 2.0299963951110839844 2.05999755859375 2.0200047492980957031 1.95001220703125 1.94000244140625 1.9100011587142944336 1.9100011587142944336 1.8500086069107055664 1.8600012063980102539 1.9199926853179931641 1.9999890327453613281 2.0099999904632568359 2.0899901390075683594 2.0899987220764160156 2.1199877262115478516 2.1499879360198974609 2.1599988937377929688 2.130008697509765625 2.1599903106689453125 2.2299914360046386719 2.2700011730194091797 2.2800061702728271484 2.3000047206878662109 2.320003509521484375 2.3400022983551025391 2.3500046730041503906 2.3700010776519775391 2.3800001144409179688 2.3999965190887451172 2.4099953174591064453 2.399997711181640625 2.3899977207183837891 2.3899965286254882813 2.3799989223480224609 2.3700010776519775391 2.3700010776519775391 2.3800013065338134766 2.3900012969970703125 2.4000012874603271484 2.4199988842010498047 2.4300012588500976563 2.4400012493133544922 2.4500012397766113281 2.4700000286102294922 2.4800012111663818359 2.4900012016296386719 2.5099999904632568359 2.5200011730194091797 2.5300011634826660156 2.5499987602233886719 2.5600011348724365234 2.5700011253356933594 2.5800011157989501953 2.5999999046325683594 2.6100010871887207031 2.6200010776519775391 2.6500012874603271484 2.6700000762939453125 2.6899988651275634766 2.7000012397766113281 2.7200000286102294922 2.7399988174438476563 2.7400097846984863281 2.7700023651123046875 2.8699865341186523438 2.9200000762939453125 2.9400036334991455078 2.9800012111663818359 2.940006256103515625 3.0099878311157226563 2.9600098133087158203 2.9400048255920410156 2.9399964809417724609 2.8700144290924072266 2.8599987030029296875 2.8399987220764160156 2.809993743896484375 2.6900146007537841797 2.6800062656402587891 2.7599952220916748047 2.8299925327301025391 2.850002288818359375 2.8300034999847412109 2.8300011157989501953 2.8000035285949707031 2.7700133323669433594 2.8300061225891113281 2.9299988746643066406 2.9400122165679931641 2.9600086212158203125 2.9900000095367431641 2.980010986328125 3.0199952125549316406 3.0999853610992431641 3.1299927234649658203 3.1699879169464111328 3.2299854755401611328 3.2799890041351318359 3.3099951744079589844 3.3199987411499023438 3.3599951267242431641 3.3999927043914794922 3.4299938678741455078 3.4499952793121337891 3.5199866294860839844 3.5499901771545410156 3.5999889373779296875 3.6099987030029296875 3.6199998855590820313 3.6000072956085205078 3.6299977302551269531 3.6599926948547363281 3.6999914646148681641 3.7299926280975341797 3.7699913978576660156 3.7999951839447021484 3.839996337890625 3.8899953365325927734 3.9399952888488769531 3.9899952411651611328 4.0399961471557617188 4.0999937057495117188 4.1499953269958496094 4.1999959945678710938 4.2599940299987792969 4.3099951744079589844 4.3599963188171386719 4.4199938774108886719 4.4699926376342773438 4.5199875831604003906 4.5000014305114746094 4.5199975967407226563 4.5199952125549316406 4.5399975776672363281 4.5599961280822753906 4.6099905967712402344 4.5900015830993652344 4.560001373291015625 4.6199865341186523438 4.6899876594543457031 4.6900000572204589844 4.6800036430358886719 4.7699875831604003906 4.79999542236328125 4.8399939537048339844 4.9299817085266113281 4.9299998283386230469 4.9499974250793457031 4.9599976539611816406 4.9499974250793457031 4.959995269775390625 4.9400048255920410156 4.9600014686584472656 4.9999904632568359375 4.9999985694885253906 5.0100064277648925781 5.0799984931945800781 5.16999053955078125 5.1700038909912109375 5.2499866485595703125 5.2499985694885253906 5.2200045585632324219 5.2299985885620117188 5.2599964141845703125 5.2799978256225585938 5.3299927711486816406 5.3699936866760253906 5.4099936485290527344 5.4499950408935546875 5.4999928474426269531 5.5399937629699707031 5.5799937248229980469 5.6199936866760253906 5.6599950790405273438 5.7099928855895996094 5.7499938011169433594 5.7899937629699707031 5.8299937248229980469 5.8699951171875 5.9199929237365722656 5.9599938392639160156 5.9999938011169433594 6.0399937629699707031 6.0799951553344726563 6.1299929618835449219 6.1699938774108886719 6.2099938392639160156 6.2499952316284179688 6.2999930381774902344 6.3499927520751953125 6.3699960708618164063 6.3899960517883300781 6.4199953079223632813 6.4499950408935546875 6.4799952507019042969 6.5099964141845703125 6.559993743896484375 6.5999951362609863281 6.649993896484375 6.6899952888488769531 6.7399926185607910156 6.7799940109252929688 6.8199939727783203125 6.8499960899353027344 6.9099926948547363281 6.9599938392639160156 7.0199913978576660156 7.0699939727783203125
+</code></pre></div></div>
+
+<h1 id="step-4">Step 4</h1>
+<h2 id="3d-mesh-generation">3D Mesh Generation</h2>
+
+<p>This part will be conducted inside Rhino3D, so while you do not need to know anything about scripting in Rhino, we do assume you know the basic functions of Rhino to be able to continue.</p>
+
+<p>We are using a custom Rhino Python Script to generate the topography from the exported .asc file. First you need to launch the <strong>Python Script Editor</strong> by clicking <strong>Tools &gt; PythonScript &gt; Edit</strong>. If you are on <strong>OSX</strong> you can just type in <strong>RunPythonScript</strong>.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_rhinopython.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>Then you need the python script, you can download here.</p>
+
+<ul class="actions">
+	<li><a href="../../../assets/files/TerrainGen02.py" class="button">Download Python File</a></li>
+</ul>
+
+<p>If you do not care to learn the specifics of the script, you can just hit <strong>Green Play Button</strong> to execute the script, it will ask you to locate a <strong>.asc</strong> file, load it and a topo mesh will be generated in no time.</p>
+
+<p><img src="../../../assets/images/GIS/pic_GIS_rhinopython_window.JPG" alt="qgis" height="50%" width="50%" /></p>
+
+<p>If you are interested in the specifics or have problem generating a mesh, read on.</p>
+
+<p>First, the most important thing is to make sure the header information in the .asc file is correct. The first 5 rows of data should look like this. Row 1 showing the number of columns, row 2 showing the number rows, row 3 is the lower left corner of x, row 4 is the lower left corner of y, and row 5 is the pixel size / cellsize. If your cellsize is smaller than 1, then it means the unit of your DEM layer is not in meter, which also means you did not reproject to Google Maps Mercator system. You need to go back and do that again.</p>
+
+<p>Also, row 6 should be the start of your actual data. If row 6 reads <strong>NoData Value</strong> then that means during the QGIS data processing steps you clicked on something you shouldn’t have. But this mistake is relatively easy to correct, you just need to delete that line in the file.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ncols        375
+nrows        400
+xllcorner    -8239264.087285323068
+yllcorner    4969648.230586678721
+cellsize     1.322408175983
+</code></pre></div></div>
+
+<p>Now onto explaining the python code. The first few lines are to import all the libraries, <strong>Math</strong> is to use some trigonometric functions, <strong>time</strong> is to calculate the amount of time it takes to generate the mesh, and <strong>rhinoscriptsyntax</strong> is to call all the rhino functions.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">rhinoscriptsyntax</span> <span class="k">as</span> <span class="n">rs</span>
+
+<span class="c">#timer object</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The following lines uses a Rhino function <strong>rs.OpenFileName()</strong> to open a dialog box and ask the user to locate a file restricting the extension to <strong>.asc</strong>. Then it uses a python function <strong>open()</strong> to open the file, then read all the content with <strong>readline()</strong>, and then close the file.</p>
+
+<p>The <strong>lines</strong> variable is a <a href="https://www.w3schools.com/python/python_lists.asp"><strong>list</strong></a> consisting of items, and in this case, each item is each line of text in the file.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#open and read the Arc/Grid file
+fname = rs.OpenFileName("Open", "Arc/Grid ASCII Files (*.asc) |*.asc||")
+f = open(fname)
+lines = f.readlines()
+f.close()
+</code></pre></div></div>
+
+<p><a href="https://www.w3schools.com/python/python_lists.asp"><strong>lines[0]</strong></a> points to the first item in the list (most programming languages begins counting with 0), it reads the whole line as a single <a href="https://www.w3schools.com/python/python_strings.asp"><strong>string</strong></a> variable. Then <a href="https://www.w3schools.com/python/ref_string_split.asp"><strong>split()</strong></a> separates the string into individual items. In our case, the first line contains 2 items, ncols and 375, so <strong>[n,ncol]</strong> are the 2 variables assigned to the values being read. <strong>n = ncols</strong> and <strong>ncol = 375</strong>.</p>
+
+<p>Now that <strong>ncol</strong> is assigned <strong>375</strong>, we need to convert that to an <strong>integer</strong> because it was read as a string value.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[n,ncol]=lines[0].split()
+[n,nrow]=lines[1].split()
+
+ncol = int(ncol)
+nrow = int(nrow)
+</code></pre></div></div>
+
+<p>Row 3 and 4 of the data file point to the minimum x and y locations, we do the same to assign them to 2 new variables. However, we will not be using these values because we will generate the mesh at the cartesian origin. But this information is here in case we need to use it to reference some other information.</p>
+
+<p>Row 5 is the cellsize in meters. dx and dy are variables assigned to the variable and then converted to a <a href="https://www.programiz.com/python-programming/methods/built-in/float">floating point number</a>. As a side note, a shorter form can be done in a single line dx = float(cellsize) and dy = float(cellsize), but this long form is easier to understand for education reason.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[n,xmin]=lines[2].split()
+[n,ymin]=lines[3].split()
+
+[n,cellsize]=lines[4].split()
+
+dx = cellsize
+dy = cellsize
+
+s = 5
+
+dx = float(dx)
+dy = float(dy)
+</code></pre></div></div>
+
+<p>Next is to read the whole sequence of numbers of elevation values. In python, this is relatively simple. First declare an empty list with a square bracket named <strong>Z</strong>, then using a for loop, <strong>for s in xrange(s, len(lines)):</strong>, go through every <strong>“line”</strong> in <strong>lines</strong>, and using Python’s <a href="https://www.programiz.com/python-programming/methods/list/extend"><strong>Extend</strong></a> function and combining with <strong>split()</strong>, it turns all the numbers in each line and turn them into a legible <a href="https://snakify.org/en/lessons/two_dimensional_lists_arrays/"><strong>list of lists</strong></a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>z = []
+for s in xrange (s, len(lines)):
+    z.extend (lines[s].split())
+</code></pre></div></div>
+
+<p>Last but not least, we need to assign values for X and Y. We already know the number of rows and columns and the cellsize, so by using 2 for loops we can assign proper values to the lists.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x = []
+y = []
+
+for v in range(0,nrow):
+    for u in xrange(0,ncol):
+        x.append(u*dx)
+        y.append(v*dy)
+</code></pre></div></div>
+
+<p>Now that we have all the x,y,z values, we are ready to generate the mesh. Since mesh generation is specific to Rhino, we need to follow Rhino’s precedure, we need to assign face vertices, vertex coordinates, and assign them to a mesh. You can find a sample <a href="https://developer.rhino3d.com/samples/rhinocommon/add-mesh/">here</a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># generate face vertices
+face = []
+for n in range(0,(nrow-1)*(ncol)):
+    if n%(ncol) != 0:
+        face.append((n-1,n,n+ncol,n-1+ncol))
+
+# generate vertex coordinates
+vertices = []
+for n in range(0,len(z)):
+    vertices.append((x[n],y[n]*-1,float(z[n])))
+
+#make mesh in rhino
+rs.AddMesh(vertices,face)
+</code></pre></div></div>
+
+<p>And that’s it!</p>
+
+<div class="sketchfab-embed-wrapper"><iframe width="100%" height="480" src="https://sketchfab.com/models/a7979bace34442d1b6655c37bd348a5b/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+​
+<p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+    <a href="https://sketchfab.com/3d-models/world-trade-center-dem-a7979bace34442d1b6655c37bd348a5b?utm_medium=embed&amp;utm_source=website&amp;utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">World Trade Center DEM</a>
+    by <a href="https://sketchfab.com/itl?utm_medium=embed&amp;utm_source=website&amp;utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">itl</a>
+    on <a href="https://sketchfab.com?utm_medium=embed&amp;utm_source=website&amp;utm_campaign=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+</p>
+</div>
+
+<hr />
+
+<h1 id="summary">Summary</h1>
+
+<h3 id="what-you-have-learned">What You have Learned</h3>
+
+<ul>
+  <li>How to create and assign value to a variable</li>
+  <li>How to create and assign values a list</li>
+  <li>How to create and assign values a list of lists</li>
+  <li>How to bring data into Python as text or csv files</li>
+  <li>How to create and use a counter</li>
+  <li>How to write a basic function</li>
+  <li>How to call a basic function</li>
+  <li>Basic loop structure - how to use for-loops</li>
+  <li>How to import packages in Python</li>
+  <li>How to use basic functions of packages like Pandas, Plotly, BeautifulSoup</li>
+  <li>How to create interactive plots with Plotly.</li>
+</ul>
+</p>
+	</div>
+</section>
+
+</div>
+
+    <!-- Contact -->
+<section id="contact">
+	<div class="inner">
+		<section>
+			<div class="contact-method">
+				<span class="icon alt fa-envelope"></span>
+				<h3>Email</h3>
+				<a href="#">itl@pratt.edu</a>
+			</div>
+			<div class="contact-method">
+				<span class="icon alt fa-phone"></span>
+				<h3>Phone</h3>
+				<span>(718) 399-4267</span>
+			</div>
+			<div class="contact-method">
+				<span class="icon alt fa-home"></span>
+				<h3>Address</h3>
+				<span>
+				
+					200 Willoughby Avenue Engineering Building 002<br />
+				
+				
+					Brooklyn,
+				
+				
+					NY
+				
+				
+					11205<br />
+				
+				
+					United States of America
+				
+				</span>
+			</div>
+		</section>
+		<section class="split">
+			<section>
+
+
+
+			</section>
+		</section>
+	</div>
+</section>
+
+<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<ul class="icons">
+				
+				<li><a href="https://twitter.com/" class="icon alt fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+				
+				
+				
+				<li><a href="https://facebook.com/" class="icon alt fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+				
+				
+				<li><a href="https://instagram.com" class="icon alt fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+				
+				
+				
+				
+				
+				<li><a href="https://github.com/" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+				
+				
+				<li><a href="https://slack.com/" class="icon alt fa-slack" target="_blank"><span class="label">Slack</span></a></li>
+				
+				
+			</ul>
+			<ul class="copyright">
+				<li>&copy; ITL Workshop Factory</li>
+				<li>Design: <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+				<li>Jekyll integration: <a href="http://andrewbanchi.ch" target="_blank">Andrew Banchich</a></li>
+
+			</ul>
+		</div>
+	</footer>
+
+</div>
+
+<!-- Scripts -->
+	<script src="http://localhost:4000/itlworkshops/assets/js/jquery.min.js"></script>
+	<script src="http://localhost:4000/itlworkshops/assets/js/jquery.scrolly.min.js"></script>
+	<script src="http://localhost:4000/itlworkshops/assets/js/jquery.scrollex.min.js"></script>
+	<script src="http://localhost:4000/itlworkshops/assets/js/skel.min.js"></script>
+	<script src="http://localhost:4000/itlworkshops/assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="http://localhost:4000/itlworkshops/assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="http://localhost:4000/itlworkshops/assets/js/main.js"></script>
+
+
+</body>
+
+</html>
