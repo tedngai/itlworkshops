@@ -1,36 +1,45 @@
-# site settings
-title: ITL
-subtitle: Workshop Factory
-email: itl@pratt.edu
-description: A repository of technology workshops<br /> hosted by the ITL.
-baseurl: "/itlworkshops" # the subpath of your site, e.g. /blog
-url: # the base hostname & protocol for your site
-author:
-street_address: 200 Willoughby Avenue Engineering Building 002
-city: Brooklyn
-state: NY
-zip_code: 11205
-country: United States of America
-phone: (718) 399-4267
+# Site settings
+title_left    : "pratt "
+title_right   : "itl" # default: ""
+description   : "This is a repository of our ongoing projects."
+keywords      : "technology, education, art, design, new york, brooklyn, architecture"
+url           : https://tedngai.github.io # site url
+baseurl       : "/itlworkshops" # apply repo name like "/myproject" if used under gh-pages branch, else (under master branch) just leave empty/blank
+cover         : "" # image uri like logo/cover image for site seo
 
-# homepage tiles
-tiles-source: posts # accepts "posts" or "pages"
-tiles-count: 12
+google_analytics  : UA-XXXXX-XX
+twitter_username  : ""
+comments_enabled  : false # if enabled (set to true), please provide your disqus_username
+disqus_shortname  : ""
+postshare_enabled : false
 
-# social settings
-500px_url:
-facebook_url: https://facebook.com/
-github_url: https://github.com/
-#gitlab_url: https://gitlab.com/u/andrewbanchich
-#googleplus_url: https://plus.google.com/u/0/+AndrewBanchich
-instagram_url: https://instagram.com
-#linkedin_url: https://www.linkedin.com/in/andrew-banchich-a4ba1195
-pinterest_url:
-slack_url: https://slack.com/
-twitter_url: https://twitter.com/
+# Build settings
+permalink   : /:year/:title/
+markdown    : kramdown
+highlighter : rouge
 
-# build settings
-markdown: kramdown
+source      : ./
+destination : ./_site
 
+# Sass configuration
 sass:
-  style: compressed
+  sass_dir  : assets/scss
+  style     : compressed # expanded
+
+# Author settings
+author:
+  name     : "ITL"
+
+plugins:
+  - jekyll-sitemap
+  - bourbon
+  - jekyll-paginate
+
+# navbar pages
+navbar:
+  - slug : about
+    title: About
+  - slug : blog
+    title: Blog
+
+exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md", "script"]

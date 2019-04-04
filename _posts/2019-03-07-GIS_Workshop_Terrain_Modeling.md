@@ -35,18 +35,18 @@ To begin this workshop, we will first go download our desired DEM data. Go to [T
 You can click on **Show Availability** to see if the data at your specific resolution is available for your area.
 
 
-![national map](../../../assets/images/GIS/pic_GIS_nationalmap.JPG){:height="100%" width="100%"}
+![national map](../../assets/images/GIS/pic_GIS_nationalmap.JPG){:height="80%" width="80%" .center-image}
 
 
 On the map, zoom to your area and make sure **Current Extent** is hightlighted, then **PRESS Find Products**, the web app will launch a search using the current extent as search parameter, and you will be presented with a list of search results. 
 
 On the results list, you can click on **Footprint** to see where the DEM tile is. In our case, Low Manhattan is splitted into 2 tiles, so we will need to download both tiles. Simply click on **Download** for each tile and save the files to a folder of your choice.  
 
-![national map](../../../assets/images/GIS/pic_GIS_nationalmap_footprint.JPG){:height="100%" width="100%"}
+![national map](../../assets/images/GIS/pic_GIS_nationalmap_footprint.JPG){:height="80%" width="80%" .center-image}
 
 For each download there should be a **.ZIP** file, and you will find many files when unzipped so unzip them into a separate folder. In the long list of files, you should see one with an extension **.IMG**. If you are on Windows and do not see file extensions, please follow this link - [Show file extension.](https://www.howtohaven.com/system/show-file-extensions-in-windows-explorer.shtml)
 
-![national map](../../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG){:height="50%" width="50%"}
+![national map](../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG){:height="60%" width="60%" .center-image}
 
 
 
@@ -61,7 +61,7 @@ QGIS is an opensource GIS platform that has a very active community of developer
 
 When you are done installing the software, **launch QGIS**. On the upper left corner, click **Project > New**, you should get a blank screen as the following.
 
-![national map](../../../assets/images/GIS/pic_GIS_qgis.JPG){:height="50%" width="50%"}
+![national map](../../assets/images/GIS/pic_GIS_qgis.JPG){:height="60%" width="60%" .center-image}
 
 ***
 
@@ -77,18 +77,19 @@ Almost all dataset we downloaded need to be process before they can become usefu
 
 You should have QGIS running and have a blank screen. Click **Raster > Miscellaneous > Merge** and a window should pop up with a number of parameters.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_merge.JPG){:height="50%" width="50%"}
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_mergeparam.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_merge.JPG){:height="40%" width="40%" .center-image}
+
+![qgis](../../assets/images/GIS/pic_GIS_qgis_mergeparam.JPG){:height="50%" width="50%" .center-image}
 
 Under **Input Layers**, click on the **....** button and then **Add File(s)...**, select the 2 **.IMG** files you downloaded earlier, then click **OK**.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_addfiles.JPG){:height="50%" width="50%" .center-image .center-image}
 
 Under **Merged**, click on the **....** button and then **Save to File...**, give your file a name and choose **TIF files (\*.tif)** as file type, then click **SAVE**. 
 
 Make sure **Open output file after running algorithm** is **checked**, then click **RUN**. If everything is working properly, you should see something like this on your screen.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_demmerged.JPG){:height="100%" width="100%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_demmerged.JPG){:height="80%" width="80%" .center-image}
 
 ***
 
@@ -96,17 +97,17 @@ Make sure **Open output file after running algorithm** is **checked**, then clic
 
 All maps are 2-dimensional projections from earth's spherical shape, and there are many projection systems used across and favored by multiple disciplines.
 
-![qgis](../../../assets/images/GIS/earhprojections.jpg)
+![qgis](../../assets/images/GIS/earhprojections.jpg){: .center-image}
 
 In the world of GIS, projection systems are represented by a **EPSG** number, and choose the right projection system is critical to our following tasks. DEMs use many different projection systems, for this 1-meter resolution data, it uses **EPSG:26918** whereas the 1/9 arc-second resolution data, it uses **EPSG:4269**, which is a Mercator projection that causes heavy distortions. So depends on what data source you are using, you have to be aware of the projection system it uses.
 
-![qgis](../../../assets/images/GIS/compare-mercator-utm-wgs-projections.jpg)
+![qgis](../../assets/images/GIS/compare-mercator-utm-wgs-projections.jpg){: .center-image}
 
 The consequence of this is, if we want to download 3D content from Google Earth and place them onto this terrain, they will not match. The solution is to re-project this raster file to one that's used by Google.
 
 On the left column of QGIS, Under Layer, double click on the layer named **Merged**, you will see the **Layer Properties** window pop up, and under the **Information** tap, you should see this.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo.JPG){:height="75%" width="75%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_layerinfo.JPG){:height="60%" width="60%" .center-image}
 
 **CRS** - is the current projection system used, it should say EPSG:26918 - NAD83 with our dataset. In case you are working with other types of files and might have some other projection type, regardless, this is where you can find the information.
 
@@ -114,23 +115,23 @@ Also take note that this is where you find the file units and pixel size, which 
 
 Now click on **Raster > Projections > Warp (Reproject...)**, a window should pop up.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_warp.JPG){:height="50%" width="50%"}
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_warpparam.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_warp.JPG){:height="30%" width="30%" .center-image}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_warpparam.JPG){:height="50%" width="50%" .center-image}
 
 Set the **Input Layer** to the layer we were just working with, **Source CRS** to **EPSG:4269**, **Target CRS** to **EPSG:900913 - Google Maps Global Mercator**. You can do that by clicking on the little globe icon to the right, which brings up another window. Under **Filter**, just type in google and it should leave you with only 1 choice under **Coordinate Reference System**, click on it and click **OK** to exit. 
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_googlecrs.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_googlecrs.JPG){:height="50%" width="50%" .center-image}
 
 Back in the Warp parameter window, click on the **....** button under **Reprojected**, give it a file name and choose **TIF files (\*.tif)** as file type. Click **Save** and then **Run**, you should have a new layer in your QGIS' main window shortly. 
 
 Once the new layer is ready, you might notice that it looks exactly the same as your previous layer. This is due to a feature in QGIS that automatically matches all the **CRS**. Since the ESPG:26918 is the first layer we opened, QGIS automatically set the project to use that as default, forcing all subsequent non-matching CRS to use ESPG:26918. All we need to do now is to change the **Project CRS** to the one used by the new layer. To do that, we **Right-Click** on the new layer, select **Set CRS > Set Project CRS from Layer**. Your DEM should look something like this.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_setcrsfromlayer.JPG){:height="50%" width="50%"}
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_reprojected.JPG){:height="100%" width="100%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_setcrsfromlayer.JPG){:height="40%" width="40%" .center-image}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_reprojected.JPG){:height="100%" width="100%" .center-image}
 
 Before we move on, there is something you should double check. When we reprojected the DEM to **Google Maps Global Mercator** system, your map units should change to meters and pixel size should reflect the DEM resolution you used, which in our case is 1-meter. So double-click on the layer to check the **Information** tab of the **Layer Properties**.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_reprounit.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_reprounit.JPG){:height="50%" width="50%" .center-image}
 
 
 
@@ -140,48 +141,48 @@ Since the majority of the DEM file is somewhat dark, we need to change the visua
 ### Channel and Bitdepth
 First thing we need to notice is the DEM file is a single channel 32-bit file. We can talk about this in 2 parts - channels and bit depth. Single channel image usually can be seen as black and white images, or one can also use it as false color images. 3 channel images are typically RGB, representing 3 different spectrum of light information. Although for other applications such as ecological studies, you can find NRG (infrarred, red, green) used to investigate plant health. You can also have 4 channel images such as RGBA, with A being the alpha channel indicating transparency. This is a relatively simple concept to grasp. 
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_bitdepth.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_bitdepth.JPG){:height="50%" width="50%" .center-image}
 
 Bitdepth on the other hand, is the amount of information each pixel is capable of storing. With 1-bit 1^2 = 2, 2-bit 2^2 = 4, 4-bit 2^4 = 16, 8-bth 2^8 = 256. In the case of this DEM file, it contains 32-bit 2^32 = 4.29 billion levels of variations. This high bit depth format is used to better approximate the terrain levels. Imagine a 2 bit file is used to store information for a terrain that goes from 0 to 80 meters, each color would represent 20 meter difference. 
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_quantization.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_quantization.JPG){:height="50%" width="50%" .center-image}
 
 Our computer screens are mostly capable of displaying 8-bit colors, that's 3 channels each with 8-bit, so 256 x 256 x 256 = 16.7 million color variations. But since our DEM file has only 1 channel and we are showing the image as black and white, we are restricted to only 256 levels. So what is happening is akin to jamming 32-bit space into 8-bit space, a huge amount of information would be lost.  
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_rgbbitdepth.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_rgbbitdepth.JPG){:height="50%" width="50%" .center-image}
 
 What we can do to mitigate this situation is to remap color information to match the landmass variation. So **Double-Click** on the **Layer** to show the **Layer Properties**. Go to **Symbology**, change **Render Type** to **Singleband pseudocolor**, change the **Mode** to **Equal Interval**, click **Apply** and you should see something like this.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology01.JPG){:height="50%" width="50%"}
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology02.JPG){:height="100%" width="100%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_symbology01.JPG){:height="50%" width="50%" .center-image}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_symbology02.JPG){:height="100%" width="100%" .center-image}
 
 We have just reproduced the black & white image with false color mapping. Notice the problem we have is due to the **Equal Interval** mapping because majority of NYC is below 20 meter. Now double click on the number under **Value**, change **-17.12 to -2**, **3.68 to 0**, **24.48 to 10**, **45.27 to 20**, click **OK** and you should see something like this.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology03.JPG){:height="50%" width="50%"}
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology04.JPG){:height="100%" width="100%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_symbology03.JPG){:height="40%" width="40%" .center-image}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_symbology04.JPG){:height="80%" width="80%" .center-image}
 
 What we have effectively done is to compress all the color variation to within 20 meters of elevation change. And this visualization technique can be expanded to indicate other information. Let's say during Storm Sandy in 2012, the storm surge in NYC is at 14'. So let's see if we can modify this visualization to show that.
 
 Back in **Symbology**, click the **Plus Sign** below **Equal Interval** twice to add two additional values. Storm Sandy's 14' storm surge is about 4.2 meter, so change one of the values to 4.2 and set it to a color that would create very high contrast. Set the other newly added value to 0 representing sea level. Adjust the rest of the false color mapping to 4.3, 10, 15, 20, and 62. And now you see the high contrast color would indicate flooding areas during Sandy's storm surge.
 
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology05.JPG){:height="50%" width="50%"}
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_symbology06.JPG){:height="100%" width="100%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_symbology05.JPG){:height="40%" width="40%" .center-image}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_symbology06.JPG){:height="80%" width="80%" .center-image}
 
 
 ## Cropping
 Bring up the **Layer Properties** window again and take a look at the **width and height**. With this file, width is about 10209 pixels and height is 20140 pixels. If we were to generate a 3D topography out of this DEM file, the mesh will have 10209 x 20104 = 205 million tesselations. This is an enormous file and will most likely crash many computers. So as a strategy, cropping the DEM file to only the areas we need should be the first step in managing the file.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_layerinfo2.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_layerinfo2.JPG){:height="50%" width="50%" .center-image}
 
 In QGIS, crop is called clip and you access the tool by clicking on **Raster > Extractions > Clip Raster by Extent**. 
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_clipextent.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_clipextent.JPG){:height="50%" width="50%" .center-image}
 
 Click the **....** button under **Clipping extent (xmin, xmax, ymin, ymax)**, the select **Select Extent on Canvas**, then **Click - Drag** your mouse to select the area of interest. Then click on the **....** button under **Clipped (extent)** and give it a file name, choose **TIF files (\*.tif)** as type, click **SAVE** and then **RUN**.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_clipextentparam.JPG){:height="50%" width="50%"}
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_clipped.JPG){:height="100%" width="100%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_clipextentparam.JPG){:height="50%" width="50%" .center-image}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_clipped.JPG){:height="100%" width="100%" .center-image}
 
 Final step before moving to Rhino3D for mesh genertaion is to export the DEM to a format that can be read easily. But before we export the file, check **layer property** again to see if the width and height are within a good range. In this case, width is 1104 and height is 979 pixels. In general a good value is below 2000px x 2000px but it really depends on your hardware configuration, this number can be higher or lower. 
 
@@ -189,10 +190,10 @@ Final step before moving to Rhino3D for mesh genertaion is to export the DEM to 
 
 To bring this DEM file to Rhino3D, we will use a custom Rhino Python Parser read the file and then generate a mesh. For simplicity sake, we will use an ascii file format that can be read by Rhino Python as a simple text file. To do this, click on **Raster > Conversion > Translate (Convert Format)**. Then make sure **Input Layer** is pointing to the most recently created layer, and give the file a name and choose **ASC (\*.asc)** as file type. Click **SAVE** and **RUN**. When your .asc file has been created, you can open it with a text file editor and you should see something like this.
 
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_convert.JPG){:height="50%" width="50%"}
-![qgis](../../../assets/images/GIS/pic_GIS_qgis_convertparam.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_convert.JPG){:height="40%" width="40%" .center-image}
+![qgis](../../assets/images/GIS/pic_GIS_qgis_convertparam.JPG){:height="50%" width="50%" .center-image}
 
-```
+```python
 ncols        375
 nrows        400
 xllcorner    -8239264.087285323068
@@ -211,17 +212,17 @@ This part will be conducted inside Rhino3D, so while you do not need to know any
 
 We are using a custom Rhino Python Script to generate the topography from the exported .asc file. First you need to launch the **Python Script Editor** by clicking **Tools > PythonScript > Edit**. If you are on **OSX** you can just type in **RunPythonScript**.
 
-![qgis](../../../assets/images/GIS/pic_GIS_rhinopython.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_rhinopython.JPG){:height="40%" width="40%" .center-image}
 
 Then you need the python script, you can download here.
 
-<ul class="actions">
-	<li><a href="../../../assets/files/TerrainGen02.py" class="button">Download Python File</a></li>
-</ul>
+<center><button class="button special fit">
+	<a href="../../assets/files/TerrainGen02.py" >Download Python File</a>
+</button></center><br><br>
 
 If you do not care to learn the specifics of the script, you can just hit **Green Play Button** to execute the script, it will ask you to locate a **.asc** file, load it and a topo mesh will be generated in no time.
 
-![qgis](../../../assets/images/GIS/pic_GIS_rhinopython_window.JPG){:height="50%" width="50%"}
+![qgis](../../assets/images/GIS/pic_GIS_rhinopython_window.JPG){:height="60%" width="60%" .center-image}
 
 If you are interested in the specifics or have problem generating a mesh, read on.
 
@@ -229,7 +230,7 @@ First, the most important thing is to make sure the header information in the .a
 
 Also, row 6 should be the start of your actual data. If row 6 reads **NoData Value** then that means during the QGIS data processing steps you clicked on something you shouldn't have. But this mistake is relatively easy to correct, you just need to delete that line in the file.
 
-```
+```python
 ncols        375
 nrows        400
 xllcorner    -8239264.087285323068
@@ -252,7 +253,7 @@ The following lines uses a Rhino function **rs.OpenFileName()** to open a dialog
 
 The **lines** variable is a [**list**](https://www.w3schools.com/python/python_lists.asp) consisting of items, and in this case, each item is each line of text in the file. 
 
-```
+```python
 #open and read the Arc/Grid file
 fname = rs.OpenFileName("Open", "Arc/Grid ASCII Files (*.asc) |*.asc||")
 f = open(fname)
@@ -264,7 +265,7 @@ f.close()
 
 Now that **ncol** is assigned **375**, we need to convert that to an **integer** because it was read as a string value. 
 
-```
+```python
 [n,ncol]=lines[0].split()
 [n,nrow]=lines[1].split()
 
@@ -276,7 +277,7 @@ Row 3 and 4 of the data file point to the minimum x and y locations, we do the s
 
 Row 5 is the cellsize in meters. dx and dy are variables assigned to the variable and then converted to a [floating point number](https://www.programiz.com/python-programming/methods/built-in/float). As a side note, a shorter form can be done in a single line dx = float(cellsize) and dy = float(cellsize), but this long form is easier to understand for education reason.
 
-```
+```python
 [n,xmin]=lines[2].split()
 [n,ymin]=lines[3].split()
 
@@ -293,7 +294,7 @@ dy = float(dy)
 
 Next is to read the whole sequence of numbers of elevation values. In python, this is relatively simple. First declare an empty list with a square bracket named **Z**, then using a for loop, **for s in xrange(s, len(lines)):**, go through every **"line"** in **lines**, and using Python's [**Extend**](https://www.programiz.com/python-programming/methods/list/extend) function and combining with **split()**, it turns all the numbers in each line and turn them into a legible [**list of lists**](https://snakify.org/en/lessons/two_dimensional_lists_arrays/).
 
-```
+```python
 z = []
 for s in xrange (s, len(lines)):
     z.extend (lines[s].split())
@@ -301,7 +302,7 @@ for s in xrange (s, len(lines)):
 
 Last but not least, we need to assign values for X and Y. We already know the number of rows and columns and the cellsize, so by using 2 for loops we can assign proper values to the lists. 
 
-```
+```python
 x = []
 y = []
 
@@ -313,7 +314,7 @@ for v in range(0,nrow):
 
 Now that we have all the x,y,z values, we are ready to generate the mesh. Since mesh generation is specific to Rhino, we need to follow Rhino's precedure, we need to assign face vertices, vertex coordinates, and assign them to a mesh. You can find a sample [here](https://developer.rhino3d.com/samples/rhinocommon/add-mesh/).
 
-```
+```python
 # generate face vertices
 face = []
 for n in range(0,(nrow-1)*(ncol)):
