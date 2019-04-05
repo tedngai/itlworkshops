@@ -5,8 +5,8 @@
     <description>This is a repository of our ongoing projects.</description>
     <link>http://localhost:4000/itlworkshops/</link>
     <atom:link href="http://localhost:4000/itlworkshops/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 04 Apr 2019 16:58:21 -0400</pubDate>
-    <lastBuildDate>Thu, 04 Apr 2019 16:58:21 -0400</lastBuildDate>
+    <pubDate>Thu, 04 Apr 2019 20:22:24 -0400</pubDate>
+    <lastBuildDate>Thu, 04 Apr 2019 20:22:24 -0400</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -1336,7 +1336,7 @@ rs.AddMesh(vertices,face)
       </item>
     
       <item>
-        <title>Data Visualization Webscrape and Visualization</title>
+        <title>Data Visualization Part 2 Webscraping and Visualization</title>
         <description>&lt;hr /&gt;
 
 &lt;h2 id=&quot;project-description&quot;&gt;Project Description&lt;/h2&gt;
@@ -1353,33 +1353,38 @@ rs.AddMesh(vertices,face)
 &lt;p&gt;To start, the data cannot be downloaded with the click of a button. The data is not stored in any of the contemporary data formats like xml, json, or even csv. So to get the data, we’ll need to do some detective work and see how we can collect the information we want. First visit this website, &lt;a href=&quot;https://www.seethroughny.net/&quot;&gt;seethroughny.net&lt;/a&gt;. Go to Menu &amp;gt; Payrolls &amp;gt; Schools, then under &lt;strong&gt;Filter &amp;gt; Employer / Agency&lt;/strong&gt;, type in &lt;strong&gt;Fashion Institute of Technology&lt;/strong&gt;. You can use the button below to directly link to the data, the actual data file is provided for you  as well.&lt;/p&gt;
 
 &lt;p&gt;For direct link:&lt;/p&gt;
-&lt;ul class=&quot;actions&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;https://www.seethroughny.net/payrolls/107209525&quot; target=&quot;_blank&quot; class=&quot;button&quot;&gt;FIT Payroll&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;center&gt;&lt;button class=&quot;button&quot;&gt;
+	&lt;a href=&quot;https://www.seethroughny.net/payrolls/107209525&quot; target=&quot;_blank&quot;&gt;FIT Payroll&lt;/a&gt;
+&lt;/button&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;For data files:&lt;/p&gt;
-&lt;ul class=&quot;actions&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;../../../assets/files/SalaryScrape.zip&quot; class=&quot;button&quot;&gt;Download Data File&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;center&gt;&lt;button class=&quot;button&quot;&gt;
+	&lt;a href=&quot;../../../assets/files/SalaryScrape.zip&quot;&gt;Download Data File&lt;/a&gt;
+&lt;/button&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;We will cover how to use python to access web pages and webscrape with code at a different exercise. For now, I have already prepared and downloaded part of the html data for you so we can jump into data processing and visualization immediately.&lt;/p&gt;
 
 &lt;p&gt;If you have not done so already, download, unzip, and move the data file and place them into a new folder, I just created a folder named dataviz on my desktop. Then 
 &lt;strong&gt;Launch Juputer Notebook&lt;/strong&gt; by opening a &lt;a href=&quot;https://www.macworld.co.uk/how-to/mac-software/how-use-terminal-on-mac-3608274/&quot;&gt;Terminal&lt;/a&gt; or &lt;a href=&quot;https://docs.anaconda.com/anaconda/user-guide/getting-started/&quot;&gt;Anaconda Prompt&lt;/a&gt;, and type &lt;strong&gt;CD&lt;/strong&gt;  for “change directory”, and type in the path of the folder where your data file is stored.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;cd /Users/tedngai/Desktop/dataviz&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tedngai&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Desktop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dataviz&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then launch Jupyter Notebook by typing this, it will launch your web browser and should open the web app, and you should see Jupyter and your current folder location.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;jupyter notebook&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;jupyter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;notebook&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;In Jupyter Notebook, click in the space at the first line right next to &lt;strong&gt;In [1]&lt;/strong&gt;, and type the following, once it’s done  &lt;strong&gt;Hold SHIFT then press ENTER&lt;/strong&gt; to execute the code.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;from bs4 import BeautifulSoup
-import pandas as pd
-import codecs&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;codecs&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/pic_jupyter_firstline.jpg&quot; alt=&quot;jupyter first&quot; height=&quot;75%&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/images/pic_jupyter_firstline.jpg&quot; alt=&quot;jupyter first&quot; height=&quot;75%&quot; width=&quot;75%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Python is a very powerful programming language due to the fact that it has a large community of developers writing libraries to handle lower level programming, allowing you to concentrate on the big ideas.&lt;/p&gt;
 
@@ -1387,62 +1392,61 @@ import codecs&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Next we will need to load the data file. Do that by typing the following and &lt;strong&gt;Hold SHIFT then press ENTER&lt;/strong&gt; again to execute the code.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;f = codecs.open(&quot;./FIT_salaryscrape.txt&quot;, &quot;r&quot;)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;codecs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./FIT_salaryscrape.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;r&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;What this line of code is doing is to store the whole text file into a single variable &lt;strong&gt;f&lt;/strong&gt;. The &lt;strong&gt;“r”&lt;/strong&gt; is to tell python that this is &lt;strong&gt;read-only&lt;/strong&gt;. As mentioned before, this text file is basically a copy-paste html code from the webpage. What this means is it contains a lot of html code that needs to be processed. If you are not familiar with HTML code, look here for deep-dive into html code format and structure.&lt;/p&gt;
 
-&lt;div class=&quot;6u 12u$(small)&quot;&gt;
-	&lt;ul class=&quot;actions vertical&quot;&gt;
-		&lt;li&gt;&lt;a href=&quot;https://www.w3schools.com/html/html_examples.asp&quot; class=&quot;button special fit&quot;&gt;Deep Dive: HTML&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
+&lt;center&gt;&lt;button class=&quot;button&quot;&gt;
+		&lt;a href=&quot;https://www.w3schools.com/html/html_examples.asp&quot;&gt;Deep Dive: HTML&lt;/a&gt;
+&lt;/button&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;What we want to do is to separate html codes from data. Luckily the python library BeautifulSoup is built to do just that. Type in the following code and &lt;strong&gt;Hold SHIFT then press ENTER&lt;/strong&gt; to execute.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;data = []
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
 
-soup = BeautifulSoup(f.read())
-rows = soup.find_all('tr')
-for row in rows[::2]:
-    cols = row.find_all('td')
-    cols = [ele.text.strip() for ele in cols]
-    data.append([ele for ele in cols[1:] if ele])&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'tr'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[::&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'td'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ele&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ele&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ele&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ele&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/pic_jupyter_load_data.jpg&quot; alt=&quot;jupyter load data&quot; height=&quot;75%&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/images/pic_jupyter_load_data.jpg&quot; alt=&quot;jupyter load data&quot; height=&quot;75%&quot; width=&quot;75%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The first line of code here is to create an &lt;strong&gt;Empty List&lt;/strong&gt; named data. Think of it as a bucket that can hold any length of data, and you need to declare it so python knows it before hand. In python, this is one of the very few data types that needs to be declared first. Second line is to call on BeautifulSoup to read the text file and in turn, assign that to the variable &lt;strong&gt;soup&lt;/strong&gt;. In the next line, try typing in &lt;strong&gt;soup&lt;/strong&gt; in the next line and execute it, you should see the HTML content. By looking at the html code, we can see that the data begins with a row of data that has an ID named resultRow, and the next row has an ID named exapndRow. resultRow has the information we need but expandRow contains mostly junk. This provide crucial information for how the data is structured and that it has a repetitive pattern.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/pic_jupyter_soup.jpg&quot; alt=&quot;jupyter soup&quot; height=&quot;75%&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/images/pic_jupyter_soup.jpg&quot; alt=&quot;jupyter soup&quot; height=&quot;75%&quot; width=&quot;75%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;HTML is basically a big mix of human readable language mixed with machine language, allowing for both human and machine to access the same information. Most of the machine language is contained within this &amp;lt;&amp;gt; bracket call &lt;strong&gt;Tags&lt;/strong&gt;. There’re lots of common HTML tags, and the one that we see here is &lt;strong&gt;tr&lt;/strong&gt; and &lt;strong&gt;td&lt;/strong&gt;. &lt;strong&gt;tr&lt;/strong&gt; represents &lt;strong&gt;Table / Row&lt;/strong&gt;, and &lt;strong&gt;td&lt;/strong&gt; represents &lt;strong&gt;Table / Data cell&lt;/strong&gt;. Each row of data begins with the tag &lt;strong&gt;tr&lt;/strong&gt; and end with the &lt;strong&gt;/tr&lt;/strong&gt; tag. All the content contained inside a pair of &lt;strong&gt;tr&lt;/strong&gt; tags is considered to be in the same row, like a row of data in an excel spreadsheet. As we can see here, there’re a bunch of &lt;strong&gt;td&lt;/strong&gt; tags within the &lt;strong&gt;tr&lt;/strong&gt; tags, a bunch of data cells inside a row. So if we look at the python code, BeautifulSoup is used to read the whole HTML text file, and then the function &lt;strong&gt;find_all&lt;/strong&gt; is used to locate all the &lt;strong&gt;tr&lt;/strong&gt; tags and they’re collected in a variable all &lt;strong&gt;ROWS&lt;/strong&gt;. &lt;strong&gt;find_all&lt;/strong&gt; creates a &lt;strong&gt;list of lists&lt;/strong&gt; where each row of data is stored as an item in the list. For more information on lists, follow the link for a deep dive.&lt;/p&gt;
 
-&lt;div class=&quot;6u 12u$(small)&quot;&gt;
-	&lt;ul class=&quot;actions vertical&quot;&gt;
-		&lt;li&gt;&lt;a href=&quot;http://openbookproject.net/thinkcs/python/english3e/lists.html&quot; class=&quot;button special fit&quot;&gt;Deep Dive: List of Lists&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
+&lt;center&gt;&lt;button class=&quot;button&quot;&gt;
+		&lt;a href=&quot;http://openbookproject.net/thinkcs/python/english3e/lists.html&quot;&gt;Deep Dive: List of Lists&lt;/a&gt;
+&lt;/button&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;This following bit of code is about applying a programming logic to go through each row of data, then apply the same procedure repeatedly until some condition is met, and we will end up with a programming friendly dataset. &lt;strong&gt;for row in rows&lt;/strong&gt; is a simple way that python goes through every single item in a big list of things and pick through each item. &lt;strong&gt;[::2]&lt;/strong&gt; is python’s way to skip every other item, as we need to do here because every other row of html content is non-essential. For a deep-dive into python loop structures, click the following.&lt;/p&gt;
 
-&lt;div class=&quot;6u 12u$(small)&quot;&gt;
-	&lt;ul class=&quot;actions vertical&quot;&gt;
-		&lt;li&gt;&lt;a href=&quot;https://wiki.python.org/moin/ForLoop&quot; class=&quot;button special fit&quot;&gt;Deep Dive: For Loop&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
+&lt;center&gt;&lt;button class=&quot;button&quot;&gt;
+	&lt;a href=&quot;https://wiki.python.org/moin/ForLoop&quot;&gt;Deep Dive: For Loop&lt;/a&gt;
+&lt;/button&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now that we’re inside the &lt;strong&gt;for loop&lt;/strong&gt;, we’ll identify all the &lt;strong&gt;td&lt;/strong&gt; tags and then sort them into another list with the &lt;strong&gt;find_all&lt;/strong&gt; function again. We then use the  &lt;strong&gt;text.strip()&lt;/strong&gt; function to get rid of all the machine language or tags so all that remains is human readable language.&lt;/p&gt;
 
 &lt;p&gt;Last but not least, the last line puts each row of data that has been processed into a variable, something I called a bucket earlier. You can see what the variable data looks like if you just execute the variable data. Type &lt;strong&gt;data&lt;/strong&gt; and execute and you should see something like this.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/pic_jupyter_data.jpg&quot; alt=&quot;jupyter soup&quot; height=&quot;75%&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/images/pic_jupyter_data.jpg&quot; alt=&quot;jupyter soup&quot; height=&quot;75%&quot; width=&quot;75%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;As you can see, this data structure is a &lt;strong&gt;list of lists&lt;/strong&gt;. It’s a list of every person with Names, School Affiliation, Salary Level, and NYSTRS Description, inside a list of all 377 people. Now it’s time to turn this list of lists into a Pandas dataframe to make visualization much easier. Think of Pandas as a very powerful Excel that can handle lists and tables very well. To do this we need to just give the data a &lt;strong&gt;HEADER&lt;/strong&gt;, and then call a function to create a new variable. Execute the following code and then type &lt;strong&gt;df&lt;/strong&gt; to show the variable.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;labels = ['NAME', 'SCHOOL', 'SALARY', 'TYPE']
-df = pd.DataFrame.from_records(data, columns=labels)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'SCHOOL'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'SALARY'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'TYPE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_records&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/pic_jupyter_df.jpg&quot; alt=&quot;jupyter soup&quot; height=&quot;75%&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/images/pic_jupyter_df.jpg&quot; alt=&quot;jupyter soup&quot; height=&quot;75%&quot; width=&quot;75%&quot; class=&quot;center-image center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now that you have turned an ordinary &lt;strong&gt;list of lists&lt;/strong&gt; into a Pandas &lt;strong&gt;Dataframe&lt;/strong&gt;, we will be able to use many of its powerful features to further process the data.&lt;/p&gt;
 
@@ -1452,23 +1456,23 @@ df = pd.DataFrame.from_records(data, columns=labels)&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&quot;data-visualizaiton&quot;&gt;Data Visualizaiton&lt;/h3&gt;
 &lt;p&gt;We’re now ready to visualize the data. The table we have only has 4 columns of data,  2 of which repeats the same information over and over. So essentially, we only have &lt;strong&gt;names&lt;/strong&gt; and &lt;strong&gt;salary&lt;/strong&gt; to work with. For something like this, we can do a &lt;a href=&quot;https://plot.ly/python/box-plots/&quot;&gt;Box Plot&lt;/a&gt; that allow us to look at a 1-Dimensional data in an interesting way. For more graph types you can do with Plot.ly, click the following link.&lt;/p&gt;
 
-&lt;div class=&quot;6u 12u$(small)&quot;&gt;
-	&lt;ul class=&quot;actions vertical&quot;&gt;
-		&lt;li&gt;&lt;a href=&quot;https://plot.ly/python/&quot; class=&quot;button special fit&quot;&gt;Deep Dive: Plot.ly Graphs&lt;/a&gt;&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/div&gt;
+&lt;center&gt;&lt;button class=&quot;button&quot;&gt;
+	&lt;a href=&quot;https://plot.ly/python/&quot;&gt;Deep Dive: Plot.ly Graphs&lt;/a&gt;
+&lt;/button&gt;&lt;/center&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;For this next part we’ll need to bring in another python package. Plotly is a dynamic graphing package that lets you interact with data live. We will look at the basics of how to use it to graph what we have. So first import the packages by typing in the following.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;import plotly.plotly as py
+&lt;p&gt;```python  import plotly.plotly as py
 import plotly.graph_objs as go
-from plotly.offline import download_plotlyjs, init_notebook_mode, iplot
+from plotly.offline import download_plotlyjs, init_notebook_mode, iplot&lt;/p&gt;
 
-init_notebook_mode(connected = True)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;init_notebook_mode(connected = True)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+The first 3 lines of code is just to import the Plotly graphing packages. The 4th one is to allow plotly to plot directly inside Jupyter. Once you have executed the code, you can go ahead and input the following code.
 
-&lt;p&gt;The first 3 lines of code is just to import the Plotly graphing packages. The 4th one is to allow plotly to plot directly inside Jupyter. Once you have executed the code, you can go ahead and input the following code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;trace0 = go.Box(
+```python  
+trace0 = go.Box(
         name = &quot;FIT&quot;,
         y = df['SALARY'])
 
@@ -1477,7 +1481,8 @@ layout = go.Layout(
 
 data = [trace0]
 iplot({&quot;data&quot;:data,
-       &quot;layout&quot;:layout})&lt;/code&gt;&lt;/pre&gt;
+       &quot;layout&quot;:layout})  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;If everything is running correctly, you should see a graph like this one. This is a 1 dimensional graph that gives you a bit of statistical calculation. It tells you what the median value is, what the lower and upper fence is, and what numbers are falling outside of the norm. How going back to the code, &lt;strong&gt;trace0&lt;/strong&gt; is defined to use Box graph and you assign the Y axis to only the &lt;strong&gt;SALARY&lt;/strong&gt; column of the dataframe. For layout, we’re naming the graph FIT Faculty Salary. Data is needed to put trace0 in a square bracket. This step is necessary because if we want to plot more than 1 column of data, we can put multiple values here. Lastly, the iplot command sends the plot to jupyter.&lt;/p&gt;
 
@@ -1486,31 +1491,31 @@ iplot({&quot;data&quot;:data,
 &lt;p&gt;You can download the jupyter file here and review the all the inputs here.&lt;/p&gt;
 
 &lt;ul class=&quot;actions&quot;&gt;
-	&lt;li&gt;&lt;a href=&quot;../../../assets/files/FIT_bs4.ipynb&quot; class=&quot;button&quot;&gt;Download Data File&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;../../assets/files/FIT_bs4.ipynb&quot; class=&quot;button&quot;&gt;Download Data File&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;alternate-visualizaiton&quot;&gt;Alternate Visualizaiton&lt;/h3&gt;
 &lt;p&gt;Although this visualization is very straightforward, you can improve it by showing the points data to understand the distribution a little better. To do this you just need to add 3 lines of code: &lt;code class=&quot;highlighter-rouge&quot;&gt;boxpoints='all'&lt;/code&gt; to show all the points, &lt;code class=&quot;highlighter-rouge&quot;&gt;jitter&lt;/code&gt; is to “spread” the points to a certain width, and &lt;code class=&quot;highlighter-rouge&quot;&gt;pointpos&lt;/code&gt; is to move the position so it doesn’t overlap with the box itself.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;boxpoints='all',
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python  boxpoints='all',
         jitter=0.2,
-        pointpos=-1.5&lt;/code&gt;&lt;/pre&gt;
+        pointpos=-1.5 &lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;All together it would look something like this.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;trace0 = go.Box(
-        name = &quot;FIT&quot;,
-        y = df['SALARY'],
-		boxpoints='all',
+&lt;p&gt;```python  trace0 = go.Box(
+        name = “FIT”,
+        y = df[‘SALARY’],
+		boxpoints=’all’,
         jitter=0.2,
-        pointpos=-1.5)
+        pointpos=-1.5)&lt;/p&gt;
 
-layout = go.Layout(
-        title = &quot;FIT Faculty Salary&quot;)
+&lt;p&gt;layout = go.Layout(
+        title = “FIT Faculty Salary”)&lt;/p&gt;
 
-data = [trace0]
-iplot({&quot;data&quot;:data,
-       &quot;layout&quot;:layout})&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;data = [trace0]
+iplot({“data”:data,
+       “layout”:layout})  ```&lt;/p&gt;
 
 &lt;iframe width=&quot;50%&quot; height=&quot;500&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//plot.ly/~tngai/82.embed&quot;&gt;&lt;/iframe&gt;
 
@@ -1567,196 +1572,195 @@ Let’s try to apply everything we’ve learn so far and apply it to a more chal
 
 &lt;p&gt;Ok so let’s just dive right into this. First, again, import all the packages we need by executing the following code.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;from bs4 import BeautifulSoup
+&lt;p&gt;```python  from bs4 import BeautifulSoup
 import pandas as pd
 from collections import defaultdict
 import plotly.plotly as py
 import plotly.graph_objs as go
 from plotly.offline import download_plotlyjs, init_notebook_mode, iplot
-import codecs
+import codecs&lt;/p&gt;
 
-init_notebook_mode(connected = True)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;init_notebook_mode(connected = True)  ```&lt;/p&gt;
 
 &lt;p&gt;Next, read the data file and use BeautifulSoup to sort all the rows of data into a list of lists.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;f = codecs.open(&quot;./CUNY_salaryscrape.txt&quot;, &quot;r&quot;)
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;python  f = codecs.open(&quot;./CUNY_salaryscrape.txt&quot;, &quot;r&quot;)
 soup = BeautifulSoup(f.read())
-rows = soup.find_all('tr')&lt;/code&gt;&lt;/pre&gt;
+rows = soup.find_all('tr') &lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Same as before, the following code is to go through each row of data and extract all the &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;td&amp;gt;&lt;/code&gt; tags and put them in the right place. However, as mentioned before, the data is structured differently this time, so all the extra code here is to deal with the alternating rows and the different data tags used.&lt;/p&gt;
 
 &lt;p&gt;Not to get too much into the technical detail, but the idea is to use 2 buckets, 1 to hold data for very 2 rows of data, which will then be dumped into the other bucket, and then empty itself out. So this is a way to get around the quirkiness data structure that was provided.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;data = []
+&lt;p&gt;```python  data = []
 temp = []
-i = 0
+i = 0&lt;/p&gt;
 
-def flatten(temp):
-    return [item for sublist in temp for item in sublist]
+&lt;p&gt;def flatten(temp):
+    return [item for sublist in temp for item in sublist]&lt;/p&gt;
 
-for row in rows:
-    cols = row.find_all('td')
+&lt;p&gt;for row in rows:
+    cols = row.find_all(‘td’)
     cols = [ele.text.strip() for ele in cols]
     temp.append(cols[1:])
     i += 1
     if i%2 == 0:
-        templist= temp[1][0].split('\n')
+        templist= temp[1][0].split(‘ ‘)
         temp[1]=templist
         flattemp = flatten(temp)
         data.append([ele for ele in flattemp if ele])
-        temp = []&lt;/code&gt;&lt;/pre&gt;
+        temp = []  ```&lt;/p&gt;
 
 &lt;p&gt;Now that we have a list of lists with all the useful data in it, it’s time to turn them into a Pandas dataframe for further processing.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;labels = ['NAME', 'SCHOOL', 'SALARY', 'DEPARTMENT', 'SUBAGENCY TYPE','SUBAGENCY','TITLE TYPE','TITLE','RATEOFPAY TYPE', 'RATE OF PAY','PAYYEAR TYPE', 'PAY YEAR', 'PAYBASIS TYPE', 'PAY BASIS','BRANCH TYPE', 'BRANCH']
+&lt;p&gt;```python  labels = [‘NAME’, ‘SCHOOL’, ‘SALARY’, ‘DEPARTMENT’, ‘SUBAGENCY TYPE’,’SUBAGENCY’,’TITLE TYPE’,’TITLE’,’RATEOFPAY TYPE’, ‘RATE OF PAY’,’PAYYEAR TYPE’, ‘PAY YEAR’, ‘PAYBASIS TYPE’, ‘PAY BASIS’,’BRANCH TYPE’, ‘BRANCH’]&lt;/p&gt;
 
-df = pd.DataFrame.from_records(data, columns=labels)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;df = pd.DataFrame.from_records(data, columns=labels)  ```&lt;/p&gt;
 
 &lt;p&gt;Since the 2nd row of data contains a lot of “junk” data we will need to eliminate some of the columns of data that was just created. We’re doing it this way instead of parsing it out during the input phase because it’s a lot easier to remove columns with Pandas than to use logic to filter out unwanted data.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt; df = df.drop(['SUBAGENCY TYPE','TITLE TYPE', 'RATEOFPAY TYPE','SUBAGENCY', 'PAYYEAR TYPE', 'PAY YEAR','PAYBASIS TYPE', 'BRANCH TYPE','BRANCH'],axis=1)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;```python   df = df.drop([‘SUBAGENCY TYPE’,’TITLE TYPE’, ‘RATEOFPAY TYPE’,’SUBAGENCY’, ‘PAYYEAR TYPE’, ‘PAY YEAR’,’PAYBASIS TYPE’, ‘BRANCH TYPE’,’BRANCH’],axis=1)&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+If everything is going smoothly up to this point, you should see something like this when you type in `df`
 
-&lt;p&gt;If everything is going smoothly up to this point, you should see something like this when you type in &lt;code class=&quot;highlighter-rouge&quot;&gt;df&lt;/code&gt;&lt;/p&gt;
+![](../../../assets/images/pic_CC_df.jpg){:height=&quot;75%&quot; width=&quot;75%&quot;}
 
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/pic_CC_df.jpg&quot; alt=&quot;&quot; height=&quot;75%&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+Now that we have the whole dataset with 34,000 rows of data, we can see we have actually more than 1 dimension to work with. So for this exercise, let's filter the amount of data down. If you see the **DEPARTMENT** column, this dataset includes employees in the whole **CUNY** system. So let's starts with singling out a specific college and concentrate on that. In our case, we'll only look at people who work at the **City College**. To do this we need to figure out how many different **DEPARTMENTS** there are. You can do this in many different ways but a powerful and pythonic way is to write a function. This following is an example to list all the duplicates and in which record the duplicate appears. For now, we're not going to go into the details so we'll just assume this is a button in a computer software you can press and it'll get you what you need. 
 
-&lt;p&gt;Now that we have the whole dataset with 34,000 rows of data, we can see we have actually more than 1 dimension to work with. So for this exercise, let’s filter the amount of data down. If you see the &lt;strong&gt;DEPARTMENT&lt;/strong&gt; column, this dataset includes employees in the whole &lt;strong&gt;CUNY&lt;/strong&gt; system. So let’s starts with singling out a specific college and concentrate on that. In our case, we’ll only look at people who work at the &lt;strong&gt;City College&lt;/strong&gt;. To do this we need to figure out how many different &lt;strong&gt;DEPARTMENTS&lt;/strong&gt; there are. You can do this in many different ways but a powerful and pythonic way is to write a function. This following is an example to list all the duplicates and in which record the duplicate appears. For now, we’re not going to go into the details so we’ll just assume this is a button in a computer software you can press and it’ll get you what you need.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;def list_duplicates(seq):
+```python  def list_duplicates(seq):
     tally = defaultdict(list)
     for i, item in enumerate(seq):
         tally[item].append(i)
-    return((key,locs) for key, locs in tally.items() if len(locs)&amp;gt;0)&lt;/code&gt;&lt;/pre&gt;
+    return((key,locs) for key, locs in tally.items() if len(locs)&amp;gt;0)  ```
 
-&lt;p&gt;Now that the function to find duplicate is in place, we can call the function with the following code. Essentially we’re setting an empty bucket called departments, and all the variations will be collected into that variable. And if you execute the code successfully, you should see something like the following.&lt;/p&gt;
+Now that the function to find duplicate is in place, we can call the function with the following code. Essentially we're setting an empty bucket called departments, and all the variations will be collected into that variable. And if you execute the code successfully, you should see something like the following.
 
-&lt;pre&gt;&lt;code&gt;departments = []
+```python  departments = []
 for dup in sorted(list_duplicates(df['DEPARTMENT'])):
-    departments.append(dup[0])&lt;/code&gt;&lt;/pre&gt;
+    departments.append(dup[0])  ```
 
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/pic_jupyter_CC_departments.jpg&quot; alt=&quot;&quot; height=&quot;75%&quot; width=&quot;75%&quot; /&gt;&lt;/p&gt;
+![](../../../assets/images/pic_jupyter_CC_departments.jpg){:height=&quot;75%&quot; width=&quot;75%&quot;}
 
-&lt;p&gt;As you can see, &lt;strong&gt;City College&lt;/strong&gt; is named in different ways like &lt;strong&gt;City College&lt;/strong&gt;, &lt;strong&gt;City College Adjunct&lt;/strong&gt;, &lt;strong&gt;City College EH&lt;/strong&gt;, &lt;strong&gt;City College Hourly&lt;/strong&gt;…etc. The code we’ll use to extract that will need to be able to catch all the variations. Luckily Pandas lets us do this very easily. In this case, a new variable named &lt;strong&gt;df_cc&lt;/strong&gt; is used to catch all the data that contains the word &lt;strong&gt;City College&lt;/strong&gt; in it.&lt;/p&gt;
+As you can see, **City College** is named in different ways like **City College**, **City College Adjunct**, **City College EH**, **City College Hourly**...etc. The code we'll use to extract that will need to be able to catch all the variations. Luckily Pandas lets us do this very easily. In this case, a new variable named **df_cc** is used to catch all the data that contains the word **City College** in it.
 
-&lt;pre&gt;&lt;code&gt;df_cc = df[df['DEPARTMENT'].str.contains('City College')]
-&lt;/code&gt;&lt;/pre&gt;
+```python  df_cc = df[df['DEPARTMENT'].str.contains('City College')]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Now that we have singled out only employees working at the City College, we want to look at the different positions people take and compare their salary levels. And let’s assume this time that we’re only intereste in people who are in teaching positions not administrative. Execute the following code and we’ll have a new variable named &lt;strong&gt;df_cc_prof&lt;/strong&gt; with data that only has &lt;strong&gt;Prof&lt;/strong&gt; and &lt;strong&gt;Lect&lt;/strong&gt; in the data.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;titles = []
-for dup in sorted(list_duplicates(df_cc_prof['TITLE'])):
-    titles.append(dup[0])
-	
-searchfor = ['Prof', 'Lect']
-df_cc_prof = df_cc[df_cc['TITLE'].str.contains('|'.join(searchfor))]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;```python  titles = []
+for dup in sorted(list_duplicates(df_cc_prof[‘TITLE’])):
+    titles.append(dup[0])&lt;/p&gt;
+
+&lt;p&gt;searchfor = [‘Prof’, ‘Lect’]
+df_cc_prof = df_cc[df_cc[‘TITLE’].str.contains(‘|’.join(searchfor))]  ```&lt;/p&gt;
 
 &lt;p&gt;Lastly, we use Plotly again to visualize the data.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;y0 = df_cc_prof[df_cc_prof['TITLE'] == 'Professor']['SALARY']
-y1 = df_cc_prof[df_cc_prof['TITLE'] == 'Assoc Professor']['SALARY']
-y2 = df_cc_prof[df_cc_prof['TITLE'] == 'Asst Professor']['SALARY']
-y3 = df_cc_prof[df_cc_prof['TITLE'] == 'Adjunct Assoc Profess']['SALARY']
-y4 = df_cc_prof[df_cc_prof['TITLE'] == 'Adjunct Asst Professo']['SALARY']
-y5 = df_cc_prof[df_cc_prof['TITLE'] == 'Adjunct Professor']['SALARY']
-y6 = df_cc_prof[df_cc_prof['TITLE'] == 'Visiting Prof']['SALARY']
-y7 = df_cc_prof[df_cc_prof['TITLE'] == 'Visiting Assoc Profes']['SALARY']
-y8 = df_cc_prof[df_cc_prof['TITLE'] == 'Visiting Asst Profess']['SALARY']
-y9 = df_cc_prof[df_cc_prof['TITLE'] == 'Lecturer']['SALARY']
-y10 = df_cc_prof[df_cc_prof['TITLE'] == 'Clinical Professor']['SALARY']
-y11 = df_cc_prof[df_cc_prof['TITLE'] == 'Research Professor']['SALARY']
+&lt;p&gt;```python  y0 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Professor’][‘SALARY’]
+y1 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Assoc Professor’][‘SALARY’]
+y2 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Asst Professor’][‘SALARY’]
+y3 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Adjunct Assoc Profess’][‘SALARY’]
+y4 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Adjunct Asst Professo’][‘SALARY’]
+y5 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Adjunct Professor’][‘SALARY’]
+y6 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Visiting Prof’][‘SALARY’]
+y7 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Visiting Assoc Profes’][‘SALARY’]
+y8 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Visiting Asst Profess’][‘SALARY’]
+y9 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Lecturer’][‘SALARY’]
+y10 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Clinical Professor’][‘SALARY’]
+y11 = df_cc_prof[df_cc_prof[‘TITLE’] == ‘Research Professor’][‘SALARY’]&lt;/p&gt;
 
-trace0 = go.Box(
-        name = &quot;Professor&quot;,
+&lt;p&gt;trace0 = go.Box(
+        name = “Professor”,
         y = y0,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace1 = go.Box(
-        name = &quot;Assoc Professor&quot;,
+&lt;p&gt;trace1 = go.Box(
+        name = “Assoc Professor”,
         y = y1,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace2 = go.Box(
-        name = &quot;Asst Professor&quot;,
+&lt;p&gt;trace2 = go.Box(
+        name = “Asst Professor”,
         y = y2,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace3 = go.Box(
-        name = &quot;Adjunct Assoc Profess&quot;,
+&lt;p&gt;trace3 = go.Box(
+        name = “Adjunct Assoc Profess”,
         y = y3,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace4 = go.Box(
-        name = &quot;Adjunct Asst Professo&quot;,
+&lt;p&gt;trace4 = go.Box(
+        name = “Adjunct Asst Professo”,
         y = y4,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace5 = go.Box(
-        name = &quot;Adjunct Professor&quot;,
+&lt;p&gt;trace5 = go.Box(
+        name = “Adjunct Professor”,
         y = y5,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace6 = go.Box(
-        name = &quot;Visiting Prof&quot;,
+&lt;p&gt;trace6 = go.Box(
+        name = “Visiting Prof”,
         y = y6,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace7 = go.Box(
-        name = &quot;Visiting Assoc Profes&quot;,
+&lt;p&gt;trace7 = go.Box(
+        name = “Visiting Assoc Profes”,
         y = y7,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace8 = go.Box(
-        name = &quot;Visiting Asst Profess&quot;,
+&lt;p&gt;trace8 = go.Box(
+        name = “Visiting Asst Profess”,
         y = y8,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace9 = go.Box(
-        name = &quot;Lecturer&quot;,
+&lt;p&gt;trace9 = go.Box(
+        name = “Lecturer”,
         y = y9,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace10 = go.Box(
-        name = &quot;Clinical Professor&quot;,
+&lt;p&gt;trace10 = go.Box(
+        name = “Clinical Professor”,
         y = y10,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-trace11 = go.Box(
-        name = &quot;Research Professor&quot;,
+&lt;p&gt;trace11 = go.Box(
+        name = “Research Professor”,
         y = y11,
-        boxpoints='all',
+        boxpoints=’all’,
         jitter=0.3,
-        pointpos=-1.8)
+        pointpos=-1.8)&lt;/p&gt;
 
-layout = go.Layout(
-        title = &quot;City College Faculty Salary&quot;)
+&lt;p&gt;layout = go.Layout(
+        title = “City College Faculty Salary”)&lt;/p&gt;
 
-data = [trace0, trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8, trace9, trace10, trace11]
-iplot({&quot;data&quot;:data,
-       &quot;layout&quot;:layout
-      })&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;data = [trace0, trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8, trace9, trace10, trace11]
+iplot({“data”:data,
+       “layout”:layout
+      })  ```&lt;/p&gt;
 
 &lt;iframe width=&quot;100%&quot; height=&quot;500&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//plot.ly/~tngai/86.embed&quot;&gt;&lt;/iframe&gt;
 
