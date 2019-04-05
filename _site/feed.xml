@@ -5,8 +5,8 @@
     <description>This is a repository of our ongoing projects.</description>
     <link>http://localhost:4000/itlworkshops/</link>
     <atom:link href="http://localhost:4000/itlworkshops/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 05 Apr 2019 07:36:22 -0400</pubDate>
-    <lastBuildDate>Fri, 05 Apr 2019 07:36:22 -0400</lastBuildDate>
+    <pubDate>Fri, 05 Apr 2019 11:13:46 -0400</pubDate>
+    <lastBuildDate>Fri, 05 Apr 2019 11:13:46 -0400</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -1051,7 +1051,7 @@ rs.AddMesh(vertices,face)
         <description>&lt;hr /&gt;
 
 &lt;h2 id=&quot;project-description&quot;&gt;Project Description&lt;/h2&gt;
-&lt;p&gt;This data visualization module is inspired by MoMA’s &lt;a href=&quot;https://github.com/MuseumofModernArt/collection&quot;&gt;data dump&lt;/a&gt; in 2015. MoMA had release the database of their collection which contains over 130,000 pieces of artwork over the timespan of 150 years. In this session, we will learn to visualise MoMA collection similar to what &lt;a href=&quot;https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/&quot;&gt;Oliver Roeder&lt;/a&gt; had done at &lt;a href=&quot;https://fivethirtyeight.com/&quot;&gt;FiveThirtyEight&lt;/a&gt;, perhaps we will even take it further. This session will allow us to dive into Pandas, Plot.ly, and python regular expression a lot more and get into some of the more intermediate level of data processing. In the course this this workshop, we will try to re-create some of Oliver’s visualizations such as these.&lt;/p&gt;
+&lt;p&gt;This data visualization module is inspired by MoMA’s &lt;a href=&quot;https://github.com/MuseumofModernArt/collection&quot; target=&quot;_blank&quot;&gt;data dump&lt;/a&gt; in 2015. MoMA had release the database of their collection which contains over 130,000 pieces of artwork over the timespan of 150 years. In this session, we will learn to visualise MoMA collection similar to what &lt;a href=&quot;https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/&quot; target=&quot;_blank&quot;&gt;Oliver Roeder&lt;/a&gt; had done at &lt;a href=&quot;https://fivethirtyeight.com/&quot; target=&quot;_blank&quot;&gt;FiveThirtyEight&lt;/a&gt;, perhaps we will even take it further. This session will allow us to dive into Pandas, Plot.ly, and python regular expression a lot more and get into some of the more intermediate level of data processing. In the course this this workshop, we will try to re-create some of Oliver’s visualizations such as these.&lt;/p&gt;
 
 &lt;iframe width=&quot;100%&quot; height=&quot;500&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//plot.ly/~prattitl/66.embed&quot;&gt;&lt;/iframe&gt;
 
@@ -1116,7 +1116,7 @@ rs.AddMesh(vertices,face)
 &lt;p&gt;At this point, it’s ok if you don’t know how this function works. There’re quite a bit of short form writing in there so it’s a bit harder to read than usual. For now, treat it like a blackbox or a copy / paste button where you know exactly what it does and what you need to do to call the function. For more information on Python Functions, click the following for a deep dive into the subject.&lt;/p&gt;
 
 &lt;center&gt;&lt;button class=&quot;button special fit&quot;&gt;
-		&lt;a href=&quot;https://www.w3schools.com/python/python_functions.asp&quot;&gt;Deep Dive: Python Functions&lt;/a&gt;
+		&lt;a href=&quot;https://www.w3schools.com/python/python_functions.asp&quot; target=&quot;blank&quot;&gt;Deep Dive: Python Functions&lt;/a&gt;
 &lt;/button&gt;&lt;/center&gt;
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1147,7 +1147,7 @@ rs.AddMesh(vertices,face)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;center&gt;&lt;button class=&quot;button special fit&quot;&gt;
-	&lt;a href=&quot;https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.contains.html&quot;&gt;Deep Dive: Pandas Str Contains&lt;/a&gt;
+	&lt;a href=&quot;https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.contains.html&quot; target=&quot;blank&quot;&gt;Deep Dive: Pandas Str Contains&lt;/a&gt;
 &lt;/button&gt;&lt;/center&gt;
 
 &lt;p&gt;&lt;img src=&quot;../../assets/images/moma/pic_moma_mediumstrcontains.jpg&quot; alt=&quot;test image size&quot; height=&quot;70%&quot; width=&quot;70%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
@@ -1198,7 +1198,7 @@ rs.AddMesh(vertices,face)
 &lt;h1 id=&quot;step-3&quot;&gt;Step 3&lt;/h1&gt;
 &lt;h3 id=&quot;date-created-vs-date-aquired&quot;&gt;Date Created VS Date Aquired&lt;/h3&gt;
 &lt;p&gt;We are diving deeper and deeper into data processing with Pandas as we continue to work with the same data set. This next exercise will dive right into one of the graphs 
-&lt;a href=&quot;https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/&quot;&gt;Oliver Roeder&lt;/a&gt; had done at &lt;a href=&quot;https://fivethirtyeight.com/&quot;&gt;FiveThirtyEight&lt;/a&gt; in which he graphed the year in which a painting had been painted versus the year in which the painted had been acquired by MoMA. It’s a simple idea but to actually create this graph, it’s anything but simple. We will have to rely on everything we have learned so far and more!&lt;/p&gt;
+&lt;a href=&quot;https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/&quot; target=&quot;_blank&quot;&gt;Oliver Roeder&lt;/a&gt; had done at &lt;a href=&quot;https://fivethirtyeight.com/&quot; target=&quot;_blank&quot;&gt;FiveThirtyEight&lt;/a&gt; in which he graphed the year in which a painting had been painted versus the year in which the painted had been acquired by MoMA. It’s a simple idea but to actually create this graph, it’s anything but simple. We will have to rely on everything we have learned so far and more!&lt;/p&gt;
 
 &lt;p&gt;Let’s open up a new notebook start fresh, and import the following packages.&lt;/p&gt;
 
@@ -1223,7 +1223,7 @@ rs.AddMesh(vertices,face)
 &lt;p&gt;And again, let’s clean up all the missing values which is represented by &lt;strong&gt;NaN&lt;/strong&gt; and fill that with the text &lt;strong&gt;Unknown&lt;/strong&gt;. For more on how to work with &lt;strong&gt;Missing Data&lt;/strong&gt; in Pandas, click here.&lt;/p&gt;
 
 &lt;center&gt;&lt;button class=&quot;button special fit&quot;&gt;
-		&lt;a href=&quot;https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html&quot;&gt;Deep Dive: Pandas Missing Data&lt;/a&gt;
+		&lt;a href=&quot;https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html&quot; target=&quot;blank&quot;&gt;Deep Dive: Pandas Missing Data&lt;/a&gt;
 &lt;/button&gt;&lt;/center&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;df_moma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Artist'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nationality'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'BeginDate'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Gender'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'DateAcquired'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_moma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Artist'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nationality'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Date'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'BeginDate'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Gender'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'DateAcquired'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fillna&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Unknown'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1251,7 +1251,7 @@ rs.AddMesh(vertices,face)
 &lt;p&gt;&lt;strong&gt;df_moma.DateAcquired&lt;/strong&gt; is a short form to only show the DataAcquired column of the df_moma dataframe. It can also be written as &lt;strong&gt;df_moma[‘DateAcquired’]&lt;/strong&gt;, it’ll give us the same thing. The &lt;strong&gt;for row in x&lt;/strong&gt; loop goes into every single row of data. &lt;strong&gt;q = re.search(r’(\d{4})-(\d{1,2})-(\d{1,2})$’, row)&lt;/strong&gt; is to use a very powerful function call &lt;strong&gt;Regular Expression&lt;/strong&gt; to sift through the data looking for patterns. Regular Expression is a rabbit hole, it was invented in the 1950s as a mathematical formal language and people have built search engines and word processors with it. For a deeper understanding, I’d recommend doing a more extensive reading on this subject. For a deeper look at how to use it pragmatically with python, click the following link.&lt;/p&gt;
 
 &lt;center&gt;&lt;button class=&quot;button special fit&quot;&gt;
-		&lt;a href=&quot;https://www.dataquest.io/blog/regex-cheatsheet/&quot;&gt;Deep Dive: Regular Expression&lt;/a&gt;
+		&lt;a href=&quot;https://www.dataquest.io/blog/regex-cheatsheet/&quot; target=&quot;blank&quot;&gt;Deep Dive: Regular Expression&lt;/a&gt;
 &lt;/button&gt;&lt;/center&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1412,7 +1412,7 @@ rs.AddMesh(vertices,face)
 &lt;h1 id=&quot;step-4&quot;&gt;Step 4&lt;/h1&gt;
 &lt;h3 id=&quot;moma-collection-by-size&quot;&gt;MoMA Collection by Size&lt;/h3&gt;
 
-&lt;p&gt;For this exercise we will go back to what &lt;a href=&quot;https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/&quot;&gt;Oliver Roeder&lt;/a&gt; had done at &lt;a href=&quot;https://fivethirtyeight.com/&quot;&gt;FiveThirtyEight&lt;/a&gt; and look at the visualization that compare the size of the artwork in the collection.&lt;/p&gt;
+&lt;p&gt;For this exercise we will go back to what &lt;a href=&quot;https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/&quot; target=&quot;_blank&quot;&gt;Oliver Roeder&lt;/a&gt; had done at &lt;a href=&quot;https://fivethirtyeight.com/&quot; target=&quot;_blank&quot;&gt;FiveThirtyEight&lt;/a&gt; and look at the visualization that compare the size of the artwork in the collection.&lt;/p&gt;
 
 &lt;p&gt;Again we’ll start fresh with a new notebook and import all the libraries.&lt;/p&gt;
 
@@ -1513,14 +1513,14 @@ rs.AddMesh(vertices,face)
 &lt;p&gt;Now let’s not stop here because we only got a scatter plot, but we want to actually see the rectangles. To have plotly draw shapes, we’ll need to learn about the syntax. For a deep dive into Plot.ly shapes, click here.&lt;/p&gt;
 
 &lt;center&gt;&lt;button class=&quot;button special fit&quot;&gt;
-		&lt;a href=&quot;https://plot.ly/python/shapes/&quot;&gt;Deep Dive: Plot.ly Shapes&lt;/a&gt;
+		&lt;a href=&quot;https://plot.ly/python/shapes/&quot; target=&quot;blank&quot;&gt;Deep Dive: Plot.ly Shapes&lt;/a&gt;
 &lt;/button&gt;&lt;/center&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;Essentially we learn that shapes are drawn in the layout section rather than in the data section. And shapes are drawn as a dictionary like this. Dictionary is a type of data structure in Python. For a deep dive on the subject, click here.&lt;/p&gt;
 
 &lt;center&gt;&lt;button class=&quot;button special fit&quot;&gt;
-		&lt;a href=&quot;https://www.w3schools.com/python/python_dictionaries.asp&quot;&gt;Deep Dive: Python Dictionary&lt;/a&gt;
+		&lt;a href=&quot;https://www.w3schools.com/python/python_dictionaries.asp&quot; target=&quot;blank&quot;&gt;Deep Dive: Python Dictionary&lt;/a&gt;
 &lt;/button&gt;&lt;/center&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1674,8 +1674,8 @@ rs.AddMesh(vertices,face)
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 19 Feb 2019 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/itlworkshops/2019/DataViz03/</link>
-        <guid isPermaLink="true">http://localhost:4000/itlworkshops/2019/DataViz03/</guid>
+        <link>http://localhost:4000/itlworkshops/2019/DataViz02/</link>
+        <guid isPermaLink="true">http://localhost:4000/itlworkshops/2019/DataViz02/</guid>
         
         
       </item>
@@ -2164,13 +2164,13 @@ Let’s try to apply everything we’ve learn so far and apply it to a more chal
 &lt;h1 id=&quot;step-1&quot;&gt;Step 1&lt;/h1&gt;
 &lt;h3 id=&quot;python-installation&quot;&gt;Python Installation&lt;/h3&gt;
 
-&lt;p&gt;First you want to to install &lt;a href=&quot;https://www.anaconda.com/distribution/&quot;&gt;Anaconda&lt;/a&gt;. Go to the website and download the Anaconda Installer, you want to go with Python 3 and the current version as of writing is Python 3.7.&lt;/p&gt;
+&lt;p&gt;First you want to to install &lt;a href=&quot;https://www.anaconda.com/distribution/&quot; target=&quot;_blank&quot;&gt;Anaconda&lt;/a&gt;. Go to the website and download the Anaconda Installer, you want to go with Python 3 and the current version as of writing is Python 3.7.&lt;/p&gt;
 
-&lt;p&gt;Once you have downloaded and installed Anaconda, open a &lt;a href=&quot;https://www.macworld.co.uk/how-to/mac-software/how-use-terminal-on-mac-3608274/&quot;&gt;Terminal&lt;/a&gt; if you’re on OSX or an &lt;a href=&quot;https://docs.anaconda.com/anaconda/user-guide/getting-started/&quot;&gt;Anaconda Prompt&lt;/a&gt; if you’re on Windows.&lt;/p&gt;
+&lt;p&gt;Once you have downloaded and installed Anaconda, open a &lt;a href=&quot;https://www.macworld.co.uk/how-to/mac-software/how-use-terminal-on-mac-3608274/&quot; target=&quot;_blank&quot;&gt;Terminal&lt;/a&gt;  if you’re on OSX or an &lt;a href=&quot;https://docs.anaconda.com/anaconda/user-guide/getting-started/&quot; target=&quot;_blank&quot;&gt;Anaconda Prompt&lt;/a&gt;  if you’re on Windows.&lt;/p&gt;
 
 &lt;p&gt;You want to create a Virtual Environment for this exercise. The purpose of virtual environment is to create an isolated environment to contain all the packages you will install. What that literally means is everything you install, all the libraries and packages, including the python version, will be stored in a separate folder. There many reasons why this is a good practice. Since python is used from machine learning to webscraping to data visualization, sometimes you will encounter an application such as GIS that will require python version 2.7, whereas the machine learning framework from Google Tensorflow will only work with python version 3.5 (as of writing, the GPU optimized version only works with Python 3.5 if you use a particular GPU hardware). So virtual environment is a very convenient way to isolate and manage your python installations.&lt;/p&gt;
 
-&lt;p&gt;To create a virtual environment in &lt;a href=&quot;https://www.anaconda.com/distribution/&quot;&gt;Anaconda&lt;/a&gt;, in the &lt;a href=&quot;https://www.macworld.co.uk/how-to/mac-software/how-use-terminal-on-mac-3608274/&quot;&gt;Terminal&lt;/a&gt; or &lt;a href=&quot;https://docs.anaconda.com/anaconda/user-guide/getting-started/&quot;&gt;Anaconda Prompt&lt;/a&gt;, type:&lt;/p&gt;
+&lt;p&gt;To create a virtual environment in &lt;a href=&quot;https://www.anaconda.com/distribution/&quot; target=&quot;_blank&quot;&gt;Anaconda&lt;/a&gt; , in the &lt;a href=&quot;https://www.macworld.co.uk/how-to/mac-software/how-use-terminal-on-mac-3608274/&quot; target=&quot;_blank&quot;&gt;Terminal&lt;/a&gt;  or &lt;a href=&quot;https://docs.anaconda.com/anaconda/user-guide/getting-started/&quot; target=&quot;_blank&quot;&gt;Anaconda Prompt&lt;/a&gt; , type:&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;conda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataviz&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;python&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.6&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -2207,7 +2207,7 @@ Let’s try to apply everything we’ve learn so far and apply it to a more chal
 
 &lt;h3 id=&quot;installing-other-python-packages&quot;&gt;Installing Other Python Packages&lt;/h3&gt;
 &lt;p&gt;Next we will install &lt;a href=&quot;https://plot.ly/python/getting-started/&quot; target=&quot;_blank&quot;&gt;Plotly&lt;/a&gt;, &lt;a href=&quot;https://pypi.org/project/numpy/&quot; target=&quot;_blank&quot;&gt;Numpy&lt;/a&gt;, &lt;a href=&quot;https://pypi.org/project/beautifulsoup4/&quot; target=&quot;_blank&quot;&gt;Beautifulsoup&lt;/a&gt;, &lt;a href=&quot;https://scikit-learn.org/stable/index.html&quot; target=&quot;_blank&quot;&gt;SCIKIT-Learn&lt;/a&gt;, &lt;a href=&quot;https://matplotlib.org/&quot; target=&quot;_blank&quot;&gt;Matplotlib&lt;/a&gt; and &lt;a href=&quot;https://pandas.pydata.org/pandas-docs/stable/install.html&quot; target=&quot;_blank&quot;&gt;Pandas&lt;/a&gt; by typing the following command in Terminal or Anaconda Prompt.&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;conda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plotly&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scikit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;learn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;conda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plotly&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scikit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;learn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;basemap&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;netcdf4&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;beautifulsoup4&lt;/span&gt;
@@ -2221,6 +2221,8 @@ Let’s try to apply everything we’ve learn so far and apply it to a more chal
 &lt;p&gt;&lt;a href=&quot;https://scikit-learn.org/stable/index.html&quot; target=&quot;_blank&quot;&gt;SCIKIT-Learn&lt;/a&gt; is an essential toolkit for data processing and machine learning.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://matplotlib.org/&quot; target=&quot;_blank&quot;&gt;Matplotlib&lt;/a&gt; is a graphing library that handles much of the non-dynamic graphics&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://matplotlib.org/&quot; target=&quot;_blank&quot;&gt;Basemap&lt;/a&gt; is a graphing library that handles much of the non-dynamic graphics&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://pandas.pydata.org/pandas-docs/stable/install.html&quot; target=&quot;_blank&quot;&gt;Pandas&lt;/a&gt; is a library for data processing.&lt;/p&gt;
 
@@ -2274,10 +2276,39 @@ Let’s try to apply everything we’ve learn so far and apply it to a more chal
       </item>
     
       <item>
-        <title>GIS Workshop Climate Data Visualization</title>
+        <title>Data Visualization Workshop Climate Data Visualization</title>
         <description>&lt;hr /&gt;
 
-&lt;h1 id=&quot;coming-soon&quot;&gt;Coming Soon&lt;/h1&gt;
+&lt;h2 id=&quot;project-description&quot;&gt;Project Description&lt;/h2&gt;
+
+&lt;p&gt;This module is preparation for the data visualization with Python workshop. No programming background is required. In this installation module, you will follow step-by-step instructions to install python and some of the most popular data processing / visualization libraries we will be suing for this workshop. You will be using Anaconda as a Python management software that is cross platform, thus all the instructions are the same between Windows, OSX and Linux.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;step-1&quot;&gt;Step 1&lt;/h1&gt;
+&lt;h3 id=&quot;python-installation&quot;&gt;Python Installation&lt;/h3&gt;
+
+&lt;p&gt;Please follow the steps detailed in the &lt;a href=&quot;https://tedngai.github.io/itlworkshops/2019/DataSci01/&quot; target=&quot;_blank&quot;&gt;Data Science Intro&lt;/a&gt;  for instructions to install Anaconda and create virtual environments. There is step-by-step instructions there.&lt;/p&gt;
+
+&lt;p&gt;You will want to create a new virtual environment for this workshop, and you will need the following packages, netCDF4, numpy, matplotlib, and basemap. First create a new virtual environment.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda create -n climateViz python=3.7
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Once it’s done, activtate the envionrment&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda activate climateViz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now install the following packages&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda install numpy netCDF4 matplotlib basemap
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;step-2&quot;&gt;Step 2&lt;/h1&gt;
+&lt;h3 id=&quot;download-climate-data&quot;&gt;Download Climate Data&lt;/h3&gt;
+
 </description>
         <pubDate>Tue, 04 Sep 2018 00:00:00 -0400</pubDate>
         <link>http://localhost:4000/itlworkshops/2018/GIS_Workshop_ClimateViz/</link>
