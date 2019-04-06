@@ -4,7 +4,8 @@ title: Data Visualization Workshop Climate Data Visualization
 description: Python
 image: 
 ---
-![MERRA2-2m_airTemp_Test](../../assets/images/climate/MERRA2-2m_airTemp_Test.png)
+**<center> Global wind speed when Storm Sandy made landfall in New York</center>**
+![20121028022807-windspeed](../../assets/images/climate/20121028022807-windspeed.png){:.center-image}
 
 ## Project Description
 
@@ -198,6 +199,9 @@ plt.savefig('MERRA2-2m_airTemp_Test.png', bbox_inches='tight', pad_inches=0)
 ```
 `plt.figure` sets the dimension of the plot. `figsize` is in inches and multiply that with `dpi` you get a pixel count. `map.pcolor` we set the vallues for x, y, temperature. `vmin` is the lowest temperature value and `vmax` is the highest temperature value. `cmap` sets the colormap option and in this case we are using **jet**.
 
+**<center> Global Air Temperature</center>**
+![MERRA2-2m_airTemp_Test](../../assets/images/climate/MERRA2-2m_airTemp_Test.png)
+
 ***
 
 # Step 4
@@ -280,4 +284,5 @@ for data in alldata:
 ```
 The only difference with this code is all the map generation happens within a loop and all the files are saved with the same name as the original file. `plt.clf()` is used to clear the memory buffer. All the images can then be used to create an animated gif like the following. 
 
+**<center> Ground Water Storage Percentile</center>**
 ![GRACEDADM2014](../../assets/images/climate/GRACEDADM2014.gif){:.center-image}
