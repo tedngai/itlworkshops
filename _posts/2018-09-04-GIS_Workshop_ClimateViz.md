@@ -198,5 +198,85 @@ plt.savefig('MERRA2-2m_airTemp_Test.png', bbox_inches='tight', pad_inches=0)
 ```
 `plt.figure` sets the dimension of the plot. `figsize` is in inches and multiply that with `dpi` you get a pixel count. `map.pcolor` we set the vallues for x, y, temperature. `vmin` is the lowest temperature value and `vmax` is the highest temperature value. `cmap` sets the colormap option and in this case we are using **jet**.
 
+***
 
+# Step 4
 
+### Visualize Multiple Sets of Data
+
+Now let's try to step it up and develop a more practical workflow. Since these types of data is much more informative when you look at longer duration and as a time series. Earthdata provide you with a way to download mutliple files via **wget** or **curl**, you will need to setup your credentials and save it in a cookie. Follow the instructions here: [Earthdata cookie setup](https://disc.gsfc.nasa.gov/data-access){:target="_blank"}
+
+Once you have setup the **cookie** and **credentials**, follow this page for instructions to setup mass download.
+
+<center><button class="button">
+	<a href="https://disc.gsfc.nasa.gov/information/howto?title=How%20to%20Download%20Data%20Files%20from%20HTTPS%20Service%20with%20wget" target="_blank" >Download Multiple Files</a>
+</button></center><br>
+
+If everything is setup correctly, you should be able to download all the .nc4 files with this command. Make sure to run the command in a directory where all the  files will be stored. For this next example, we will look at the [**Ground Water Storage Percentile**](https://hydro1.gesdisc.eosdis.nasa.gov/data/GRACEDA/GRACEDADM_CLSM0125US_7D.2.0/2014/){:target="_blank"} of the US. The dataset is weekly so there are a total of 52 files. We will create a new folder name **GRACEDADM2014** and place all the files there. When you have everything setup, run the following command in a separate **Terminal** or **Anaconda Prompt**.
+
+```
+wget --load-cookies ~/.urs_cookies --save-cookies ~/.urs_cookies --keep-session-cookies -r -c -nH -nd -np -A nc4 --content-disposition "https://hydro1.gesdisc.eosdis.nasa.gov/data/GRACEDA/GRACEDADM_CLSM0125US_7D.2.0/2014/"
+```
+Back in Jupyter, we will create a new notebook and start from the beginning. It will be very similar to the previou example except this time we will be visualizing all 52 sets of data at once.
+
+```python
+from netCDF4 import Dataset
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+from mpl_toolkits.basemap import Basemap
+import os
+
+def addNC(file):
+    data = Dataset(file,mode='r')
+    print(file)
+    return(data)
+
+def findMinMax(a):
+    minVal=[]
+    maxVal=[]
+    for data in a:
+        minVal.append(np.min(data.variables['gws_inst'][0,:,:]))
+        maxVal.append(np.max(data.variables['gws_inst'][0,:,:]))
+    return(min(minVal),max(maxVal))
+    
+path = './files/GRACEDADM2014/'
+
+nc4s = []
+for r, d, f in os.walk(path):
+    for file in f:
+        if '.nc4' in file:
+            nc4s.append(os.path.join(r, file))
+
+nc4s.sort()
+alldata = [addNC(u) for u in nc4s]
+```
+We are writing 2 functions, 1 to read the dataset which will be appended to the **alldata** variable, and the other is to find the maximum and minimum value across all 52 files for colormapping. 
+
+```python
+i=0
+
+(Vmin,Vmax) = findMinMax(alldata)
+
+for data in alldata:
+    lons = data.variables['lon'][:]
+    lats = data.variables['lat'][:]
+    gws_inst = data.variables['gws_inst'][0,:,:]
+    map = Basemap(resolution='l', projection='gall', lat_0=(lats.max()/2), lon_0=(lons.max()/2),
+             llcrnrlat=lats.min(),urcrnrlat=lats.max(),
+             llcrnrlon=lons.min(),urcrnrlon=lons.max(),)
+    lon, lat = np.meshgrid(lons, lats)
+    xi, yi = map(lon, lat)
+    plt.figure(figsize = (20,12), dpi=100, frameon=False)
+    cs = map.pcolor(xi,yi,np.squeeze(gws_inst), vmin=Vmin, vmax=Vmax, cmap=cm.rainbow)
+    cs.set_edgecolor('face')
+    map.drawcoastlines()
+    map.drawstates()
+    map.drawcountries()
+    plt.title(nc4s[i][47:-8], x=0.96, y=0.02)
+    plt.savefig(nc4s[i][47:-8]+'.png', bbox_inches='tight', pad_inches=0)
+    plt.clf()
+    i += 1
+```
+
+![GRACEDADM2014](../../assets/images/climate/GRACEDADM2014.gif){:.center-image}
