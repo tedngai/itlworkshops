@@ -278,5 +278,6 @@ for data in alldata:
     plt.clf()
     i += 1
 ```
+The only difference with this code is all the map generation happens within a loop and all the files are saved with the same name as the original file. `plt.clf()` is used to clear the memory buffer. All the images can then be used to create an animated gif like the following. 
 
 ![GRACEDADM2014](../../assets/images/climate/GRACEDADM2014.gif){:.center-image}
