@@ -5,8 +5,8 @@
     <description>This is a repository of our ongoing projects.</description>
     <link>http://localhost:4000/itlworkshops/</link>
     <atom:link href="http://localhost:4000/itlworkshops/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 05 Apr 2019 20:39:49 -0400</pubDate>
-    <lastBuildDate>Fri, 05 Apr 2019 20:39:49 -0400</lastBuildDate>
+    <pubDate>Fri, 05 Apr 2019 22:56:33 -0400</pubDate>
+    <lastBuildDate>Fri, 05 Apr 2019 22:56:33 -0400</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
@@ -355,47 +355,33 @@ rs.AddMesh(vertices,face)
       </item>
     
       <item>
-        <title>Natural Language Processing Part 1 Data Clean Up</title>
-        <description>&lt;div class=&quot;sketchfab-embed-wrapper&quot;&gt;&lt;iframe width=&quot;100%&quot; height=&quot;480&quot; src=&quot;https://sketchfab.com/models/a7979bace34442d1b6655c37bd348a5b/embed&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; fullscreen; vr&quot; mozallowfullscreen=&quot;true&quot; webkitallowfullscreen=&quot;true&quot;&gt;&lt;/iframe&gt;
-​
-&lt;p style=&quot;font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;&quot;&gt;
-    &lt;a href=&quot;https://sketchfab.com/3d-models/world-trade-center-dem-a7979bace34442d1b6655c37bd348a5b?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;World Trade Center DEM&lt;/a&gt;
-    by &lt;a href=&quot;https://sketchfab.com/itl?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;itl&lt;/a&gt;
-    on &lt;a href=&quot;https://sketchfab.com?utm_medium=embed&amp;amp;utm_source=website&amp;amp;utm_campaign=share-popup&quot; target=&quot;_blank&quot; style=&quot;font-weight: bold; color: #1CAAD9;&quot;&gt;Sketchfab&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
+        <title>Natural Language Processing Part 1 Data Cleanup</title>
+        <description>&lt;hr /&gt;
 
 &lt;h2 id=&quot;project-description&quot;&gt;Project Description&lt;/h2&gt;
 
-&lt;p&gt;The objective of this workshop is to go through all the steps invovled to create a 3D terrain model in Rhino using &lt;a href=&quot;https://www.usgs.gov/core-science-systems/ngp/3dep/about-3dep-products-services&quot;&gt;3D Elevation Program&lt;/a&gt; (3DEP) data from &lt;a href=&quot;https://www.usgs.gov/&quot;&gt;United States Geological Survey&lt;/a&gt; (USGS), downloadable from &lt;a href=&quot;https://viewer.nationalmap.gov/basic/&quot;&gt;The National Map&lt;/a&gt;. This workshop assumes you already know Rhino3D.&lt;/p&gt;
+&lt;p&gt;This is part 1 of the Natural Language Processing module. The process described here largely follows the structure of Alice Zhao’s (A Dash of Data) &lt;a href=&quot;https://www.youtube.com/watch?v=xvqsFTUsOmc&quot; target=&quot;_blank&quot;&gt;Presentation on NLP at PyOhio 2018&lt;/a&gt;. This first part will mainly focused on webscraping and cleaning up data for Natural Language Processing. We will also deviate from Alice’s presentation and scrape our own dataset from &lt;a href=&quot;https://jrescribe.com/&quot; target=&quot;blank&quot;&gt;Joe Rogan’s podcast transcript&lt;/a&gt;. The transcript from Rogan’s Podcast is preferred because of the length and the variety of his interviews, we get some very interesting results.&lt;/p&gt;
 
-&lt;h3 id=&quot;3dep&quot;&gt;3DEP&lt;/h3&gt;
+&lt;p&gt;Before you begin, you must have completed the installation and visualiation modules so you have working knowledge of anaconda and regular expression.&lt;/p&gt;
 
-&lt;p&gt;3DEP is a branded product consist of a number of elevation products such as standard digital elevation models (DEM), Light Detection and Ranging (LIDAR) data, and Interferometric synthetic-aperture radar (IfSAR) data. This workshop will only cover the workflow for working with DEMs.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://viewer.nationalmap.gov/basic/&quot;&gt;The National Map&lt;/a&gt; distributes standard DEMs in various resolutions. In USGS terminology, the DEM dataset can be separated into 2 categories - &lt;strong&gt;Seamless&lt;/strong&gt; and &lt;strong&gt;Project-based&lt;/strong&gt;. Seamless datasets are created from elevation data sourced from multiple technologies spanning decades. Although it is updated continually, positional and temporal accuracies might be an issue. It is best to use this dataset as reference only. The reason you might want to use this dataset is because it is the only thing available for your area of interest. Project-based data, on the other hand, are produced from LIDAR and IfSAR data, and they are the most up-to-date and accurate. However, the availability is limited.&lt;/p&gt;
-
-&lt;p&gt;The DEM datasets have a number of resolutions you can find: 1-meter, 1/9 arc-second, 5-meter, 1/3 arc-second, 1 arc-second, and 2 arc-second. These numbers indicate now big each pixel represents in real space. The datasets come as rasters or images, so 1-meter dataset would mean each pixel equates to 1x1 meter. 1/9 arc-second is roughly 3-meters, this dataset is only available for around 25% of the conterminous U.S.. 1/3 arc-second is approximately 10-meters and this dataset has full coverage of the 48 conterminous states, Hawaii, and U.S. territories.&lt;/p&gt;
+&lt;hr /&gt;
 
 &lt;h1 id=&quot;step-1&quot;&gt;Step 1&lt;/h1&gt;
-&lt;h2 id=&quot;download-data-from-the-national-map&quot;&gt;Download Data from The National Map&lt;/h2&gt;
+&lt;h2 id=&quot;download-data&quot;&gt;Download Data&lt;/h2&gt;
 
 &lt;p&gt;To begin this workshop, we will first go download our desired DEM data. Go to &lt;a href=&quot;https://viewer.nationalmap.gov/basic/&quot;&gt;The National Map&lt;/a&gt; and check &lt;strong&gt;Elevation Product (3DEP)&lt;/strong&gt;, and check the desired resolution for your area of interest. If you choose 1-meter or 1/9 arc-second data, only &lt;strong&gt;IMG&lt;/strong&gt; file format is available. If you choose 1/3 arc-second or larger data, you have a choice of &lt;strong&gt;ArcGrid&lt;/strong&gt;, &lt;strong&gt;GridFloat&lt;/strong&gt;, or &lt;strong&gt;IMG&lt;/strong&gt;, we will stick to &lt;strong&gt;IMG&lt;/strong&gt; for this session.&lt;/p&gt;
 
 &lt;p&gt;You can click on &lt;strong&gt;Show Availability&lt;/strong&gt; to see if the data at your specific resolution is available for your area.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/GIS/pic_GIS_nationalmap.JPG&quot; alt=&quot;national map&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/images/GIS/pic_GIS_nationalmap.JPG&quot; alt=&quot;national map&quot; height=&quot;50%&quot; width=&quot;50%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;On the map, zoom to your area and make sure &lt;strong&gt;Current Extent&lt;/strong&gt; is hightlighted, then &lt;strong&gt;PRESS Find Products&lt;/strong&gt;, the web app will launch a search using the current extent as search parameter, and you will be presented with a list of search results.&lt;/p&gt;
 
 &lt;p&gt;On the results list, you can click on &lt;strong&gt;Footprint&lt;/strong&gt; to see where the DEM tile is. In our case, Low Manhattan is splitted into 2 tiles, so we will need to download both tiles. Simply click on &lt;strong&gt;Download&lt;/strong&gt; for each tile and save the files to a folder of your choice.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/GIS/pic_GIS_nationalmap_footprint.JPG&quot; alt=&quot;national map&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../assets/images/GIS/pic_GIS_nationalmap_footprint.JPG&quot; alt=&quot;national map&quot; height=&quot;50%&quot; width=&quot;50%&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;For each download there should be a &lt;strong&gt;.ZIP&lt;/strong&gt; file, and you will find many files when unzipped so unzip them into a separate folder. In the long list of files, you should see one with an extension &lt;strong&gt;.IMG&lt;/strong&gt;. If you are on Windows and do not see file extensions, please follow this link - &lt;a href=&quot;https://www.howtohaven.com/system/show-file-extensions-in-windows-explorer.shtml&quot;&gt;Show file extension.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;../../../assets/images/GIS/pic_GIS_nationalmap_savefile.JPG&quot; alt=&quot;national map&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;For each download there should be a &lt;strong&gt;.ZIP&lt;/strong&gt; file, and you will find many files when unzipped so unzip them into a separate folder. In the long list of files, you should see one with an extension &lt;strong&gt;.IMG&lt;/strong&gt;. If you are on Windows and do not see file extensions, please follow this link - &lt;a href=&quot;https://www.howtohaven.com/system/show-file-extensions-in-windows-explorer.shtml&quot; target=&quot;_blank&quot;&gt;Show file extension.&lt;/a&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -2540,6 +2526,7 @@ filling on)
     &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;The only difference with this code is all the map generation happens within a loop and all the files are saved with the same name as the original file. &lt;code class=&quot;highlighter-rouge&quot;&gt;plt.clf()&lt;/code&gt; is used to clear the memory buffer. All the images can then be used to create an animated gif like the following.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;../../assets/images/climate/GRACEDADM2014.gif&quot; alt=&quot;GRACEDADM2014&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
 </description>
