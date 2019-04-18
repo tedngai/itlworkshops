@@ -32,7 +32,7 @@ conda activate climateViz
 Now install the following packages
 
 ```
-conda install numpy netCDF4 matplotlib basemap
+conda install numpy netCDF4 matplotlib basemap basemap-data-hires
 ```
 
 ***
