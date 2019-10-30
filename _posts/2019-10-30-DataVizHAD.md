@@ -21,6 +21,7 @@ First import all the libraries by executing the following code.
 
 ```python
 import plotly.graph_objs as go
+import plotly.express as px
 from collections import defaultdict
 import pandas as pd
 ```
@@ -103,6 +104,13 @@ df_medium = pd.DataFrame(list(zip(med_keys, med_values)),
 df_medium.to_csv('MoMA_MediumCounts.csv', index=False)
 ```
 What we have done is to we created a new pandas dataframe only based on the medium value and the medium count, and we exported it out as a csv file so we can look at it with another program like Excel.
+
+We can also plot this as a graph with the following code.
+
+```python
+fig = px.bar(df_medium.head(n=20), x='Medium', y='Count')
+fig.show()
+```
 
 So now we know the largest collection MoMA has is photography. But let's say you want to look for specific **keywords** in the collection that you would associate with paintings you can do something like this.
 
