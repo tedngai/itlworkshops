@@ -149,6 +149,7 @@ df_picasso = df_moma[df_moma['Artist'].str.contains('|'.join(searchfor))]
 grouped = df_picasso[['Medium','Artist', ]].groupby(['Medium',]).count().reset_index()
 grouped.sort_values('Artist', ascending=False)
 ```
+![test image size](../../assets/images/moma/fig04.png){:height="70%" width="70%" .center-image}
 
 So it turns out, MoMA has over one thousand pieces of art work by Picasso and almost 25% of that are litographic work!
 
