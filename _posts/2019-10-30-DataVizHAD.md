@@ -34,14 +34,33 @@ df_moma = pd.read_csv('https://github.com/MuseumofModernArt/collection/blob/mast
 If you want to speed things up a little, download the csv file to your local drive and place it in the same folder as where you're running Jupyter Notebook, then execute this code.
 
 ```python
-df_moma = pd.read_csv('./Artworks.csv')
+df_moma = pd.read_csv('./MoMAArtworks.csv')
 ```
 
-Execute **df_moma** to see what's inside this variable.
+Execute **df_moma.info()** to see what's inside this variable.
 
-![NaN](../../assets/images/moma/pic_moma_nan.jpg){:height="70%" width="70%" .center-image}
+```
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 138118 entries, 0 to 138117
+Data columns (total 29 columns):
+Title                 138079 non-null object
+Artist                136662 non-null object
+ConstituentID         136662 non-null object
+ArtistBio             132559 non-null object
+Nationality           136662 non-null object
+BeginDate             136662 non-null object
+EndDate               136662 non-null object
+Gender                136662 non-null object
+Date                  135743 non-null object
+Medium                127156 non-null object
+Dimensions            127253 non-null object
+CreditLine            135354 non-null object
+AccessionNumber       138118 non-null object
+Classification        138118 non-null object
+Department            138118 non-null object
+```
 
-Upon inspecting the data, you should see that there're large number of records that has the value of **NaN**, which in computer science lingo means **"not a number"**, which also means there is an invalid record in the dataset. So before we begin to do anything beyond this, we need to for fill those records up with something else other than a **NaN** because it will cause issues with Pandas and Python down the line. We use a function call **fillna** to replace any **NaN** value with something we desinate.
+Upon inspecting the data, you should see that there're large number of records that has the value of **NaN**, which in computer science lingo means **"not a number"**, which also means there is an invalid record in the dataset. So before we begin to do anything beyond this, we need to for fill those records up with something else other than a **NaN** because it will cause issues with Pandas and Python down the line. We use a function call **fillna** to replace any **NaN** value with something we designate.
 
 ```python
 df_moma[['Artist','Nationality','BeginDate',
