@@ -86,10 +86,10 @@ And you should see something like this
 
 ```
 Gelatin silver print	15399
-Lithograph	7842
+Lithograph		7842
 Albumen silver print	4854
-Pencil on paper	1831
-Letterpress	1680
+Pencil on paper		1831
+Letterpress		1680
 ...  
 ```
 The square bracket defines the column name, you can try using different column names to explore the dataset. Now, because the list of medium types is long and the screen does not show everything, we will need to find a way to access all the other items. 
@@ -105,12 +105,13 @@ df_medium.to_csv('MoMA_MediumCounts.csv', index=False)
 ```
 What we have done is to we created a new pandas dataframe only based on the medium value and the medium count, and we exported it out as a csv file so we can look at it with another program like Excel.
 
-We can also plot this as a graph with the following code.
+We can also plot this as a graph with the following code.  Bear in mind that we have over 20k medium types so it would be quite unlikely we can fit everything within the screen and potentially get some sort of error. Therefore we limit the amount of medium type to show to 20 with the code **.head(n=20)**.
 
 ```python
 fig = px.bar(df_medium.head(n=20), x='Medium', y='Count')
 fig.show()
 ```
+
 
 So now we know the largest collection MoMA has is photography. But let's say you want to look for specific **keywords** in the collection that you would associate with paintings you can do something like this.
 
