@@ -188,27 +188,11 @@ df_moma[['Artist','Nationality','Date','BeginDate','Gender','DateAcquired']] = d
 
 Remember that there're over 130,000 records and it's simply not feasible to visualize every single item in the collection, we will make an arbitrary decision and say the visualization will be based on their classification, and in this case, the architecture collection. You can change this to what ever you want. Say if you want to look at the sizes of all of Picasso's work, it's the same procedure.
 
-First look at how many classifications there are that are related to architecture. Bring in the function that looks for duplicates.
+First look at how many classifications there are that are related to architecture. To do that we use the same value_counts() function as before.
 
 ```python
-def list_duplicates(seq):
-    tally = defaultdict(list)
-    for i, item in enumerate(seq):
-        tally[item].append(i)
-    return((key,locs) for key, locs in tally.items() if len(locs)>0)
+df_moma['Classification'].value_counts().head(n=10)
 ```
-
-Then call the function and have it list all the unique classifications. 
-
-```python
-classification = []
-for dup in sorted(list_duplicates(df_moma['Classification'].astype(str))):
-    classification.append([dup[0], len(dup[1])])
-labels = ['Classification', 'Number Of Artwork']
-df_classification = pd.DataFrame.from_records(classification, columns=labels)
-df_classification.sort_values('Number Of Artwork', ascending=False)
-```
-
 <iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/111.embed"></iframe>
 From this list you can see there is a Mies van der Rohe Archive, an architecture collection, and a Frank Lloyd Wright Archive, all related to architecture. So we'll create a new dataframe that would use those terms as filter words. 
 
