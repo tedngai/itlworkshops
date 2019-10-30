@@ -111,9 +111,7 @@ We can also plot this as a graph with the following code.  Bear in mind that we 
 fig = px.bar(df_medium.head(n=20), x='Medium', y='Count')
 fig.show()
 ```
-
-
-So now we know the largest collection MoMA has is photography. But let's say you want to look for specific **keywords** in the collection that you would associate with paintings you can do something like this.
+So now we know the largest collection MoMA has is photography. But let's say you want to look for specific **keywords** in the collection that you would associate with paintings like paint, oil, canvas...etc,  you can do something like this.
 
 ```python
 searchfor = ['paint','oil','canvas','Casein']
@@ -126,48 +124,25 @@ df_medium[df_medium['Medium'].str.contains('|'.join(searchfor))]
 
 ![test image size](../../assets/images/moma/pic_moma_mediumstrcontains.jpg){:height="70%" width="70%" .center-image}
 
-Now combine the sort function with the search function and write it all at once.
-
-```python
-df_medium[df_medium['Medium'].str.contains('|'.join(searchfor))].sort_values('Number Of Artwork', ascending=False)
-```
-
-![test image size](../../assets/images/moma/pic_moma_mediumstrcontainssorted.jpg){:height="50%" width="50%" .center-image}
-
 Now let's try to use the same method of finding duplicates to see which artist has the largest number of work at MoMA.
 
 ```python
-artists = []
-for dup in sorted(list_duplicates(df_moma['Artist'].astype(str))):
-    artists.append([dup[0], len(dup[1]), 
-                    df_moma.loc[dup[1][0]]['Nationality'],
-                    df_moma.loc[dup[1][0]]['BeginDate'],
-                    df_moma.loc[dup[1][0]]['EndDate'],
-                    df_moma.loc[dup[1][0]]['Gender'],
-                    df_moma.loc[dup[1][0]]['Classification']])
-
-labels = ['Artist', 'Number Of Artwork', 'Nationality', 'BirthYear', 'DeathYear', 'Gender','Classification']
-df_artists = pd.DataFrame.from_records(artists, columns=labels)
-df_artists.sort_values('Number Of Artwork', ascending=False)
+artist_keys = df_moma['Artist'].value_counts().keys().to_list()
+artist_values = df_moma['Artist'].value_counts().keys().to_list()
+df_artist = pd.DataFrame(list(zip(artist_keys, artist_values)),
+                        columns = ['Artist', 'Count'])
+df_artist
 ```
+We can also single out individual artist and look at the variety of work based on medium. For example, we can specifically look at the Picasso collection and see which medium the museum has the most.
 
-![test image size](../../assets/images/moma/pic_moma_artistworksorted.jpg){:height="50%" width="50%" .center-image}
-
-We can also single out individual artist and look at the variety of work based on medium.
 
 ```python
-df_picasso = df_moma[df_moma['Artist']=='Pablo Picasso']
-picasso = []
-for dup in sorted(list_duplicates(df_picasso['Medium'].astype(str))):
-    picasso.append([dup[0], len(dup[1])])
+searchfor = ['Picasso']
+df_picasso = df_moma[df_moma['Artist'].str.contains('|'.join(searchfor))]
 
-labels = ['Type of Work', 'Number Of Artwork']
-df_picassoWork = pd.DataFrame.from_records(picasso, columns=labels)
-df_picassowork.sort_values('Number Of Artwork', ascending=False)
+grouped = df_picasso[['Medium','Artist', ]].groupby(['Medium',]).count().reset_index()
+grouped.sort_values('Artist', ascending=False)
 ```
-
-
-![test image size](../../assets/images/moma/pic_moma_picassomediumsorted.jpg){:height="50%" width="50%" .center-image}
 
 So it turns out, MoMA has over one thousand pieces of art work by Picasso and almost 25% of that are litographic work!
 
