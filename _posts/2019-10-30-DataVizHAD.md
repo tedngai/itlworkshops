@@ -81,46 +81,30 @@ You can explore this easily with a **pandas** function
 ```python
 df_moma['Medium'].value_counts()
 ```
+And you should see something like this
 
-To do this we need to call a **Function** that allows us to track duplicates. We have used this in previous sessions and it looks something like this. Type the following in and execute.
+```
+Gelatin silver print	15399
+Lithograph				7842
+Albumen silver print	4854
+Pencil on paper			1831
+Letterpress				1680
+...  
+```
+The square bracket defines the column name, you can try using different column names to explore the dataset. Now, because the list of medium types is long and the screen does not show everything, we will need to find a way to access all the other items. 
+
+Since Pandas restricts how many rows of data it shows, we will need to do a little work-around.
 
 ```python
-def list_duplicates(seq):
-    tally = defaultdict(list)
-    for i, item in enumerate(seq):
-        tally[item].append(i)
-    return((key,locs) for key, locs in tally.items() if len(locs)>0)
+med_keys = df_moma['Medium'].value_counts().keys().to_list()
+med_values = df_moma['Medium'].value_counts().to_list()
+df_medium = pd.DataFrame(list(zip(med_keys, med_values)),
+                         columns =['Medium', 'Count'])
+df_medium.to_csv('MoMA_MediumCounts.csv', index=False)
 ```
+What we have done is to we created a new pandas dataframe only based on the medium value and the medium count, and we exported it out as a csv file so we can look at it with another program like Excel.
 
-At this point, it's ok if you don't know how this function works. There're quite a bit of short form writing in there so it's a bit harder to read than usual. For now, treat it like a blackbox or a copy / paste button where you know exactly what it does and what you need to do to call the function. For more information on Python Functions, click the following for a deep dive into the subject. 
-
-<center><button class="button special fit">
-		<a href="https://www.w3schools.com/python/python_functions.asp" target="blank">Deep Dive: Python Functions</a>
-</button></center><br><br>
-
-Now let's call the function and have it list all the unique art media in the collection. 
-
-```python
-medium = []
-for dup in sorted(list_duplicates(df_moma['Medium'].astype(str))):
-    medium.append([dup[0], len(dup[1])])
-labels = ['Medium', 'Number Of Artwork']
-df_medium = pd.DataFrame.from_records(medium, columns=labels)
-```
-
-First you need to create an empty list to store all the items being found. The next line is a bit complex, it first passes the column with header **['Medium']** to the function while ensuring it's passed as a **string**. The function sends back with a list of lists, first listing all the unique medium names, and then the row number in which the medium name had been found. So we just need to store all that information into the **medium** variable. `(dup[1])` is a list of all the row numbers where the medium is found, `len(dup[1])` is the **length** of that list, which essentially tells me how many times that medium is found in the collection.
-
-Next we give the new list a label and create a new Pandas DataFrame for it. So now when you type in the following, you can show the dataframe and have it be sorted at the same time.
-
-```python
-df_medium.sort_values('Number Of Artwork', ascending=False)
-```
-
-![test image size](../../assets/images/moma/pic_moma_mediumsortedlist.jpg){:height="70%" width="70%" .center-image}
-
-So now we know the largest collection MoMA has is photography and a large number of artwork have unknown media type.
-
-Now let's say you want to look for specific **keywords** in the collection that you would associate with paintings, you can do something like this.
+So now we know the largest collection MoMA has is photography. But let's say you want to look for specific **keywords** in the collection that you would associate with paintings you can do something like this.
 
 ```python
 searchfor = ['paint','oil','canvas','Casein']
