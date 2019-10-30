@@ -153,233 +153,10 @@ grouped.sort_values('Artist', ascending=False)
 
 So it turns out, MoMA has over one thousand pieces of art work by Picasso and almost 25% of that are litographic work!
 
+
 ***
 
 # Step 3
-### Date Created VS Date Aquired
-We are diving deeper and deeper into data processing with Pandas as we continue to work with the same data set. This next exercise will dive right into one of the graphs 
-[Oliver Roeder](https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/){:target="_blank"} had done at [FiveThirtyEight](https://fivethirtyeight.com/){:target="_blank"} in which he graphed the year in which a painting had been painted versus the year in which the painted had been acquired by MoMA. It's a simple idea but to actually create this graph, it's anything but simple. We will have to rely on everything we have learned so far and more!
-
-Let's open up a new notebook start fresh, and import the following packages.
-
-```python
-import plotly.graph_objs as go
-from collections import defaultdict
-import pandas as pd
-import re, datetime
-```
-
-Import the CSV file as we did before, again, your choice if you want to load it remotely or locally.
-
-```python
-df_moma = pd.read_csv('https://github.com/MuseumofModernArt/collection/blob/master/Artworks.csv')
-```
-
-```python
-df_moma = pd.read_csv('./MoMAArtworks.csv')
-```
-
-And again, let's clean up all the missing values which is represented by **NaN** and fill that with the text **Unknown**. For more on how to work with **Missing Data** in Pandas, click here.
-
-<center><button  class="button special fit">
-		<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html" target="blank">Deep Dive: Pandas Missing Data</a>
-</button></center>
-
-```python
-df_moma[['Artist','Nationality','Date','BeginDate','Gender','DateAcquired']] = df_moma[['Artist','Nationality','Date','BeginDate','Gender','DateAcquired']].fillna(value='Unknown')
-```
-
-Now let's look at the 2 column of data we're interested in working with, DateAcquired and Date (assuming it is the date the work was produced), and you should see something like the following.
-
-```python
-df_moma[['DateAcquired','Date']]
-```
-
-<iframe width="100%" height="500" frameborder="0" scrolling="no" src="https://plot.ly/~prattitl/101.embed"></iframe>
-
-Immediately we notice that the date format is diffent between the 2 columns. And even within each column, there are a lot of inconsistensies in the format. This is one of the quintessential task in data science - understanding how data needs to be structured so computer language can make sense of it. And now our task is to search through and clear data for inconsistencies. 
-
-To do that let's talk through what the approach is, and simplify the problem by only looking at one of the columns first. The Date Acquired seems to be a bit more consistent at first glance, it seems most of the rows have this xxxx-xx-xx format. So let's take a deeper look into this.
-
-```python
-for row in (df_moma.DateAcquired):
-    q = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)
-    if not q:
-        print(row)
-```
-
-<iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/105.embed"></iframe>
-**df_moma.DateAcquired** is a short form to only show the DataAcquired column of the df_moma dataframe. It can also be written as **df_moma['DateAcquired']**, it'll give us the same thing. The **for row in x** loop goes into every single row of data. **q = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)** is to use a very powerful function call **Regular Expression** to sift through the data looking for patterns. Regular Expression is a rabbit hole, it was invented in the 1950s as a mathematical formal language and people have built search engines and word processors with it. For a deeper understanding, I'd recommend doing a more extensive reading on this subject. For a deeper look at how to use it pragmatically with python, click the following link.
-
-<center><button class="button special fit">
-		<a href="https://www.dataquest.io/blog/regex-cheatsheet/" target="blank">Deep Dive: Regular Expression</a>
-</button></center><br>
-
-But let's try to break it down so we have a basic understanding. 
-
-`re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)` is made up of `re.search(a,b)`, which is to look for pattern a inside b. The `r''` quote is a convention that defines everything within the quotes are "raw" strings. `\d` is any digit between 0-9. Used along with `{4}` will look for any 4 digits repeated 4 times. `\d{1,2}` means look for digits repeated 1 to 2 times. So in human language, look for this pattern, digits that has been repeated 4 times, then a hyphen, then 1 to 2 digits, then another hyphen, then another 1 to 2 digits. Put this whole thing under a variable **q** means, if the search is positive, return True and store that in **q**. 
-
-Thus, `if not q:` means if the pattern didn't match, then `print(row)` show me the result. 
-
-So from the results we see a lot of **Unknown**, but unless we go through each entry one by one, we can't be sure if that is the only deviation, so let's add to the funciton and identify all the unique variations. 
-
-```python
-dateAcquired_nullValue = []
-for row in (df_moma.DateAcquired):
-    q = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)
-    if not q:
-        print(row)
-        dateAcquired_nullValue.append(row)
-```
-
-We first create an empty list and inside the loop, pass all the values that doesn't match the pattern into the variable. So we end with a list of all the deviations. We then use a function to look for unique values.
-
-```python
-def list_duplicates(seq):
-    result = []
-    for item in seq:
-        if item not in result:
-            result.append(item)
-    return result
-
-list_duplicates(dateAcquired_nullValue)
-```
-
-Here, a **list_duplicate** function is created to look for unique items. And low and behold, we get this as a result - `['Unknown', '1977-08', '1975-01', '1994', '1961']`. So other than Unknown, we also have 2 other date format we have to account for.
-
-Now the **Date** column seems like it's a lot more complex. Just by scrolling through the data we can already see there is **xxxx, xxxx-xx, c. xxxx, c. xxxx-xx, xxxx-xxxx**... so we will have to come up with another **regular expression pattern** to sift through that data. 
-
-```python
-date_nullValue = []
-for row in (df_moma.Date):
-    q = re.search(r'^.*(\d{4}).*', row)
-    if not q:
-        print(row)
-        date_nullValue.append(row)
-```
-
-For this search pattern `re.search(r'^.*(\d{4}).*', row)`, we can just concentrate on this part `^.*(\d{4}).*`. `^` forces the search pattern right at the start of the string. `.` is any character and `*` is repeated however many times. So reading this together `^.*(\d{4})` is it looks for a 4 digit number and ignore anything that comes before, `^.*(\d{4}).*` thus, adding another `.*` after that is to say, look for a 4 digit code and ignore anything that comes before and after. 
-
-```python
-def list_duplicates(seq):
-    result = []
-    for item in seq:
-        if item not in result:
-            result.append(item)
-    return result
-
-list_duplicates(date_nullValue)
-```
-
-You should see a big list of deviations that would be very hard to sift through without the use of regular expression.
-
-Now that we know the data has these many inconsistencies, let's get rid of them. But as a general practice, we don't necessarily want to delete records. Instead, we can create a copy of the data with a filter so we get a clean dataset. To do this we first create 2 lists that contains all the inconsistent date formats.
-
-```python
-dateAcquired_nullValueDup = list_duplicates(dateAcquired_nullValue)
-date_nullValueDup = list_duplicates(date_nullValue)
-```
-
-We're essentially just repeating the same function earlier but now passing the results into a new variable. Then we do this.
-
-```python
-df_moma_known = df_moma[~df_moma['DateAcquired'].isin(dateAcquired_nullValueDup)]
-```
-
-Let's break it down again. `dateAcquired_nullValueDup` is a list of filter words. `df_moma['DateAcquired'].isin()` is a way to pass the column of data and see if any of the rows is in whatever has been passed into `isin()`. So essentially this will give a list of True False value showing us all the records that is in that filter list. However, we want a record that is not in the filter list, so we add that little `~` tilda in front. 
-
-So we have reduced the dataframe by using a list of keywords as filter. Now let's do that again with the other list. 
-
-```python
-df_moma_known_known = df_moma_known[~df_moma_known['Date'].isin(date_nullValueDup)]
-```
-
-Now although we have cleaned up the data by eliminated all the null or unknown value records, we have yet to change the date format to something that can be used. Since we can say for sure that the year is the only consistent value between the 2 columns, we need to find a way to extract that information. We'll do it with regular expression again. 
-
- ```python
- datePatternToExtract = r'^.*(\d{4}).*'
-dateAcquiredPatternToExtract = r'^(\d{4}).*'
-df_moma_known_known['DateCreated'] = df_moma_known_known['Date'].str.extract(datePatternToExtract)
-df_moma_known_known['DateAcquiredFormtted'] = df_moma_known_known['DateAcquired'].str.extract(dateAcquiredPatternToExtract)
- ```
-
-For this part, we're using a native Pandas function **str.extract** in combination with regular expression to create a new column with the proper year value. We first create 2 patterns, 1 for the Date column and the other for the Date Acquired column. The patter is very similar except for the beginning. Then we created 2 new columns and pass all the extracted values there. 
-
-When you execute this, you might get an error message that reads something like this,
-
-```python
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-```
-
-You can ignore the message and move on. The last step in cleaning up the date format is to get rid of a single row of data that has the wrong date. The acquisition date says it's from the 1200's but you know that can't be correct because the museum didn't exist. Execute this code to get rid that specific record. 
-
-`df_moma_known_known.drop(129985, inplace=True)`
-
-Since there're still over 120,000 records, let's further filter the data and then do the visualization. 
-
-```python
-medium = []
-for dup in sorted(list_duplicates(df_moma_known_known['Medium'].astype(str))):
-    medium.append([dup[0], len(dup[1])])
-labels = ['Medium', 'Number Of Artwork']
-df_medium = pd.DataFrame.from_records(medium, columns=labels)
-df_medium.sort_values('Number Of Artwork', ascending=False)
-```
-
-<iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/109.embed"></iframe>
-You can choose to filter the records in different ways but let's say for now we will do it by medium. We'll first make a list of all the medium and show its collection size. Then say we will make a few new dataframes based on medium.
-
-```python
-df_Gelatin = df_moma_known_known[df_moma_known_known['Medium']=='Gelatin silver print']
-df_Lithograph = df_moma_known_known[df_moma_known_known['Medium']=='Lithograph']
-df_Oil = df_moma_known_known[df_moma_known_known['Medium']=='Oil on canvas']
-df_Albumen = df_moma_known_known[df_moma_known_known['Medium']=='Albumen silver print']
-```
-
-Now to create the actual graph, we'll use a place holder variable so if you want to change to a different medium, you just need to change the first variable. 
-
-```python
-df_placeholder = df_Oil
-trace = go.Scatter(
-        y = df_placeholder['DateAcquiredFormtted'].tolist(),
-        x = df_placeholder['DateCreated'].tolist(),
-        mode = 'markers',
-        text = df_placeholder['Title'].tolist(),
-        marker = dict(
-            size = 10,
-            color = 'rgba(200, 200, 200, .3)',
-            ) 
-        )
-
-layout = go.Layout(
-    title = '<b>MoMA Year Acquired VS Year Created</b><br>'+ df_placeholder.iloc[0]['Medium'] +'<br>' + str(len(df_placeholder)),
-    hovermode = 'closest',
-    yaxis = dict(
-            title = 'Date Acquired',
-            ticklen = 5,
-            zeroline = True,
-            gridwidth = 2,
-            ),
-    xaxis = dict(
-            title = 'Date Created',
-            ticklen = 5,
-            gridwidth = 2,
-            ),
-    showlegend = False,
-    )
-
-fig = go.Figure(data = [trace], layout=layout)
-
-fig.show()
-```
-
-<iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/103.embed"></iframe>
-Congratulations for completing this step. Now you're ready to move on to the next step. 
-
-***
-
-# Step 4
 ### MoMA Collection by Size
 
 For this exercise we will go back to what [Oliver Roeder](https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/){:target="_blank"} had done at [FiveThirtyEight](https://fivethirtyeight.com/){:target="_blank"} and look at the visualization that compare the size of the artwork in the collection.
@@ -630,6 +407,232 @@ fig.show()
 ```
 
 <iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/66.embed"></iframe>
+
+***
+
+# Step 4
+### Date Created VS Date Aquired
+We are diving deeper and deeper into data processing with Pandas as we continue to work with the same data set. This next exercise will dive right into one of the graphs 
+[Oliver Roeder](https://fivethirtyeight.com/features/a-nerds-guide-to-the-2229-paintings-at-moma/){:target="_blank"} had done at [FiveThirtyEight](https://fivethirtyeight.com/){:target="_blank"} in which he graphed the year in which a painting had been painted versus the year in which the painted had been acquired by MoMA. It's a simple idea but to actually create this graph, it's anything but simple. We will have to rely on everything we have learned so far and more!
+
+Let's open up a new notebook start fresh, and import the following packages.
+
+```python
+import plotly.graph_objs as go
+from collections import defaultdict
+import pandas as pd
+import re, datetime
+```
+
+Import the CSV file as we did before, again, your choice if you want to load it remotely or locally.
+
+```python
+df_moma = pd.read_csv('https://github.com/MuseumofModernArt/collection/blob/master/Artworks.csv')
+```
+
+```python
+df_moma = pd.read_csv('./MoMAArtworks.csv')
+```
+
+And again, let's clean up all the missing values which is represented by **NaN** and fill that with the text **Unknown**. For more on how to work with **Missing Data** in Pandas, click here.
+
+<center><button  class="button special fit">
+		<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html" target="blank">Deep Dive: Pandas Missing Data</a>
+</button></center>
+
+```python
+df_moma[['Artist','Nationality','Date','BeginDate','Gender','DateAcquired']] = df_moma[['Artist','Nationality','Date','BeginDate','Gender','DateAcquired']].fillna(value='Unknown')
+```
+
+Now let's look at the 2 column of data we're interested in working with, DateAcquired and Date (assuming it is the date the work was produced), and you should see something like the following.
+
+```python
+df_moma[['DateAcquired','Date']]
+```
+
+<iframe width="100%" height="500" frameborder="0" scrolling="no" src="https://plot.ly/~prattitl/101.embed"></iframe>
+
+Immediately we notice that the date format is diffent between the 2 columns. And even within each column, there are a lot of inconsistensies in the format. This is one of the quintessential task in data science - understanding how data needs to be structured so computer language can make sense of it. And now our task is to search through and clear data for inconsistencies. 
+
+To do that let's talk through what the approach is, and simplify the problem by only looking at one of the columns first. The Date Acquired seems to be a bit more consistent at first glance, it seems most of the rows have this xxxx-xx-xx format. So let's take a deeper look into this.
+
+```python
+for row in (df_moma.DateAcquired):
+    q = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)
+    if not q:
+        print(row)
+```
+
+<iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/105.embed"></iframe>
+**df_moma.DateAcquired** is a short form to only show the DataAcquired column of the df_moma dataframe. It can also be written as **df_moma['DateAcquired']**, it'll give us the same thing. The **for row in x** loop goes into every single row of data. **q = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)** is to use a very powerful function call **Regular Expression** to sift through the data looking for patterns. Regular Expression is a rabbit hole, it was invented in the 1950s as a mathematical formal language and people have built search engines and word processors with it. For a deeper understanding, I'd recommend doing a more extensive reading on this subject. For a deeper look at how to use it pragmatically with python, click the following link.
+
+<center><button class="button special fit">
+		<a href="https://www.dataquest.io/blog/regex-cheatsheet/" target="blank">Deep Dive: Regular Expression</a>
+</button></center><br>
+
+But let's try to break it down so we have a basic understanding. 
+
+`re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)` is made up of `re.search(a,b)`, which is to look for pattern a inside b. The `r''` quote is a convention that defines everything within the quotes are "raw" strings. `\d` is any digit between 0-9. Used along with `{4}` will look for any 4 digits repeated 4 times. `\d{1,2}` means look for digits repeated 1 to 2 times. So in human language, look for this pattern, digits that has been repeated 4 times, then a hyphen, then 1 to 2 digits, then another hyphen, then another 1 to 2 digits. Put this whole thing under a variable **q** means, if the search is positive, return True and store that in **q**. 
+
+Thus, `if not q:` means if the pattern didn't match, then `print(row)` show me the result. 
+
+So from the results we see a lot of **Unknown**, but unless we go through each entry one by one, we can't be sure if that is the only deviation, so let's add to the funciton and identify all the unique variations. 
+
+```python
+dateAcquired_nullValue = []
+for row in (df_moma.DateAcquired):
+    q = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)
+    if not q:
+        print(row)
+        dateAcquired_nullValue.append(row)
+```
+
+We first create an empty list and inside the loop, pass all the values that doesn't match the pattern into the variable. So we end with a list of all the deviations. We then use a function to look for unique values.
+
+```python
+def list_duplicates(seq):
+    result = []
+    for item in seq:
+        if item not in result:
+            result.append(item)
+    return result
+
+list_duplicates(dateAcquired_nullValue)
+```
+
+Here, a **list_duplicate** function is created to look for unique items. And low and behold, we get this as a result - `['Unknown', '1977-08', '1975-01', '1994', '1961']`. So other than Unknown, we also have 2 other date format we have to account for.
+
+Now the **Date** column seems like it's a lot more complex. Just by scrolling through the data we can already see there is **xxxx, xxxx-xx, c. xxxx, c. xxxx-xx, xxxx-xxxx**... so we will have to come up with another **regular expression pattern** to sift through that data. 
+
+```python
+date_nullValue = []
+for row in (df_moma.Date):
+    q = re.search(r'^.*(\d{4}).*', row)
+    if not q:
+        print(row)
+        date_nullValue.append(row)
+```
+
+For this search pattern `re.search(r'^.*(\d{4}).*', row)`, we can just concentrate on this part `^.*(\d{4}).*`. `^` forces the search pattern right at the start of the string. `.` is any character and `*` is repeated however many times. So reading this together `^.*(\d{4})` is it looks for a 4 digit number and ignore anything that comes before, `^.*(\d{4}).*` thus, adding another `.*` after that is to say, look for a 4 digit code and ignore anything that comes before and after. 
+
+```python
+def list_duplicates(seq):
+    result = []
+    for item in seq:
+        if item not in result:
+            result.append(item)
+    return result
+
+list_duplicates(date_nullValue)
+```
+
+You should see a big list of deviations that would be very hard to sift through without the use of regular expression.
+
+Now that we know the data has these many inconsistencies, let's get rid of them. But as a general practice, we don't necessarily want to delete records. Instead, we can create a copy of the data with a filter so we get a clean dataset. To do this we first create 2 lists that contains all the inconsistent date formats.
+
+```python
+dateAcquired_nullValueDup = list_duplicates(dateAcquired_nullValue)
+date_nullValueDup = list_duplicates(date_nullValue)
+```
+
+We're essentially just repeating the same function earlier but now passing the results into a new variable. Then we do this.
+
+```python
+df_moma_known = df_moma[~df_moma['DateAcquired'].isin(dateAcquired_nullValueDup)]
+```
+
+Let's break it down again. `dateAcquired_nullValueDup` is a list of filter words. `df_moma['DateAcquired'].isin()` is a way to pass the column of data and see if any of the rows is in whatever has been passed into `isin()`. So essentially this will give a list of True False value showing us all the records that is in that filter list. However, we want a record that is not in the filter list, so we add that little `~` tilda in front. 
+
+So we have reduced the dataframe by using a list of keywords as filter. Now let's do that again with the other list. 
+
+```python
+df_moma_known_known = df_moma_known[~df_moma_known['Date'].isin(date_nullValueDup)]
+```
+
+Now although we have cleaned up the data by eliminated all the null or unknown value records, we have yet to change the date format to something that can be used. Since we can say for sure that the year is the only consistent value between the 2 columns, we need to find a way to extract that information. We'll do it with regular expression again. 
+
+ ```python
+ datePatternToExtract = r'^.*(\d{4}).*'
+dateAcquiredPatternToExtract = r'^(\d{4}).*'
+df_moma_known_known['DateCreated'] = df_moma_known_known['Date'].str.extract(datePatternToExtract)
+df_moma_known_known['DateAcquiredFormtted'] = df_moma_known_known['DateAcquired'].str.extract(dateAcquiredPatternToExtract)
+ ```
+
+For this part, we're using a native Pandas function **str.extract** in combination with regular expression to create a new column with the proper year value. We first create 2 patterns, 1 for the Date column and the other for the Date Acquired column. The patter is very similar except for the beginning. Then we created 2 new columns and pass all the extracted values there. 
+
+When you execute this, you might get an error message that reads something like this,
+
+```python
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+```
+
+You can ignore the message and move on. The last step in cleaning up the date format is to get rid of a single row of data that has the wrong date. The acquisition date says it's from the 1200's but you know that can't be correct because the museum didn't exist. Execute this code to get rid that specific record. 
+
+`df_moma_known_known.drop(129985, inplace=True)`
+
+Since there're still over 120,000 records, let's further filter the data and then do the visualization. 
+
+```python
+medium = []
+for dup in sorted(list_duplicates(df_moma_known_known['Medium'].astype(str))):
+    medium.append([dup[0], len(dup[1])])
+labels = ['Medium', 'Number Of Artwork']
+df_medium = pd.DataFrame.from_records(medium, columns=labels)
+df_medium.sort_values('Number Of Artwork', ascending=False)
+```
+
+<iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/109.embed"></iframe>
+You can choose to filter the records in different ways but let's say for now we will do it by medium. We'll first make a list of all the medium and show its collection size. Then say we will make a few new dataframes based on medium.
+
+```python
+df_Gelatin = df_moma_known_known[df_moma_known_known['Medium']=='Gelatin silver print']
+df_Lithograph = df_moma_known_known[df_moma_known_known['Medium']=='Lithograph']
+df_Oil = df_moma_known_known[df_moma_known_known['Medium']=='Oil on canvas']
+df_Albumen = df_moma_known_known[df_moma_known_known['Medium']=='Albumen silver print']
+```
+
+Now to create the actual graph, we'll use a place holder variable so if you want to change to a different medium, you just need to change the first variable. 
+
+```python
+df_placeholder = df_Oil
+trace = go.Scatter(
+        y = df_placeholder['DateAcquiredFormtted'].tolist(),
+        x = df_placeholder['DateCreated'].tolist(),
+        mode = 'markers',
+        text = df_placeholder['Title'].tolist(),
+        marker = dict(
+            size = 10,
+            color = 'rgba(200, 200, 200, .3)',
+            ) 
+        )
+
+layout = go.Layout(
+    title = '<b>MoMA Year Acquired VS Year Created</b><br>'+ df_placeholder.iloc[0]['Medium'] +'<br>' + str(len(df_placeholder)),
+    hovermode = 'closest',
+    yaxis = dict(
+            title = 'Date Acquired',
+            ticklen = 5,
+            zeroline = True,
+            gridwidth = 2,
+            ),
+    xaxis = dict(
+            title = 'Date Created',
+            ticklen = 5,
+            gridwidth = 2,
+            ),
+    showlegend = False,
+    )
+
+fig = go.Figure(data = [trace], layout=layout)
+
+fig.show()
+```
+
+<iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/103.embed"></iframe>
+Congratulations for completing this step. Now you're ready to move on to the next step. 
+
+
 ***
 
 # Summary
