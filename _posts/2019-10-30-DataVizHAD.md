@@ -120,7 +120,6 @@ fig = px.bar(df_medium.head(n=20), template='seaborn', x='Medium', y='Count')
 fig.write_image("./fig01.png", width=1800, height=900)
 fig.show()
 ```
-
 ![test image size](../../assets/images/moma/fig01.png){:height="70%" width="70%" .center-image}
 
 So now we know the largest collection MoMA has is photography. But let's say you want to look for specific **keywords** in the collection that you would associate with paintings like paint, oil, canvas...etc,  you can do something like this.
@@ -134,11 +133,12 @@ Now let's try to use the same method of finding duplicates to see which artist h
 
 ```python
 artist_keys = df_moma['Artist'].value_counts().keys().to_list()
-artist_values = df_moma['Artist'].value_counts().keys().to_list()
-df_artist = pd.DataFrame(list(zip(artist_keys, artist_values)),
-                        columns = ['Artist', 'Count'])
+artist_values = df_moma['Artist'].value_counts().to_list()
+df_artist = pd.DataFrame({'Artist':artist_keys, 'Counts':artist_values})
 df_artist
 ```
+![test image size](../../assets/images/moma/fig03.png){:height="70%" width="70%" .center-image}
+
 We can also single out individual artist and look at the variety of work based on medium. For example, we can specifically look at the Picasso collection and see which medium the museum has the most.
 
 
