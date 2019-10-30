@@ -86,10 +86,10 @@ And you should see something like this
 
 ```
 Gelatin silver print	15399
-Lithograph				7842
+Lithograph	7842
 Albumen silver print	4854
-Pencil on paper			1831
-Letterpress				1680
+Pencil on paper	1831
+Letterpress	1680
 ...  
 ```
 The square bracket defines the column name, you can try using different column names to explore the dataset. Now, because the list of medium types is long and the screen does not show everything, we will need to find a way to access all the other items. 
