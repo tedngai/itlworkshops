@@ -123,6 +123,7 @@ df_medium[df_medium['Medium'].str.contains('|'.join(searchfor))]
 	<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.contains.html" target="blank">Deep Dive: Pandas Str Contains</a>
 </button></center>
 
+
 You can also graph this with the following code.
 
 ```python
