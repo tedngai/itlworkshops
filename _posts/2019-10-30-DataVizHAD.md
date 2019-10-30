@@ -189,14 +189,15 @@ And again, let's clean up all the missing values which is represented by **NaN**
 df_moma[['Artist','Nationality','Date','BeginDate','Gender','DateAcquired']] = df_moma[['Artist','Nationality','Date','BeginDate','Gender','DateAcquired']].fillna(value='Unknown')
 ```
 
-Now let's look at the 2 column of data we're interested in working with, DateAcquired and Date, you should see something like the following.
+Now let's look at the 2 column of data we're interested in working with, DateAcquired and Date (assuming it is the date the work was produced), and you should see something like the following.
 
 ```python
 df_moma[['DateAcquired','Date']]
 ```
 
 <iframe width="100%" height="500" frameborder="0" scrolling="no" src="https://plot.ly/~prattitl/101.embed"></iframe>
-Immediately we notice that the date format is diffent between the 2 columns, and even within each column, there are a lot of inconsistensies in the format. This is one of the quintessential chores in data science to search through and clear data for inconsistencies. 
+
+Immediately we notice that the date format is diffent between the 2 columns. And even within each column, there are a lot of inconsistensies in the format. This is one of the quintessential task in data science - understanding how data needs to be structured so computer language can make sense of it. And now our task is to search through and clear data for inconsistencies. 
 
 To do that let's talk through what the approach is, and simplify the problem by only looking at one of the columns first. The Date Acquired seems to be a bit more consistent at first glance, it seems most of the rows have this xxxx-xx-xx format. So let's take a deeper look into this.
 
