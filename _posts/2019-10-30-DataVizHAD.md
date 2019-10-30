@@ -117,13 +117,21 @@ So now we know the largest collection MoMA has is photography. But let's say you
 searchfor = ['paint','oil','canvas','Casein']
 df_medium[df_medium['Medium'].str.contains('|'.join(searchfor))]
 ```
-![test image size](../../assets/images/moma/fig01.png){:height="70%" width="70%" .center-image}
+![test image size](../../assets/images/moma/fig02.png){:height="70%" width="70%" .center-image}
 
 <center><button class="button special fit">
 	<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.contains.html" target="blank">Deep Dive: Pandas Str Contains</a>
 </button></center>
 
-![test image size](../../assets/images/moma/pic_moma_mediumstrcontains.jpg){:height="70%" width="70%" .center-image}
+You can also graph this with the following code.
+
+```python
+fig = px.bar(df_medium.head(n=20), template='seaborn', x='Medium', y='Count')
+fig.write_image("./fig01.png", width=1800, height=900)
+fig.show()
+```
+
+![test image size](../../assets/images/moma/fig01.png){:height="70%" width="70%" .center-image}
 
 Now let's try to use the same method of finding duplicates to see which artist has the largest number of work at MoMA.
 
