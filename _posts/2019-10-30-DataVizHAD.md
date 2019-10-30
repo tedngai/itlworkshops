@@ -111,18 +111,7 @@ We can also plot this as a graph with the following code.  Bear in mind that we 
 fig = px.bar(df_medium.head(n=20), x='Medium', y='Count')
 fig.show()
 ```
-So now we know the largest collection MoMA has is photography. But let's say you want to look for specific **keywords** in the collection that you would associate with paintings like paint, oil, canvas...etc,  you can do something like this.
-
-```python
-searchfor = ['paint','oil','canvas','Casein']
-df_medium[df_medium['Medium'].str.contains('|'.join(searchfor))]
-```
 ![test image size](../../assets/images/moma/fig02.png){:height="70%" width="70%" .center-image}
-
-<center><button class="button special fit">
-	<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.contains.html" target="blank">Deep Dive: Pandas Str Contains</a>
-</button></center>
-
 
 You can also graph this with the following code.
 
@@ -133,6 +122,13 @@ fig.show()
 ```
 
 ![test image size](../../assets/images/moma/fig01.png){:height="70%" width="70%" .center-image}
+
+So now we know the largest collection MoMA has is photography. But let's say you want to look for specific **keywords** in the collection that you would associate with paintings like paint, oil, canvas...etc,  you can do something like this.
+
+```python
+searchfor = ['paint','oil','canvas','Casein']
+df_medium[df_medium['Medium'].str.contains('|'.join(searchfor))]
+```
 
 Now let's try to use the same method of finding duplicates to see which artist has the largest number of work at MoMA.
 
