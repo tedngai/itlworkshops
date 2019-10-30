@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Data Visualization Part 2 Processing the MoMA Collection
+title: Data Visualization for History of Art and Design - Processing the MoMA Collection
 description: Pandas, Plotly, Regular Expression
 image: 
 ---
@@ -59,8 +59,7 @@ AccessionNumber       138118 non-null object
 Classification        138118 non-null object
 Department            138118 non-null object
 ```
-
-Upon inspecting the data, you should see that there're large number of records that has the value of **NaN**, which in computer science lingo means **"not a number"**, which also means there is an invalid record in the dataset. So before we begin to do anything beyond this, we need to for fill those records up with something else other than a **NaN** because it will cause issues with Pandas and Python down the line. We use a function call **fillna** to replace any **NaN** value with something we designate.
+The RangeIndex shows there is a total of 138,118 entries in the dataset. It also lists the number of non-null items in each column. Non-null objects has a value of  **NaN**. In computer science lingo, it means **"not a number"**, which also means there is an invalid record in the dataset. So before we begin to do anything beyond this, we need to for fill those records up with something else other than a **NaN** because it will cause issues with Pandas and Python down the line (unless we write more code to handle the errors). We use a function call **fillna** to replace any **NaN** value with something we designate.
 
 ```python
 df_moma[['Artist','Nationality','BeginDate',
@@ -76,6 +75,12 @@ This line of code lets us look into each of these columns and find any **NaN** v
 ### Data Processing
 
 Now that we have imported the whole 130,000 records of MoMA's collection, say we want to see which is their largest collection, we can do something like - look at every record and see what "Medium" it uses and count them all. And finally give me a sorted result which tells me what is their biggest collection is based on the Medium.
+
+You can explore this easily with a **pandas** function
+
+```python
+df_moma['Medium'].value_counts()
+```
 
 To do this we need to call a **Function** that allows us to track duplicates. We have used this in previous sessions and it looks something like this. Type the following in and execute.
 
