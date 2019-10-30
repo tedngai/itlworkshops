@@ -117,6 +117,7 @@ So now we know the largest collection MoMA has is photography. But let's say you
 searchfor = ['paint','oil','canvas','Casein']
 df_medium[df_medium['Medium'].str.contains('|'.join(searchfor))]
 ```
+![test image size](../../assets/images/moma/fig01.png){:height="70%" width="70%" .center-image}
 
 <center><button class="button special fit">
 	<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.str.contains.html" target="blank">Deep Dive: Pandas Str Contains</a>
