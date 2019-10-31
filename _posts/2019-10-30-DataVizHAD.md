@@ -294,7 +294,7 @@ Let's open up a new notebook start fresh, and import the following packages.
 
 ```python
 import plotly.graph_objs as go
-from collections import defaultdict
+import plotly.express as px
 import pandas as pd
 import re, datetime
 ```
@@ -309,7 +309,19 @@ df_moma = pd.read_csv('https://github.com/MuseumofModernArt/collection/blob/mast
 df_moma = pd.read_csv('./MoMAArtworks.csv')
 ```
 
-And again, let's clean up all the missing values which is represented by **NaN** and fill that with the text **Unknown**. For more on how to work with **Missing Data** in Pandas, click here.
+And again, let's clean up all the missing values which is represented by **NaN** and fill that with the text **Unknown**. But before we do that, we want to get the info again and get a sense of how many non-null data we have, and this time we only focus on the Date and DateAcquired column.
+
+```python
+df_moma.info()
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 138118 entries, 0 to 138117
+Data columns (total 29 columns):
+Date                  135743 non-null object
+DateAcquired          131389 non-null object
+```
+
+For more on how to work with **Missing Data** in Pandas, click here.
 
 <center><button  class="button special fit">
 		<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html" target="blank">Deep Dive: Pandas Missing Data</a>
@@ -319,7 +331,7 @@ And again, let's clean up all the missing values which is represented by **NaN**
 df_moma[['Artist','Nationality','Date','BeginDate','Gender','DateAcquired']] = df_moma[['Artist','Nationality','Date','BeginDate','Gender','DateAcquired']].fillna(value='Unknown')
 ```
 
-Now let's look at the 2 column of data we're interested in working with, DateAcquired and Date (assuming it is the date the work was produced), and you should see something like the following.
+Now let's take a close look at the 2 column of data we're interested in working with, DateAcquired and Date (assuming it is the date the work was produced). We want to see if the dataset is consistent.
 
 ```python
 df_moma[['DateAcquired','Date']]
@@ -329,63 +341,95 @@ df_moma[['DateAcquired','Date']]
 
 Immediately we notice that the date format is diffent between the 2 columns. And even within each column, there are a lot of inconsistensies in the format. This is one of the quintessential task in data science - understanding how data needs to be structured so computer language can make sense of it. And now our task is to search through and clear data for inconsistencies. 
 
-To do that let's talk through what the approach is, and simplify the problem by only looking at one of the columns first. The Date Acquired seems to be a bit more consistent at first glance, it seems most of the rows have this xxxx-xx-xx format. So let's take a deeper look into this.
+To do that, let's talk through what the approach is, and simplify the problem by only looking at the columns separately. The Date Acquired column seemsa bit more consistent at first glance, it seems most of the rows have this xxxx-xx-xx format. So let's take a deeper look into this.
 
 ```python
-for row in (df_moma.DateAcquired):
-    q = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)
-    if not q:
-        print(row)
-```
+df_moma['DateAcquired'].unique().tolist()
 
-<iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/105.embed"></iframe>
-**df_moma.DateAcquired** is a short form to only show the DataAcquired column of the df_moma dataframe. It can also be written as **df_moma['DateAcquired']**, it'll give us the same thing. The **for row in x** loop goes into every single row of data. **q = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)** is to use a very powerful function call **Regular Expression** to sift through the data looking for patterns. Regular Expression is a rabbit hole, it was invented in the 1950s as a mathematical formal language and people have built search engines and word processors with it. For a deeper understanding, I'd recommend doing a more extensive reading on this subject. For a deeper look at how to use it pragmatically with python, click the following link.
+['1996-04-09',
+ '1995-01-17',
+ '1997-01-15',
+ '1966-01-11',
+ '1980-01-08',
+ '2000-01-19',
+ '1990-01-17',
+ '1966-01-01',
+ '1989-05-16',
+ '1992-01-15',
+ '1988-04-27',
+ '1995-05-09',
+ '1993-05-04',
+ '1947-06-17',
+ '1991-06-04',
+ '1998-04-22',
+...]
+```
+Now let's take a look at the other one. Unfortunately, this one seems to be all over the place.
+
+```python
+df_moma['Date'].unique().tolist()
+
+'1981',
+ '1983',
+ '1985–1988',
+ 'c. 1989-91',
+ '1992',
+ '1915-17',
+ '1915–1917',
+ 'c. 1915-17',
+ '1953',
+```
+Now it's time to use **regular express** for cleaning this up. Regular expression is a very powerful way to handle text processing but it's also quite abstract. The concept is about pattern matching. To make our job slightly easier, we will just use the year as a 4 digit pattern and try to extract that for both columns.  Both columns will be based on the following **Regex Pattern**
+
+```
+^ - begins with
+() - extract within the parenthesis
+\d{4} - find 4 digit pattern
+.* - what ever character at what ever length
+```
 
 <center><button class="button special fit">
 		<a href="https://www.dataquest.io/blog/regex-cheatsheet/" target="blank">Deep Dive: Regular Expression</a>
 </button></center><br>
 
-But let's try to break it down so we have a basic understanding. 
-
-`re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)` is made up of `re.search(a,b)`, which is to look for pattern a inside b. The `r''` quote is a convention that defines everything within the quotes are "raw" strings. `\d` is any digit between 0-9. Used along with `{4}` will look for any 4 digits repeated 4 times. `\d{1,2}` means look for digits repeated 1 to 2 times. So in human language, look for this pattern, digits that has been repeated 4 times, then a hyphen, then 1 to 2 digits, then another hyphen, then another 1 to 2 digits. Put this whole thing under a variable **q** means, if the search is positive, return True and store that in **q**. 
-
-Thus, `if not q:` means if the pattern didn't match, then `print(row)` show me the result. 
-
-So from the results we see a lot of **Unknown**, but unless we go through each entry one by one, we can't be sure if that is the only deviation, so let's add to the funciton and identify all the unique variations. 
+As a test, we can list everything that does not match the pattern with the following code. And the DateAcquired column should show only the value 'Unknown' to not match the pattern.
 
 ```python
-dateAcquired_nullValue = []
-for row in (df_moma.DateAcquired):
-    q = re.search(r'(\d{4})-(\d{1,2})-(\d{1,2})$', row)
-    if not q:
-        print(row)
-        dateAcquired_nullValue.append(row)
+df_moma[~df_moma['DateAcquired'].str.contains(r'^(\d{4}).*')]['DateAcquired'].unique().tolist()
+
+['Unknown']
 ```
-
-We first create an empty list and inside the loop, pass all the values that doesn't match the pattern into the variable. So we end with a list of all the deviations. We then use a function to look for unique values.
+However, with the Date column, we see a lot more variations. But fortunately, this pattern seem to have captured most of the date values without all the other junk.
 
 ```python
-def list_duplicates(seq):
-    result = []
-    for item in seq:
-        if item not in result:
-            result.append(item)
-    return result
+df_moma[~df_moma['Date'].str.contains(r'^.*(\d{4}).*')]['Date'].unique().tolist()
 
-list_duplicates(dateAcquired_nullValue)
+['n.d.',
+ 'Unknown',
+ '4th-6th century C.E.',
+ '3rd century C.E.',
+ '6th-8th century C.E.',
+ '16th century C.E.',
+ 'late 19th century',
+ 'Various',
+ 'Unkown',
+ 'unknown',
+ '(London?, published in aid of the Comforts Fund  for Women and Children of Sovie',
+ '(n.d.)',
+ 'New York',
 ```
-
-Here, a **list_duplicate** function is created to look for unique items. And low and behold, we get this as a result - `['Unknown', '1977-08', '1975-01', '1994', '1961']`. So other than Unknown, we also have 2 other date format we have to account for.
-
-Now the **Date** column seems like it's a lot more complex. Just by scrolling through the data we can already see there is **xxxx, xxxx-xx, c. xxxx, c. xxxx-xx, xxxx-xxxx**... so we will have to come up with another **regular expression pattern** to sift through that data. 
+Now knowing the **regex pattern** works, let's create a new pandas dataframe with only known date values. 
 
 ```python
-date_nullValue = []
-for row in (df_moma.Date):
-    q = re.search(r'^.*(\d{4}).*', row)
-    if not q:
-        print(row)
-        date_nullValue.append(row)
+df_moma_knowndate = df_moma[df_moma['DateAcquired'].str.contains(r'^(\d{4}).*') & df_moma['Date'].str.contains(r'^.*(\d{4}).*')]
+```
+Even though we have known date values, it doesn't mean the dates are in the right format. All we have done so far is identified date values that matched the 4 digit pattern, but there are still many variations. To clean up the date format, we will extract the 4 digit pattern and create new columns with those values.
+
+```python
+datePatternToExtract = r'^.*(\d{4}).*'
+dateAcquiredPatternToExtract = r'^(\d{4}).*'
+df_moma_knowndate['DateCreated'] = df_moma_knowndate['Date'].str.extract(datePatternToExtract)
+df_moma_knowndate['DateAcquiredFormtted'] = df_moma_knowndate['DateAcquired'].str.extract(dateAcquiredPatternToExtract)
 ```
 
 For this search pattern `re.search(r'^.*(\d{4}).*', row)`, we can just concentrate on this part `^.*(\d{4}).*`. `^` forces the search pattern right at the start of the string. `.` is any character and `*` is repeated however many times. So reading this together `^.*(\d{4})` is it looks for a 4 digit number and ignore anything that comes before, `^.*(\d{4}).*` thus, adding another `.*` after that is to say, look for a 4 digit code and ignore anything that comes before and after. 
