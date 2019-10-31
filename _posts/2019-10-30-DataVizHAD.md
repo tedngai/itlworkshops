@@ -197,8 +197,6 @@ df_moma['Classification'].value_counts().head(n=10)
 
 From this list you can see there is a Mies van der Rohe Archive, an architecture collection, and a Frank Lloyd Wright Archive, all related to architecture. So we'll create a new dataframe that would use those terms as filter words. 
 
-![test image size](../../assets/images/moma/fig05.png){:height="70%" width="70%" .center-image}
-
 ```python
 searchfor = ['Mies van der Rohe Archive','Architecture','Frank Lloyd Wright Archive']
 df_moma_archi = df_moma[df_moma['Classification'].str.contains('|'.join(searchfor))]
