@@ -177,7 +177,7 @@ df_moma = pd.read_csv('https://github.com/MuseumofModernArt/collection/blob/mast
 ```
 
 ```python
-df_moma = pd.read_csv('./Artworks.csv')
+df_moma = pd.read_csv('./MoMAArtworks.csv')
 ```
 
 And again, let's clean up all the missing values. 
@@ -194,52 +194,28 @@ First look at how many classifications there are that are related to architectur
 df_moma['Classification'].value_counts().head(n=10)
 ```
 <iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/111.embed"></iframe>
+
 From this list you can see there is a Mies van der Rohe Archive, an architecture collection, and a Frank Lloyd Wright Archive, all related to architecture. So we'll create a new dataframe that would use those terms as filter words. 
+
+![test image size](../../assets/images/moma/fig05.png){:height="70%" width="70%" .center-image}
 
 ```python
 searchfor = ['Mies van der Rohe Archive','Architecture','Frank Lloyd Wright Archive']
-df_moma_archi = df_moma_notNull[df_moma_notNull['Classification'].str.contains('|'.join(searchfor))]
+df_moma_archi = df_moma[df_moma['Classification'].str.contains('|'.join(searchfor))]
 ```
 
 Since we know we will base our on the Height and Width columns, we need to ensure we don't have any missing data. 
 
 ```python
-df_moma_archi_hasSize = df_moma_archi[~df_moma_archi['Height (cm)'].isnull()]
-df_moma_archi_hasSize = df_moma_archi_hasSize[~df_moma_archi_hasSize['Width (cm)'].isnull()]
+df_moma_archi_hasSize = df_moma_archi[~df_moma_archi['Height (cm)'].isnull() & 
+                                     ~df_moma_archi['Width (cm)'].isnull()]
 ```
 
 Now the data should be ready to pass to Plotly.
 
 ```python
-df_placeholder = df_moma_archi_hasSize
-hovertext = []
-for i,row in df_placeholder.iterrows():
-    hovertext.append(row['Artist'] + '<br>' + row['DateAcquired']+ '<br>' + row['Title'] )
-trace = go.Scatter(
-        y = df_placeholder['Height (cm)'].tolist(),
-        x = df_placeholder['Width (cm)'].tolist(),
-        mode = 'markers',
-        text = hovertext,
-        )
-layout = go.Layout(
-    title = '<b>MoMA Drawing Size</b><br>'+ '<br>' + str(len(df_placeholder)),
-    hovermode = 'closest',
-    yaxis = dict(
-            title = 'Height (cm)',
-            ticklen = 5,
-            zeroline = True,
-            gridwidth = 2,
-            ),
-    xaxis = dict(
-            title = 'Width (cm)',
-            ticklen = 5,
-            gridwidth = 2,
-            ),
-    showlegend = False,
-    paper_bgcolor='rgba(0,0,0,0)',
-    plot_bgcolor='rgba(0,0,0,0)'
-    )
-fig = go.Figure(data = [trace], layout=layout)
+fig = px.scatter(df_moma_archi_hasSize, template='seaborn', x='Width (cm)', y='Height (cm)',
+                hover_data=['Artist','Title','DateAcquired'], width=800, height=400)
 fig.show()
 ```
 
@@ -257,87 +233,6 @@ Essentially we learn that shapes are drawn in the layout section rather than in 
 </button></center><br>
 
 
-
-```python
-'shapes': [
-    # unfilled Rectangle
-    {
-        'type': 'rect',
-        'x0': 1,
-        'y0': 1,
-        'x1': 2,
-        'y1': 3,
-        'line': {
-            'color': 'rgba(128, 0, 128, 1)',
-        },
-    },
-    # filled Rectangle
-    {
-        'type': 'rect',
-        'x0': 3,
-        'y0': 1,
-        'x1': 6,
-        'y1': 2,
-        'line': {
-            'color': 'rgba(128, 0, 128, 1)',
-            'width': 2,
-        },
-        'fillcolor': 'rgba(128, 0, 128, 0.7)',
-    },
-]
-```
-
-So now we need to figure a way to create this dictionary. We know the shape dictionary has few parameters: type, x0, y0, x1, y1, line, and fillcolor. We know what the type should be, we know all of rectangles should start at (0,0), we know what line and fillcolor should be, so all we need is to pass the (x1,y1) location to this. In Python, we can create a dictionary like this.
-
-```python
-keys = ['type','xref','yref','x0','y0','x1','y1','line','fillcolor']
-values = ['rect','x','y',0,0,2,2,{'color': 'rgb(55,55,55)','width':1,},'rgba(55,55,55,0.5)']
-temp = dict(zip(keys,values))
-```
-
-And if we pass that variable to a plot we can get a single rectangle.
-
-```python
-trace0 = go.Scatter(
-    x=[1.5, 3],
-    y=[2.5, 2.5],
-    text=['Rectangle reference to the plot',
-          'Rectangle reference to the axes'],
-    mode='text',
-)
-data = [trace0]
-layout = {
-    'xaxis': {
-        'range': [0, 4],
-        'showgrid': False,
-    },
-    'yaxis': {
-        'range': [0, 4]
-    },
-    'shapes': [temp],
-}
-fig = {
-    'data': data,
-    'layout': layout,
-}
-iplot(fig, filename='shapes-rectangle-ref')
-```
-
-So all we need to do is to create a list of dictionaries that will cycle through all the Height and Width data in the records and pass them to the dictionary.
-
-```python
-rects = []
-for i,row in df_placeholder.iterrows():
-    keys = ['type','xref','yref','x0','y0','x1','y1','line','fillcolor']
-    values = ['rect','x','y',0,0,
-              row['Width (cm)'],
-              row['Height (cm)'],
-              {'color': 'rgb(200,200,200)','width':1,},
-              'rgba(55,55,55,0.1)']
-    rects.append(dict(zip(keys,values)))
-```
-
-Once that's done, you can create the graph again with this new variable.
 
 ```python
 df_placeholder = df_moma_archi_hasSize
@@ -372,17 +267,15 @@ layout = go.Layout(
             title = 'Height (cm)',
             ticklen = 5,
             zeroline = True,
-            gridwidth = 2,
+            gridwidth = 1,
             ),
     xaxis = dict(
             title = 'Width (cm)',
             ticklen = 5,
-            gridwidth = 2,
+            gridwidth = 1,
             ),
     shapes = rects,
     showlegend = False,
-    paper_bgcolor='rgba(0,0,0,0)',
-    plot_bgcolor='rgba(0,0,0,0)'
     )
 
 fig = go.Figure(data = [trace], layout=layout)
