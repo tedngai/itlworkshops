@@ -431,90 +431,46 @@ dateAcquiredPatternToExtract = r'^(\d{4}).*'
 df_moma_knowndate['DateCreated'] = df_moma_knowndate['Date'].str.extract(datePatternToExtract)
 df_moma_knowndate['DateAcquiredFormtted'] = df_moma_knowndate['DateAcquired'].str.extract(dateAcquiredPatternToExtract)
 ```
-
-For this search pattern `re.search(r'^.*(\d{4}).*', row)`, we can just concentrate on this part `^.*(\d{4}).*`. `^` forces the search pattern right at the start of the string. `.` is any character and `*` is repeated however many times. So reading this together `^.*(\d{4})` is it looks for a 4 digit number and ignore anything that comes before, `^.*(\d{4}).*` thus, adding another `.*` after that is to say, look for a 4 digit code and ignore anything that comes before and after. 
+From working with the data, we also see another outlier in the data that needs to be dealt with.  We see that one of the DateAcquired value is 1216. Obviously MoMA did not exist during the Medieval period so we will just need to drop that value.
 
 ```python
-def list_duplicates(seq):
-    result = []
-    for item in seq:
-        if item not in result:
-            result.append(item)
-    return result
+df_moma_knowndate[df_moma_knowndate.DateAcquiredFormtted.astype('int64') < 1700]
+```
+To drop the value.
 
-list_duplicates(date_nullValue)
+```python
+df_moma_knowndate.drop(129433, inplace=True)
+df_moma_knowndate.reset_index(drop=True, inplace=True)
+df_moma_knowndate
 ```
 
-You should see a big list of deviations that would be very hard to sift through without the use of regular expression.
-
-Now that we know the data has these many inconsistencies, let's get rid of them. But as a general practice, we don't necessarily want to delete records. Instead, we can create a copy of the data with a filter so we get a clean dataset. To do this we first create 2 lists that contains all the inconsistent date formats.
+Now let's try to create this graph by looking at a specific collection. And first let's do another value count and see if we can just focus on the largest collection.
 
 ```python
-dateAcquired_nullValueDup = list_duplicates(dateAcquired_nullValue)
-date_nullValueDup = list_duplicates(date_nullValue)
+medium_keys = df_moma_knowndate['Medium'].value_counts().keys().to_list()
+medium_values = df_moma_knowndate['Medium'].value_counts().to_list()
+df_medium = pd.DataFrame({'Medium':medium_keys, 'Counts':medium_values})
+df_medium
 ```
-
-We're essentially just repeating the same function earlier but now passing the results into a new variable. Then we do this.
+We should see once again  Gelatin Silver Print has 14767 items and Lithograph has 7616. To make the following steps a little easier, we can separate out the 2 collection into its own dataframe.
 
 ```python
-df_moma_known = df_moma[~df_moma['DateAcquired'].isin(dateAcquired_nullValueDup)]
+df_Gelatin = df_moma_knowndate[df_moma_knowndate['Medium']=='Gelatin silver print']
+df_Lithograph = df_moma_knowndate[df_moma_knowndate['Medium']=='Lithograph']
 ```
-
-Let's break it down again. `dateAcquired_nullValueDup` is a list of filter words. `df_moma['DateAcquired'].isin()` is a way to pass the column of data and see if any of the rows is in whatever has been passed into `isin()`. So essentially this will give a list of True False value showing us all the records that is in that filter list. However, we want a record that is not in the filter list, so we add that little `~` tilda in front. 
-
-So we have reduced the dataframe by using a list of keywords as filter. Now let's do that again with the other list. 
+Now we can use the plotly express method to quickly see that the result of this graph might be.
 
 ```python
-df_moma_known_known = df_moma_known[~df_moma_known['Date'].isin(date_nullValueDup)]
+fig = px.scatter(df_Gelatin, template='seaborn', x='DateCreated', y='DateAcquiredFormtted',
+                hover_data=['Artist','Title'], width=800, height=400)
+fig.show()
 ```
+![test image size](../../assets/images/moma/fig05.png){:height="70%" width="70%" .center-image}
 
-Now although we have cleaned up the data by eliminated all the null or unknown value records, we have yet to change the date format to something that can be used. Since we can say for sure that the year is the only consistent value between the 2 columns, we need to find a way to extract that information. We'll do it with regular expression again. 
-
- ```python
- datePatternToExtract = r'^.*(\d{4}).*'
-dateAcquiredPatternToExtract = r'^(\d{4}).*'
-df_moma_known_known['DateCreated'] = df_moma_known_known['Date'].str.extract(datePatternToExtract)
-df_moma_known_known['DateAcquiredFormtted'] = df_moma_known_known['DateAcquired'].str.extract(dateAcquiredPatternToExtract)
- ```
-
-For this part, we're using a native Pandas function **str.extract** in combination with regular expression to create a new column with the proper year value. We first create 2 patterns, 1 for the Date column and the other for the Date Acquired column. The patter is very similar except for the beginning. Then we created 2 new columns and pass all the extracted values there. 
-
-When you execute this, you might get an error message that reads something like this,
+With the  express graph, we have very little control over graphic format. If we want to change colors, add titles or labels, we'll need to use the following method.
 
 ```python
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-```
-
-You can ignore the message and move on. The last step in cleaning up the date format is to get rid of a single row of data that has the wrong date. The acquisition date says it's from the 1200's but you know that can't be correct because the museum didn't exist. Execute this code to get rid that specific record. 
-
-`df_moma_known_known.drop(129985, inplace=True)`
-
-Since there're still over 120,000 records, let's further filter the data and then do the visualization. 
-
-```python
-medium = []
-for dup in sorted(list_duplicates(df_moma_known_known['Medium'].astype(str))):
-    medium.append([dup[0], len(dup[1])])
-labels = ['Medium', 'Number Of Artwork']
-df_medium = pd.DataFrame.from_records(medium, columns=labels)
-df_medium.sort_values('Number Of Artwork', ascending=False)
-```
-
-<iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~prattitl/109.embed"></iframe>
-You can choose to filter the records in different ways but let's say for now we will do it by medium. We'll first make a list of all the medium and show its collection size. Then say we will make a few new dataframes based on medium.
-
-```python
-df_Gelatin = df_moma_known_known[df_moma_known_known['Medium']=='Gelatin silver print']
-df_Lithograph = df_moma_known_known[df_moma_known_known['Medium']=='Lithograph']
-df_Oil = df_moma_known_known[df_moma_known_known['Medium']=='Oil on canvas']
-df_Albumen = df_moma_known_known[df_moma_known_known['Medium']=='Albumen silver print']
-```
-
-Now to create the actual graph, we'll use a place holder variable so if you want to change to a different medium, you just need to change the first variable. 
-
-```python
-df_placeholder = df_Oil
+df_placeholder = df_Gelatin
 trace = go.Scatter(
         y = df_placeholder['DateAcquiredFormtted'].tolist(),
         x = df_placeholder['DateCreated'].tolist(),
